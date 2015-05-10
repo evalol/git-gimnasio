@@ -5,10 +5,9 @@
  */
 package tfg_gimnasio_1_0.Data;
 
-import java.nio.channels.SeekableByteChannel;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import tfg_gimnasio_1_0.HibernateUtil;
 
 /**
@@ -32,8 +31,9 @@ public class Gestora {
     public void save(Object o){
         
         Session s = sesion.openSession();
+        Transaction transaction = s.beginTransaction();
         s.save(o);
-        s.flush();
+        transaction.commit();
         s.close();
     }
 }

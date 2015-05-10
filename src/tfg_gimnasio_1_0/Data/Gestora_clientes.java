@@ -18,7 +18,7 @@ import java.util.Date;
 public class Gestora_clientes {
     
     
-    // TODO 
+    // TODO Crear una tabla Via(Id, Nombre) y que se relacionen por clave ajena
     public String tipoDeVia(){
         
         String[] vias = new String[]{"Calle", "Avenida", "Plaza", "Carretera", "Travesía", "Callejón"};
@@ -30,6 +30,7 @@ public class Gestora_clientes {
         return via;
     }
     
+    // Usar un objeto Cliente como argumento (Tiene constructor con todos estos campos)
     public void guardartDatosCLiente(String nombre, String apellidos, String dni, String email, String telefono, 
             String movil, String cuenta, Date fnacimiento){
         
@@ -95,6 +96,7 @@ public class Gestora_clientes {
         actividad.getCuotaPrecio();
     }
     
+    // ESto debería ir en Gestora.java
     //Hacer rollback y que no se termine la aplicacion tras un fallo.
     public void rollback(){
         //Session session = this.getSession();

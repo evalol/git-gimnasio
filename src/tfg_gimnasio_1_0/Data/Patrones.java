@@ -11,6 +11,7 @@ package tfg_gimnasio_1_0.Data;
  */
 public class Patrones {
     
+    // TODO Estos métodos deben ser estáticos
      public boolean validarDni(String dni){   
         boolean correcto = true;
         if(!dni.matches("^6[0-9]{8}$")){
