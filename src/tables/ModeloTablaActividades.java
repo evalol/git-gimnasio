@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Eva
  */
-public class Tabla_actividades extends DefaultTableModel{
+public class ModeloTablaActividades extends DefaultTableModel{
     
     private Actividades[] actividades;
     private int rows;

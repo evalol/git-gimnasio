@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tfg_gimnasio_1_0.Data;
+package gimnasio.gestoras;
 
 import datos.Actividades;
 import datos.Clientes;

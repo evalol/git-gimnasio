@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tfg_gimnasio_1_0.Windows;
+package gimnasio.ventanas;
 
 /**
  *
@@ -87,17 +87,17 @@ public class General extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_general_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_general_clientesActionPerformed
-       Ventana_clientes c = new Ventana_clientes();
+       VentanaClientes c = new VentanaClientes();
        c.show();
     }//GEN-LAST:event_b_general_clientesActionPerformed
 
     private void b_general_actividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_general_actividadesActionPerformed
-        Ventana_actividades a = new Ventana_actividades();
+        VentanaActividades a = new VentanaActividades();
         a.show();
     }//GEN-LAST:event_b_general_actividadesActionPerformed
 
     private void b_general_empleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_general_empleadosActionPerformed
-        Ventana_empleados e = new Ventana_empleados();
+        VentanaEmpleados e = new VentanaEmpleados();
         e.show();
     }//GEN-LAST:event_b_general_empleadosActionPerformed
 

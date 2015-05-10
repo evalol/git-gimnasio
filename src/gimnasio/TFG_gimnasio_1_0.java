@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tfg_gimnasio_1_0.Data;
+package gimnasio;
 
 /**
  *
  * @author Eva
  */
-public class Login {
+public class TFG_gimnasio_1_0 {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }

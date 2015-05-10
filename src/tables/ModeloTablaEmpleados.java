@@ -5,17 +5,15 @@
  */
 package Tables;
 
-import datos.Clientes;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author Eva
  */
-public class Tabla_clientes extends DefaultTableModel{
-    
-    Clientes[] clientes;
-    int filas;
+public class ModeloTablaEmpleados extends DefaultTableModel{
 
     @Override
     public int getRowCount() {
@@ -39,44 +37,27 @@ public class Tabla_clientes extends DefaultTableModel{
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return false;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        
-        Object restore = null;
-        
-            if(this.getRowCount() != 0){
-                if(clientes.length > 0){
-                    switch(columnIndex){
-                        case 0:{}
-                        break;
-                        case 1:{}
-                        break;
-                        case 2:{}
-                        break;
-                        case 3:{}
-                        break;
-                        case 4:{}
-                        break;
-                        case 5:{}
-                        break;
-                        case 6:{}
-                        break;
-                        case 7:{}
-                        break;
-                        case 8:{}
-                        break;
-                        case 9:{}
-                        break;
-                        case 10:{}
-                        break;
-                        case 11:{}
-                        break;
-                    }
-                }
-            }        
-            return restore;
-        }    
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addTableModelListener(TableModelListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeTableModelListener(TableModelListener l) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

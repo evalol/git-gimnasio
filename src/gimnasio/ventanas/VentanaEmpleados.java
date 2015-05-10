@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tfg_gimnasio_1_0.Windows;
+package gimnasio.ventanas;
 /**
  *
  * @author Eva Maria de Vena García
  */
-public class Ventana_empleados extends javax.swing.JFrame {
+public class VentanaEmpleados extends javax.swing.JFrame {
 
     /**
      * Creates new form Empleados
      */
-    public Ventana_empleados() {
+    public VentanaEmpleados() {
         initComponents();
     }
 
@@ -49,7 +49,7 @@ public class Ventana_empleados extends javax.swing.JFrame {
         tx_ventana_empleados_telefono = new javax.swing.JTextField();
         tx_ventana_empleados_movil = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        tx_ventana_empleados_cuenta_banc = new javax.swing.JTextField();
+        txNuevoCuentaBancaria = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         tx_ventana_empleados_email = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -105,7 +105,7 @@ public class Ventana_empleados extends javax.swing.JFrame {
 
         jLabel11.setText("Cuenta bancaria:");
 
-        tx_ventana_empleados_cuenta_banc.setText("jTextField9");
+        txNuevoCuentaBancaria.setText("jTextField9");
 
         jLabel12.setText("Email:");
 
@@ -179,7 +179,7 @@ public class Ventana_empleados extends javax.swing.JFrame {
                         .addGap(78, 78, 78)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tx_ventana_empleados_email)
-                            .addComponent(tx_ventana_empleados_cuenta_banc)))
+                            .addComponent(txNuevoCuentaBancaria)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(boton_ventana_empleados_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,7 +194,7 @@ public class Ventana_empleados extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(tx_ventana_empleados_cuenta_banc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -319,7 +319,7 @@ public class Ventana_empleados extends javax.swing.JFrame {
     
     public void limpiarFormularioNuevoEmpleado(){
         this.tx_ventana_empleados_apellido.setText("");
-        this.tx_ventana_empleados_cuenta_banc.setText("");
+        this.txNuevoCuentaBancaria.setText("");
         this.tx_ventana_empleados_direccion.setText("");
         this.tx_ventana_empleados_dni.setText("");
         this.tx_ventana_empleados_email.setText("");
@@ -346,21 +346,23 @@ public class Ventana_empleados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana_empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana_empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana_empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana_empleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana_empleados().setVisible(true);
+                new VentanaEmpleados().setVisible(true);
             }
         });
     }
@@ -391,8 +393,8 @@ public class Ventana_empleados extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txNuevoCuentaBancaria;
     private javax.swing.JTextField tx_ventana_empleados_apellido;
-    private javax.swing.JTextField tx_ventana_empleados_cuenta_banc;
     private javax.swing.JTextField tx_ventana_empleados_direccion;
     private javax.swing.JTextField tx_ventana_empleados_dni;
     private javax.swing.JTextField tx_ventana_empleados_email;
