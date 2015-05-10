@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-abr-2015 21:47:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Primero.Actividades" table="actividades" catalog="fitnesscenter">
+        <id name="idActividad" type="java.lang.Integer">
+            <column name="id_actividad" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreActividad" type="string">
+            <column name="nombre_actividad" length="50" />
+        </property>
+        <property name="empleadoEncargadoActividad" type="java.lang.Integer">
+            <column name="empleado_encargado_actividad" />
+        </property>
+        <property name="cuotaPrecio" type="java.lang.Integer">
+            <column name="cuota_precio" />
+        </property>
+    </class>
+</hibernate-mapping>

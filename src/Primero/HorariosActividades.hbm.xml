@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-abr-2015 21:47:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Primero.HorariosActividades" table="horarios_actividades" catalog="fitnesscenter">
+        <id name="idHorario" type="int">
+            <column name="id_horario" />
+            <generator class="assigned" />
+        </id>
+        <property name="idactividadHorario" type="java.lang.Integer">
+            <column name="idactividad_horario" />
+        </property>
+        <property name="diaHorario" type="string">
+            <column name="dia_horario" length="9" />
+        </property>
+        <property name="horainicioHorario" type="time">
+            <column name="horainicio_horario" length="8" />
+        </property>
+        <property name="horafinHorario" type="time">
+            <column name="horafin_horario" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

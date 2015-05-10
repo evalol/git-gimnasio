@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-abr-2015 21:47:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Primero.Actividadestarifas" table="actividadestarifas" catalog="fitnesscenter">
+        <composite-id name="id" class="Primero.ActividadestarifasId">
+            <key-property name="idactividadActividadestarifas" type="int">
+                <column name="idactividad_actividadestarifas" />
+            </key-property>
+            <key-property name="idtarifasActividadestarifas" type="int">
+                <column name="idtarifas_actividadestarifas" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

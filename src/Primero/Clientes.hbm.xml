@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-abr-2015 21:47:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Primero.Clientes" table="clientes" catalog="fitnesscenter">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="id_cliente" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreCliente" type="string">
+            <column name="nombre_cliente" length="50" />
+        </property>
+        <property name="apellidosCliente" type="string">
+            <column name="apellidos_cliente" length="50" />
+        </property>
+        <property name="dniCliente" type="string">
+            <column name="dni_cliente" length="9" not-null="true" unique="true" />
+        </property>
+        <property name="viviendaCliente" type="java.lang.Integer">
+            <column name="vivienda_cliente" />
+        </property>
+        <property name="cuentabancariaCliente" type="string">
+            <column name="cuentabancaria_cliente" length="50" not-null="true" />
+        </property>
+        <property name="fechanacimientoCliente" type="date">
+            <column name="fechanacimiento_cliente" length="10" not-null="true" />
+        </property>
+        <property name="emailCliente" type="string">
+            <column name="email_cliente" length="60" />
+        </property>
+        <property name="telefonoCliente" type="string">
+            <column name="telefono_cliente" length="9" />
+        </property>
+        <property name="movilCliente" type="string">
+            <column name="movil_cliente" length="9" />
+        </property>
+        <property name="fechaaltaCliente" type="date">
+            <column name="fechaalta_cliente" length="10" />
+        </property>
+        <property name="idTarifaCliente" type="java.lang.Integer">
+            <column name="id_tarifa_cliente" />
+        </property>
+        <property name="formapagoCliente" type="string">
+            <column name="formapago_cliente" length="9" not-null="true" />
+        </property>
+        <property name="tipoViaDomicilioCliente" type="string">
+            <column name="tipo_via_domicilio_cliente" length="9" />
+        </property>
+        <property name="direccionDomicilioCliente" type="string">
+            <column name="direccion_domicilio_cliente" length="50" />
+        </property>
+        <property name="pisoDomicilio" type="string">
+            <column name="piso_domicilio" length="50" />
+        </property>
+        <property name="numeroDomicilio" type="string">
+            <column name="numero_domicilio" length="50" />
+        </property>
+        <property name="codigoPostalCliente" type="java.lang.Integer">
+            <column name="codigo_postal_cliente" />
+        </property>
+        <property name="localidadCliente" type="string">
+            <column name="localidad_cliente" length="60" />
+        </property>
+        <property name="provinciaCliente" type="string">
+            <column name="provincia_cliente" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>
