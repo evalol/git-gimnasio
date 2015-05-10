@@ -5,17 +5,22 @@
  */
 package gimnasio.ventanas;
 
+import datos.Actividades;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.Gestora_clientes;
 import gimnasio.gestoras.Patrones;
+import java.awt.Component;
+import java.awt.Panel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Eva
  */
 public class VentanaClientes extends javax.swing.JFrame {
-    
+
     Gestora_clientes gestora = new Gestora_clientes();
     Patrones patrones;
 
@@ -24,8 +29,10 @@ public class VentanaClientes extends javax.swing.JFrame {
      */
     public VentanaClientes() {
         initComponents();
+        jComboBox1.addItem(new Actividades("Paco", 2, 40));
+        jComboBox1.addItem("");
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -409,12 +416,11 @@ public class VentanaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
     private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
-       tx_ventana_clientes_nuevo_nombre.setText("");
-       tx_ventana_clientes_nuevo_apellidos.setText("");
-       tx_ventana_clientes_nuevo_dni.setText("");
-       tx_ventana_clientes_nuevo_telefono.setText("");
-       tx_ventana_clientes_nuevo_codigo_postal.setText("");
+
+        VentanaUtils.limpiarFormulario(jPanel1);
     }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
+
+    
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
         // TODO add your handling code here:
@@ -509,44 +515,40 @@ public class VentanaClientes extends javax.swing.JFrame {
     private javax.swing.JComboBox tx_ventana_clientes_nuevo_tipo_via;
     // End of variables declaration//GEN-END:variables
 
-   
-    
-    
-  
-    public void inicio(){
-        
+    public void inicio() {
+
         //Metemos la información del tipo de via dentro del combbox
         tx_ventana_clientes_nuevo_tipo_via.addItem(gestora.tipoDeVia());
         tx_ventana_clientes_nuevo_tipo_via.setModel(new DefaultComboBoxModel());
-        
+
         tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-        
-        if(!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()){
+
+        if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
             tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
         }
     }
-    
-    public void comprobardatos(){
-        
-        if(patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText()) != true){
+
+    public void comprobardatos() {
+
+        if (patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
         }
-        
-        if(patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText()) != true){
+
+        if (patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
         }
-        
-        if(patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText()) != true){
+
+        if (patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
         }
-        
-        if(patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText()) != true){
+
+        if (patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
         }
-        
-        if(patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText()) != true){
+
+        if (patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
-        }        
+        }
     }
-    
+
 }
