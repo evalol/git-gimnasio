@@ -5,14 +5,8 @@
  */
 package tfg_gimnasio_1_0.Windows;
 
-import Primero.Clientes;
-import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import net.sf.ehcache.hibernate.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import tfg_gimnasio_1_0.Data.Gestora_clientes;
 import tfg_gimnasio_1_0.Data.Patrones;
 

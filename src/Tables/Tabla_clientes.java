@@ -5,7 +5,7 @@
  */
 package Tables;
 
-import Primero.Clientes;
+import datos.Clientes;
 import javax.swing.table.DefaultTableModel;
 
 /**

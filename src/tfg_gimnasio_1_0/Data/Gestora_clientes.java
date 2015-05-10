@@ -5,12 +5,11 @@
  */
 package tfg_gimnasio_1_0.Data;
 
-import Primero.Actividades;
-import Primero.Clientes;
-import Primero.Empleados;
-import Primero.Tarifas;
+import datos.Actividades;
+import datos.Clientes;
+import datos.Empleados;
+import datos.Tarifas;
 import java.util.Date;
-import org.hibernate.Session;
 
 /**
  *
@@ -19,7 +18,7 @@ import org.hibernate.Session;
 public class Gestora_clientes {
     
     
-    
+    // TODO 
     public String tipoDeVia(){
         
         String[] vias = new String[]{"Calle", "Avenida", "Plaza", "Carretera", "Travesía", "Callejón"};
@@ -37,8 +36,6 @@ public class Gestora_clientes {
         Clientes cliente = new Clientes();
         Tarifas tarifa = new Tarifas();
         
-        Date hoy = new Date();
-        java.sql.Date fecha =  new java.sql.Date(hoy.getTime());
         
         //SessionFactory sesion =  SessionFactoryUtil.getSessionFactory();
         //Session session = sesion.openSession();
@@ -49,13 +46,10 @@ public class Gestora_clientes {
         cliente.setDniCliente(dni);
         cliente.setEmailCliente(email);
         cliente.setTelefonoCliente(telefono);
-        cliente.setMovilCliente(movil);
+        cliente.setTelefonoMovilCliente(movil);
         cliente.setCuentabancariaCliente(cuenta); 
-        cliente.setFechaaltaCliente(hoy);
+        cliente.setAltaCliente(new Date());
         cliente.setFechanacimientoCliente(fnacimiento);
-        
-        
-        cliente.setFechaaltaCliente(fecha);
         //cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
         
         //if(rb_ventana_clientes_nuevo_efectivo.isSelected()){
@@ -89,10 +83,7 @@ public class Gestora_clientes {
         empleado.getProvinciaEmpleado();
         empleado.getSueldoMesEmpleado();
         empleado.getSuplementoSueldoEmpleado();
-        empleado.getTelefonoEmpleado();
-        empleado.getTipoViaEmpleado();
-        empleado.getViviendaEmpleado();
-    }
+        empleado.getTelefonoEmpleado();}
     
     public void guardarDatosActividad(){
         

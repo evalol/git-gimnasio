@@ -5,7 +5,7 @@
  */
 package Tables;
 
-import Primero.Actividades;
+import datos.Actividades;
 import javax.swing.table.DefaultTableModel;
 
 /**

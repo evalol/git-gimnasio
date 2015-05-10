@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 13-abr-2015 21:47:45 by Hibernate Tools 3.4.0.CR1 -->
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-may-2015 17:08:22 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="Primero.Actividades" table="actividades" catalog="fitnesscenter">
+    <class name="datos.Actividades" table="actividades" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idActividad" type="java.lang.Integer">
             <column name="id_actividad" />
             <generator class="identity" />
