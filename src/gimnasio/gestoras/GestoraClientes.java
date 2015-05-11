@@ -15,9 +15,9 @@ import java.util.Date;
  *
  * @author Eva
  */
-public class Gestora_clientes {
+public class GestoraClientes {
     
-    
+       
     // TODO Crear una tabla Via(Id, Nombre) y que se relacionen por clave ajena
     public String tipoDeVia(){
         
@@ -63,28 +63,39 @@ public class Gestora_clientes {
         //t.commit();
         //session.close();
     }
-    
+     
+     
     public void guardarDatosEmpleado(){
         
         Empleados empleado = new Empleados();
-        
+          
+        empleado.getIdEmpleado();  
+        empleado.getNombreEmpleado();  
         empleado.getApellidosEmpleado();
+        empleado.getDniEmpleado();
+        
+        empleado.getTelefonoEmpleado();
+        empleado.getMovilEmpleado();
+        
+        empleado.getEmailEmpleado();
         empleado.getCodigoPostalEmpleado();
         empleado.getCuentaBancariaEmpleado();
         empleado.getDireccionEmpleado();
-        empleado.getDniEmpleado();
-        empleado.getEmailEmpleado();
+        
+        
         empleado.getFechaAltaEmpleado();
         empleado.getFechaNacEmpleado();
-        empleado.getIdEmpleado();
-        empleado.getLocalidadEmpleado();
-        empleado.getMovilEmpleado();
-        empleado.getNombreEmpleado();
-        empleado.getPisoEmpleado();
-        empleado.getProvinciaEmpleado();
         empleado.getSueldoMesEmpleado();
         empleado.getSuplementoSueldoEmpleado();
-        empleado.getTelefonoEmpleado();}
+        
+        empleado.getLocalidadEmpleado();
+        
+        
+        empleado.getPisoEmpleado();
+        empleado.getProvinciaEmpleado();
+        
+        
+    }
     
     public void guardarDatosActividad(){
         
@@ -126,6 +137,11 @@ public class Gestora_clientes {
             return false;
         }
         return true;
+    }
+    
+    
+    public static void guardarCliente(Clientes cliente){
+       Gestora.getInstance().save(cliente);
     }
     
 }

@@ -8,7 +8,7 @@ package gimnasio.ventanas;
 import datos.Actividades;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import gimnasio.gestoras.Gestora_clientes;
+import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.Patrones;
 import java.awt.Component;
 import java.awt.Panel;
@@ -21,7 +21,7 @@ import javax.swing.JTextField;
  */
 public class VentanaClientes extends javax.swing.JFrame {
 
-    Gestora_clientes gestora = new Gestora_clientes();
+    GestoraClientes gestora = new GestoraClientes();
     Patrones patrones;
 
     /**
