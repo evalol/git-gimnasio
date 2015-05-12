@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package gimnasio.ventanas;
+
+import java.awt.Frame;
+
 /**
  *
  * @author Eva Maria de Vena García
  */
-public class VentanaEmpleados extends javax.swing.JFrame {
+public class VentanaEmpleados extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Empleados
-     */
-    public VentanaEmpleados() {
+    public VentanaEmpleados(Frame owner, boolean modal) {
+        super(owner, modal);
         initComponents();
     }
 
@@ -313,11 +314,10 @@ public class VentanaEmpleados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_ventana_empleados_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ventana_empleados_limpiarActionPerformed
-       limpiarFormularioNuevoEmpleado();
+        limpiarFormularioNuevoEmpleado();
     }//GEN-LAST:event_boton_ventana_empleados_limpiarActionPerformed
 
-    
-    public void limpiarFormularioNuevoEmpleado(){
+    public void limpiarFormularioNuevoEmpleado() {
         this.tx_ventana_empleados_apellido.setText("");
         this.txNuevoCuentaBancaria.setText("");
         this.tx_ventana_empleados_direccion.setText("");
@@ -329,43 +329,7 @@ public class VentanaEmpleados extends javax.swing.JFrame {
         this.tx_ventana_empleados_piso.setText("");
         this.tx_ventana_empleados_telefono.setText("");
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaEmpleados().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_ventana_empleados_agregar;
@@ -406,6 +370,4 @@ public class VentanaEmpleados extends javax.swing.JFrame {
     private javax.swing.JTextField tx_ventana_empleados_telefono;
     // End of variables declaration//GEN-END:variables
 
-
-    
 }
