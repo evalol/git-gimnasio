@@ -6,12 +6,15 @@
 package gimnasio.ventanas;
 
 import datos.Actividades;
+import datos.Clientes;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.Patrones;
 import java.awt.Component;
+import java.awt.Frame;
 import java.awt.Panel;
+import java.util.Date;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,7 +22,7 @@ import javax.swing.JTextField;
  *
  * @author Eva
  */
-public class VentanaClientes extends javax.swing.JFrame {
+public class VentanaClientes extends javax.swing.JDialog {
 
     GestoraClientes gestora = new GestoraClientes();
     Patrones patrones;
@@ -27,10 +30,9 @@ public class VentanaClientes extends javax.swing.JFrame {
     /**
      * Creates new form Clientes
      */
-    public VentanaClientes() {
+    public VentanaClientes(Frame owner, boolean modal) {
+        super(owner, modal);
         initComponents();
-        jComboBox1.addItem(new Actividades("Paco", 2, 40));
-        jComboBox1.addItem("");
     }
 
     /**
@@ -74,7 +76,7 @@ public class VentanaClientes extends javax.swing.JFrame {
         tx_ventana_clientes_nuevo_email = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        bGuardarCliente = new javax.swing.JToggleButton();
         jLabel9 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_cuenta_bancaria = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -87,7 +89,7 @@ public class VentanaClientes extends javax.swing.JFrame {
         tabla_clientes = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre:");
 
@@ -158,7 +160,12 @@ public class VentanaClientes extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jToggleButton1.setText("Guardar");
+        bGuardarCliente.setText("Guardar");
+        bGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Cuenta bancaria:");
 
@@ -190,7 +197,7 @@ public class VentanaClientes extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(b_ventana_clientes_nuevo_limpiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -223,7 +230,7 @@ public class VentanaClientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_ventana_clientes_nuevo_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41))
         );
 
@@ -430,46 +437,16 @@ public class VentanaClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
+      GestoraClientes gestora = new GestoraClientes();
+      gestora.guardarCliente(obtenerDatos());        
+    }//GEN-LAST:event_bGuardarClienteActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaClientes().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Ventana_clientes_busqueda;
+    private javax.swing.JToggleButton bGuardarCliente;
     private javax.swing.JButton b_ventana_clientes_nuevo_limpiar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox jComboBox1;
@@ -495,7 +472,6 @@ public class VentanaClientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JRadioButton rb_ventana_clientes_nuevo_cuenta_bancaria;
     private javax.swing.JRadioButton rb_ventana_clientes_nuevo_efectivo;
     private javax.swing.JTable tabla_clientes;
@@ -549,6 +525,26 @@ public class VentanaClientes extends javax.swing.JFrame {
         if (patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText()) != true) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
         }
+    }
+    
+    
+    public  Clientes obtenerDatos(){
+        
+        String apellidos = tx_ventana_clientes_nuevo_apellidos.getText();
+        String codigoPostal = tx_ventana_clientes_nuevo_codigo_postal.getText();
+        String cuentaBancaria = tx_ventana_clientes_nuevo_cuenta_bancaria.getText();
+        String direccion = tx_ventana_clientes_nuevo_direccion.getText();
+        String dni = tx_ventana_clientes_nuevo_dni.getText();
+        String email = tx_ventana_clientes_nuevo_email.getText();
+        Date fechaNacimiento = tx_ventana_clientes_nuevo_fecha_nacimiento.getDate();
+        String localidad = tx_ventana_clientes_nuevo_localidad.getText();
+        String nombre = tx_ventana_clientes_nuevo_nombre.getText();        
+        String numeroDomicilio = tx_ventana_clientes_nuevo_numero_domicilio.getText();
+        String pisoDomicilio = tx_ventana_clientes_nuevo_piso_domicilio.getText();
+        String telefono = tx_ventana_clientes_nuevo_telefono.getText();
+        String telefonoMovil = tx_ventana_clientes_nuevo_telefono_movil.getText();
+        return null;
+       
     }
 
 }
