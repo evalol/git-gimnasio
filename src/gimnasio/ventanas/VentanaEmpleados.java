@@ -16,6 +16,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     public VentanaEmpleados(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        VentanaUtils.limpiarFormulario(jPanel1);
     }
 
     /**

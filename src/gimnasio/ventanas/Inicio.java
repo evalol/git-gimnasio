@@ -34,59 +34,93 @@ public class Inicio extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Clientes = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonInicioClientes = new javax.swing.JButton();
+        botonInicioActividades = new javax.swing.JButton();
+        botonInicioEmpleados = new javax.swing.JButton();
+        botonInicioTarifas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        Clientes.setText("Clientes");
-        Clientes.addActionListener(new java.awt.event.ActionListener() {
+        botonInicioClientes.setText("Clientes");
+        botonInicioClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientesActionPerformed(evt);
+                botonInicioClientesActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Actividades");
+        botonInicioActividades.setText("Actividades");
+        botonInicioActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioActividadesActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Empleados");
+        botonInicioEmpleados.setText("Empleados");
+        botonInicioEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioEmpleadosActionPerformed(evt);
+            }
+        });
+
+        botonInicioTarifas.setText("Tarifas");
+        botonInicioTarifas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioTarifasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(185, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(122, Short.MAX_VALUE))
+                    .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesActionPerformed
+    private void botonInicioClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioClientesActionPerformed
         new VentanaClientes((Frame) this.getParent(), true).setVisible(true);
-    }//GEN-LAST:event_ClientesActionPerformed
+    }//GEN-LAST:event_botonInicioClientesActionPerformed
+
+    private void botonInicioTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioTarifasActionPerformed
+        new VentanaTarifas((Frame) this.getParent(), true).setVisible(true);
+    }//GEN-LAST:event_botonInicioTarifasActionPerformed
+
+    private void botonInicioActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioActividadesActionPerformed
+        new VentanaActividades((Frame) this.getParent(), true).setVisible(true);
+    }//GEN-LAST:event_botonInicioActividadesActionPerformed
+
+    private void botonInicioEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioEmpleadosActionPerformed
+        new VentanaEmpleados((Frame) this.getParent(), true).setVisible(true);
+    }//GEN-LAST:event_botonInicioEmpleadosActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Clientes;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton botonInicioActividades;
+    private javax.swing.JButton botonInicioClientes;
+    private javax.swing.JButton botonInicioEmpleados;
+    private javax.swing.JButton botonInicioTarifas;
     // End of variables declaration//GEN-END:variables
 }

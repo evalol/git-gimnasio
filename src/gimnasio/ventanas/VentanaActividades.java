@@ -19,6 +19,7 @@ public class VentanaActividades extends javax.swing.JDialog {
     public VentanaActividades(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        VentanaUtils.limpiarFormulario(jPanel1);
     }
 
     /**

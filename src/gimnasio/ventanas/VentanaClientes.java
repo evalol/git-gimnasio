@@ -33,6 +33,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     public VentanaClientes(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        VentanaUtils.limpiarFormulario(jPanel1);
     }
 
     /**
