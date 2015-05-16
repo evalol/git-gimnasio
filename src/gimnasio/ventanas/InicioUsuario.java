@@ -15,12 +15,12 @@ import javax.swing.Timer;
  *
  * @author Eva
  */
-public class Inicio extends javax.swing.JDialog {
+public class InicioUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form Inicio
      */
-    public Inicio(Frame owner, boolean modal) {
+    public InicioUsuario(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
     }
@@ -36,7 +36,6 @@ public class Inicio extends javax.swing.JDialog {
 
         botonInicioClientes = new javax.swing.JButton();
         botonInicioActividades = new javax.swing.JButton();
-        botonInicioEmpleados = new javax.swing.JButton();
         botonInicioTarifas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -55,13 +54,6 @@ public class Inicio extends javax.swing.JDialog {
             }
         });
 
-        botonInicioEmpleados.setText("Empleados");
-        botonInicioEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonInicioEmpleadosActionPerformed(evt);
-            }
-        });
-
         botonInicioTarifas.setText("Tarifas");
         botonInicioTarifas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,23 +68,20 @@ public class Inicio extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(124, 124, 124)
                 .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(124, 124, 124)
                 .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(185, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41))
         );
 
@@ -111,16 +100,11 @@ public class Inicio extends javax.swing.JDialog {
         new VentanaActividades((Frame) this.getParent(), true).setVisible(true);
     }//GEN-LAST:event_botonInicioActividadesActionPerformed
 
-    private void botonInicioEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioEmpleadosActionPerformed
-        new VentanaEmpleados((Frame) this.getParent(), true).setVisible(true);
-    }//GEN-LAST:event_botonInicioEmpleadosActionPerformed
-
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonInicioActividades;
     private javax.swing.JButton botonInicioClientes;
-    private javax.swing.JButton botonInicioEmpleados;
     private javax.swing.JButton botonInicioTarifas;
     // End of variables declaration//GEN-END:variables
 }

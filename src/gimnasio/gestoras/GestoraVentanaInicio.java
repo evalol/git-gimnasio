@@ -5,7 +5,7 @@
  */
 package gimnasio.gestoras;
 
-import gimnasio.ventanas.Inicio;
+import gimnasio.ventanas.InicioAdmin;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
