@@ -17,6 +17,12 @@ public class ModeloTablaClientes extends DefaultTableModel{
     Clientes[] clientes;
     int filas;
 
+    public ModeloTablaClientes(Clientes[] clientes, int filas) {
+        this.clientes = clientes;
+        this.filas = filas;
+    }
+
+    
     @Override
     public int getRowCount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -29,7 +35,8 @@ public class ModeloTablaClientes extends DefaultTableModel{
 
     @Override
     public String getColumnName(int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] nombres = {"Nombre", "Apellidos", "Dni", "Fecha de nacimiento", "", "", "", "", "", "", "", "", "","","","", "", "", ""};
+        return nombres[columnIndex];
     }
 
     @Override
@@ -45,12 +52,12 @@ public class ModeloTablaClientes extends DefaultTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
-        Object restore = null;
+        Object devolver = null;
         
             if(this.getRowCount() != 0){
                 if(clientes.length > 0){
                     switch(columnIndex){
-                        case 0:{}
+                        case 0:{devolver = clientes[rowIndex].getNombreCliente();}
                         break;
                         case 1:{}
                         break;
@@ -77,6 +84,6 @@ public class ModeloTablaClientes extends DefaultTableModel{
                     }
                 }
             }        
-            return restore;
+            return devolver;
         }    
 }

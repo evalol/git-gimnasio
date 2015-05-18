@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import gimnasio.HibernateUtil;
+import java.util.Date;
 
 /**
  *
@@ -35,6 +36,12 @@ public class Gestora {
         s.save(o);
         transaction.commit();
         s.close();
+    }
+    
+    public void getEdad(Date fechaNacimiento){
+        int fechaActual = new Date().getDate();
+        
+        
     }
 
 }
