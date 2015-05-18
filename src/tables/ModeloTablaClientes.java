@@ -12,8 +12,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Eva
  */
-public class ModeloTablaClientes extends DefaultTableModel{
-    
+public class ModeloTablaClientes extends DefaultTableModel {
+
     Clientes[] clientes;
     int filas;
 
@@ -22,26 +22,27 @@ public class ModeloTablaClientes extends DefaultTableModel{
         this.filas = filas;
     }
 
-    
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return filas;
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 10;
     }
 
     @Override
     public String getColumnName(int columnIndex) {
-        String[] nombres = {"Nombre", "Apellidos", "Dni", "Fecha de nacimiento", "", "", "", "", "", "", "", "", "","","","", "", "", ""};
+        String[] nombres = {"Nombre", "Apellidos", "Dni", "Fecha de nacimiento", "", "", "",
+            "", "", "", "", "", "", "", "", "", "", "", ""};
         return nombres[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Class[] clase = {};
+        return clase[columnIndex];
     }
 
     @Override
@@ -51,39 +52,52 @@ public class ModeloTablaClientes extends DefaultTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        
+
         Object devolver = null;
-        
-            if(this.getRowCount() != 0){
-                if(clientes.length > 0){
-                    switch(columnIndex){
-                        case 0:{devolver = clientes[rowIndex].getNombreCliente();}
-                        break;
-                        case 1:{}
-                        break;
-                        case 2:{}
-                        break;
-                        case 3:{}
-                        break;
-                        case 4:{}
-                        break;
-                        case 5:{}
-                        break;
-                        case 6:{}
-                        break;
-                        case 7:{}
-                        break;
-                        case 8:{}
-                        break;
-                        case 9:{}
-                        break;
-                        case 10:{}
-                        break;
-                        case 11:{}
-                        break;
+
+        if (this.getRowCount() != 0) {
+            if (clientes.length > 0) {
+                switch (columnIndex) {
+                    case 0: {
+                        devolver = clientes[rowIndex].getNombreCliente();
                     }
+                    break;
+                    case 1: {
+                    }
+                    break;
+                    case 2: {
+                    }
+                    break;
+                    case 3: {
+                    }
+                    break;
+                    case 4: {
+                    }
+                    break;
+                    case 5: {
+                    }
+                    break;
+                    case 6: {
+                    }
+                    break;
+                    case 7: {
+                    }
+                    break;
+                    case 8: {
+                    }
+                    break;
+                    case 9: {
+                    }
+                    break;
+                    case 10: {
+                    }
+                    break;
+                    case 11: {
+                    }
+                    break;
                 }
-            }        
-            return devolver;
-        }    
+            }
+        }
+        return devolver;
+    }
 }

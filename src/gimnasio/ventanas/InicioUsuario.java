@@ -5,11 +5,7 @@
  */
 package gimnasio.ventanas;
 
-import gimnasio.gestoras.GestoraVentanaInicio;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
 
 /**
  *

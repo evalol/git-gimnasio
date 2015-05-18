@@ -5,16 +5,17 @@
  */
 package gimnasio.ventanas;
 
-import datos.Clientes;
+import datos.Empleados;
 
 /**
  *
  * @author Eva
  */
-public class VentanaClientesDetalle extends javax.swing.JDialog {
+public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
 
-   Clientes c = new Clientes();
-    public VentanaClientesDetalle(java.awt.Frame parent, boolean modal) {
+    Empleados empleado = new Empleados();
+
+    public VentanaEmpleadosDetalle(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         VentanaUtils.limpiarFormulario(jPanel1);
@@ -262,20 +263,21 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaClientesDetalle dialog = new VentanaClientesDetalle(new javax.swing.JFrame(), true);
+                VentanaEmpleadosDetalle dialog = new VentanaEmpleadosDetalle(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -319,25 +321,26 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    public void mostrarDetallesCliente(int idCliente) {
-        
-        etiApellidos.setText(c.getApellidosCliente().toString());
-        etiCodPost.setText(c.getCodigoPostalCliente().toString());
-        etiCuentaBancaria.setText(c.getCuentabancariaCliente());
-        etiDireccion.setText(c.getDireccionDomicilioCliente());
-        etiDni.setText(c.getDireccionDomicilioCliente());
-        etiEdad.setText("" + idCliente);
-        etiEmail.setText(c.getEmailCliente());
-        etiFechaNac.setText(c.getFechanacimientoCliente().toString());
-        etiIdCliente.setText(c.getIdCliente().toString());
-        etiLocalidad.setText(c.getLocalidadCliente());
-        etiNombre.setText(c.getNombreCliente());
-        etiNumero.setText(c.getNombreCliente());
-        etiPiso.setText(c.getPisoDomicilioCliente());
-        etiProvincia.setText(c.getProvinciaCliente());
+    public void mostrarDetallesEmpleados(int idEmpleados) {
+
+        etiApellidos.setText(empleado.getApellidosEmpleado());
+        etiCodPost.setText(empleado.getCodigoPostalEmpleado().toString());
+        etiCuentaBancaria.setText(empleado.getCuentaBancariaEmpleado());
+        etiDireccion.setText(empleado.getDireccionEmpleado());
+        etiDni.setText(empleado.getDniEmpleado());
+        etiEdad.setText(null);
+        etiEmail.setText(empleado.getEmailEmpleado());
+        etiFechaNac.setText("" + empleado.getFechaNacEmpleado());
+        etiIdCliente.setText(empleado.getIdEmpleado().toString());
+        etiLocalidad.setText(empleado.getLocalidadEmpleado());
+        etiNombre.setText(empleado.getNombreEmpleado());
+        etiNumero.setText(empleado.getNumeroEmpleado());
+        etiPiso.setText(empleado.getPisoEmpleado());
+        etiProvincia.setText(empleado.getProvinciaEmpleado());
         etiTarifa.setText(null);
-        etiTelefonoFijo.setText(c.getTelefonoCliente());
-        etiTelefonoMovil.setText(c.getTelefonoMovilCliente());
+        etiTelefonoFijo.setText(empleado.getTelefonoEmpleado());
+        etiTelefonoMovil.setText(empleado.getMovilEmpleado());
+
     }
 
 }

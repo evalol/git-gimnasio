@@ -16,22 +16,25 @@ import java.util.logging.Logger;
  * @author Eva
  */
 public class Login {
+    //Convierte los bytes en un array de dígitos
+    private static final char[] DIGITS_LOWER
+            = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static char[] encodeHex(byte[] data, char[] toDigits) {
         int l = data.length;
-        //char[] out = new char[l « 1];
-    // two characters form the hex value.
+        char[] out = new char[1 << l];
+        // two characters form the hex value.
         for (int i = 0, j = 0; i < l; i++) {
-          //  out[j++] = toDigits[(0xF0 & data[i]) »> 4];
-      //  out[j++] = toDigits[0x0F & data[i]];
+            out[j++] = toDigits[(0xF0 & data[i]) >>> 4];
+            out[j++] = toDigits[0x0F & data[i]];
         }
-       //return out;
+        //return out;
         return null;
     }
 
     public static String devuelveHash(String contraseña) {
 
-        return null ;//String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
+        return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
     }
 
     public static byte[] getHash(String password) {
