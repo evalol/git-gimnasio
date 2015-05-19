@@ -39,9 +39,8 @@ public class Gestora {
     }
     
     public void getEdad(Date fechaNacimiento){
-        int fechaActual = new Date().getDate();
-        
-        
+       
     }
 
+    //TODO:  Método delete parecido a save
 }

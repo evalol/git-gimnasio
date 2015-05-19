@@ -11,16 +11,14 @@ import datos.Empleados;
  *
  * @author Eva
  */
-public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
-    
-    Empleados empleado;
+public class VentanaClientesDetalle extends javax.swing.JDialog {
 
-    /**
-     * Creates new form VentanaEmpleadosDetalle
-     */
-    public VentanaEmpleadosDetalle(java.awt.Frame parent, boolean modal) {
+    Empleados empleado = new Empleados();
+
+    public VentanaClientesDetalle(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        VentanaUtils.limpiarFormulario(jPanel1);
     }
 
     /**
@@ -32,7 +30,9 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        etiIdCliente = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -55,11 +55,14 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
         etiProvincia = new javax.swing.JLabel();
         etiCuentaBancaria = new javax.swing.JLabel();
         etiEmail = new javax.swing.JLabel();
+        etiTarifa = new javax.swing.JLabel();
         etiPiso = new javax.swing.JLabel();
         etiLocalidad = new javax.swing.JLabel();
         etiCodPost = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel15.setText("Tarifa:");
 
         jLabel10.setText("Email:");
 
@@ -105,6 +108,8 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
 
         etiEmail.setText("jLabel11");
 
+        etiTarifa.setText("jLabel11");
+
         etiPiso.setText("jLabel11");
 
         etiLocalidad.setText("jLabel11");
@@ -115,10 +120,7 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
-                .addComponent(etiApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+            .addGap(0, 492, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(67, 67, 67)
@@ -132,7 +134,8 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
                         .addComponent(jLabel7)
                         .addComponent(jLabel8)
                         .addComponent(jLabel9)
-                        .addComponent(jLabel10))
+                        .addComponent(jLabel10)
+                        .addComponent(jLabel15))
                     .addGap(48, 48, 48)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(etiTelefonoMovil)
@@ -147,21 +150,20 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
                         .addComponent(etiDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(etiEdad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(etiFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(etiNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(etiProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                             .addComponent(etiLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(etiCuentaBancaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(etiEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                        .addComponent(etiEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(68, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(etiApellidos)
-                .addContainerGap(330, Short.MAX_VALUE))
+            .addGap(0, 443, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(77, 77, 77)
@@ -169,7 +171,9 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
                         .addComponent(jLabel1)
                         .addComponent(etiNombre))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(etiApellidos))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
@@ -211,23 +215,32 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel10)
                         .addComponent(etiEmail))
-                    .addContainerGap(76, Short.MAX_VALUE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(etiTarifa)
+                        .addComponent(jLabel15))
+                    .addContainerGap(51, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiIdCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(etiIdCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         pack();
@@ -250,20 +263,23 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaEmpleadosDetalle dialog = new VentanaEmpleadosDetalle(new javax.swing.JFrame(), true);
+                VentanaClientesDetalle dialog = new VentanaClientesDetalle(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -284,15 +300,18 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
     private javax.swing.JLabel etiEdad;
     private javax.swing.JLabel etiEmail;
     private javax.swing.JLabel etiFechaNac;
+    private javax.swing.JLabel etiIdCliente;
     private javax.swing.JLabel etiLocalidad;
     private javax.swing.JLabel etiNombre;
     private javax.swing.JLabel etiNumero;
     private javax.swing.JLabel etiPiso;
     private javax.swing.JLabel etiProvincia;
+    private javax.swing.JLabel etiTarifa;
     private javax.swing.JLabel etiTelefonoFijo;
     private javax.swing.JLabel etiTelefonoMovil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -304,7 +323,7 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-public void mostrarDetallesEmpleados(int idEmpleados) {
+    public void mostrarDetallesClientes(int idEmpleados) {
 
         etiApellidos.setText(empleado.getApellidosEmpleado());
         etiCodPost.setText(empleado.getCodigoPostalEmpleado().toString());
@@ -314,11 +333,13 @@ public void mostrarDetallesEmpleados(int idEmpleados) {
         etiEdad.setText(null);
         etiEmail.setText(empleado.getEmailEmpleado());
         etiFechaNac.setText("" + empleado.getFechaNacEmpleado());
+        etiIdCliente.setText(empleado.getIdEmpleado().toString());
         etiLocalidad.setText(empleado.getLocalidadEmpleado());
         etiNombre.setText(empleado.getNombreEmpleado());
         etiNumero.setText(empleado.getNumeroEmpleado());
         etiPiso.setText(empleado.getPisoEmpleado());
         etiProvincia.setText(empleado.getProvinciaEmpleado());
+        etiTarifa.setText(null);
         etiTelefonoFijo.setText(empleado.getTelefonoEmpleado());
         etiTelefonoMovil.setText(empleado.getMovilEmpleado());
 

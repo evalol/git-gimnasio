@@ -5,13 +5,15 @@
  */
 package gimnasio.ventanas;
 
+import datos.Tarifas;
+import gimnasio.gestoras.GestoraTarifas;
+
 /**
  *
  * @author Eva
  */
 public class VentanaTarifas extends javax.swing.JDialog {
 
-    
     /**
      * Creates new form VentanaTarifas
      */
@@ -40,10 +42,9 @@ public class VentanaTarifas extends javax.swing.JDialog {
         txNuevoEdadMinima = new javax.swing.JTextField();
         txNuevoEdadMaxima = new javax.swing.JTextField();
         bLimpiarCampos = new javax.swing.JButton();
-        bGuardarTarifa = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txNuevoCuota = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        bGuardarTarifa = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -82,38 +83,42 @@ public class VentanaTarifas extends javax.swing.JDialog {
             }
         });
 
-        bGuardarTarifa.setText("Guardar");
-
         jLabel8.setText("Edad máxima:");
 
         txNuevoCuota.setText("jTextField4");
+
+        bGuardarTarifa.setText("Guardar");
+        bGuardarTarifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarTarifaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txNuevoNombreTarifa)
-                            .addComponent(txNuevoEdadMinima)
-                            .addComponent(txNuevoEdadMaxima, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                            .addComponent(txNuevoCuota)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(bLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
-                        .addComponent(bGuardarTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(269, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8))
+                .addGap(55, 55, 55)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txNuevoEdadMinima)
+                    .addComponent(txNuevoEdadMaxima)
+                    .addComponent(txNuevoCuota)
+                    .addComponent(txNuevoNombreTarifa, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bLimpiarCampos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bGuardarTarifa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,40 +139,26 @@ public class VentanaTarifas extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txNuevoCuota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bLimpiarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(bGuardarTarifa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29))
+                .addGap(27, 27, 27)
+                .addComponent(bLimpiarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(bGuardarTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        jLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout panelNuevaTarifaLayout = new javax.swing.GroupLayout(panelNuevaTarifa);
         panelNuevaTarifa.setLayout(panelNuevaTarifaLayout);
         panelNuevaTarifaLayout.setHorizontalGroup(
             panelNuevaTarifaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNuevaTarifaLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel7)
-                .addContainerGap(654, Short.MAX_VALUE))
-            .addGroup(panelNuevaTarifaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelNuevaTarifaLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 281, Short.MAX_VALUE))
         );
         panelNuevaTarifaLayout.setVerticalGroup(
             panelNuevaTarifaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNuevaTarifaLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jLabel7)
-                .addContainerGap(262, Short.MAX_VALUE))
-            .addGroup(panelNuevaTarifaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelNuevaTarifaLayout.createSequentialGroup()
-                    .addGap(0, 11, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 11, Short.MAX_VALUE)))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Nueva tarifa", panelNuevaTarifa);
@@ -190,16 +181,16 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(95, 95, 95)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lista tarifas", jPanel2);
@@ -208,11 +199,11 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Búsqueda ", jPanel3);
@@ -245,7 +236,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                     .addComponent(jTextField2)
                     .addComponent(jTextField3))
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +253,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Editar tarifas", jPanel4);
@@ -288,6 +279,15 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private void bLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimpiarCamposActionPerformed
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
     }//GEN-LAST:event_bLimpiarCamposActionPerformed
+
+    private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
+        Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
+                Integer.parseInt(txNuevoEdadMaxima.getText()),
+                Integer.parseInt(txNuevoEdadMinima.getText()),
+                Integer.parseInt(txNuevoCuota.getText()));
+
+        GestoraTarifas.guardarTarifa(tarifa);
+    }//GEN-LAST:event_bGuardarTarifaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,7 +340,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -358,4 +357,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JTextField txNuevoEdadMinima;
     private javax.swing.JTextField txNuevoNombreTarifa;
     // End of variables declaration//GEN-END:variables
+
+   
 }

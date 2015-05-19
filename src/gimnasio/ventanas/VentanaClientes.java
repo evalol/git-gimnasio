@@ -5,18 +5,13 @@
  */
 package gimnasio.ventanas;
 
-import datos.Actividades;
 import datos.Clientes;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.Patrones;
-import java.awt.Component;
 import java.awt.Frame;
-import java.awt.Panel;
 import java.util.Date;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
@@ -25,7 +20,6 @@ import javax.swing.JTextField;
 public class VentanaClientes extends javax.swing.JDialog {
 
     GestoraClientes gestora = new GestoraClientes();
-    Patrones patrones;
 
     /**
      * Creates new form Clientes
@@ -435,7 +429,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         VentanaUtils.limpiarFormulario(jPanel1);
     }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
 
-    
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
         // TODO add your handling code here:
@@ -446,15 +439,14 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-      GestoraClientes gestora = new GestoraClientes();
-      gestora.guardarCliente(obtenerDatos());        
+        GestoraClientes gestora = new GestoraClientes();
+        gestora.guardarCliente(obtenerDatos());
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void rb_ventana_clientes_nuevo_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Ventana_clientes_busqueda;
@@ -518,30 +510,29 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     public void comprobardatos() {
 
-        if (patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText()) != true) {
+        if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
         }
 
-        if (patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText()) != true) {
+        if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
         }
 
-        if (patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText()) != true) {
+        if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
         }
 
-        if (patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText()) != true) {
+        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
             JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
         }
 
-        if (patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText()) != true) {
+        if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
         }
     }
-    
-    
-    public  Clientes obtenerDatos(){
-        
+
+    public Clientes obtenerDatos() {
+
         String apellidos = tx_ventana_clientes_nuevo_apellidos.getText();
         String codigoPostal = tx_ventana_clientes_nuevo_codigo_postal.getText();
         String cuentaBancaria = tx_ventana_clientes_nuevo_cuenta_bancaria.getText();
@@ -550,13 +541,14 @@ public class VentanaClientes extends javax.swing.JDialog {
         String email = tx_ventana_clientes_nuevo_email.getText();
         Date fechaNacimiento = tx_ventana_clientes_nuevo_fecha_nacimiento.getDate();
         String localidad = tx_ventana_clientes_nuevo_localidad.getText();
-        String nombre = tx_ventana_clientes_nuevo_nombre.getText();        
+        String nombre = tx_ventana_clientes_nuevo_nombre.getText();
         String numeroDomicilio = tx_ventana_clientes_nuevo_numero_domicilio.getText();
         String pisoDomicilio = tx_ventana_clientes_nuevo_piso_domicilio.getText();
         String telefono = tx_ventana_clientes_nuevo_telefono.getText();
         String telefonoMovil = tx_ventana_clientes_nuevo_telefono_movil.getText();
+
         return null;
-       
+
     }
 
 }

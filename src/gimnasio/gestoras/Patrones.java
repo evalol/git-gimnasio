@@ -10,43 +10,25 @@ package gimnasio.gestoras;
  * @author Eva Maria de Vena García
  */
 public class Patrones {
-    
+
     // TODO Estos métodos deben ser estáticos
-     public boolean validarDni(String dni){   
-        boolean correcto = true;
-        if(!dni.matches("^6[0-9]{8}$")){
-            return false;
-        }
-        return correcto;
+    public static boolean validarDni(String dni) {
+        return dni.matches("^6[0-9]{8}$");
     }
-    
-    public boolean validarNumeroCuentaBancaria(String cuenta){
-        boolean correcto = true;
-        if(!cuenta.matches("^((67\\d{2})|(4\\d{3})|(5[1-5]\\d{2})|(6011))(-?\\s?\\d{4}){3}|(3[4,7])\\ d{2}-?\\s?\\d{6}-?\\s?\\d{5}$")){
-            return false;
-        }
-        return correcto;
+
+    public static boolean validarNumeroCuentaBancaria(String cuenta) {
+        return cuenta.matches("^((67\\d{2})|(4\\d{3})|(5[1-5]\\d{2})|(6011))(-?\\s?\\d{4}){3}|(3[4,7])\\ d{2}-?\\s?\\d{6}-?\\s?\\d{5}$");
     }
-    public boolean validarTelefonoMovil(String movil){
-        boolean correcto = true;
-        if(!movil.matches("^6[0-9]{8}$")){
-            return false;
-        }
-        return correcto;
+
+    public static boolean validarTelefonoMovil(String movil) {
+        return movil.matches("^6[0-9]{8}$");
     }
-    public boolean validarEmail(String email){
-        boolean correcto = true;
-        if(!email.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$")){
-            return false;
-        }
-        return correcto;
+
+    public static boolean validarEmail(String email) {
+        return email.matches("^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$");
     }
-    
-    public boolean validarCodigoPostal(String codigo){
-        boolean correcto = true;
-        if(!codigo.matches("^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$")){
-            return false;
-        }
-        return correcto;
+
+    public static boolean validarCodigoPostal(String codigo) {
+        return codigo.matches("^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$");
     }
 }
