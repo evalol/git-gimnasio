@@ -6,6 +6,7 @@
 package gimnasio.ventanas;
 
 import datos.Clientes;
+import gimnasio.gestoras.Gestora;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.GestoraClientes;
@@ -18,7 +19,7 @@ import java.util.Date;
  * @author Eva
  */
 public class VentanaClientes extends javax.swing.JDialog {
-
+    
     GestoraClientes gestora = new GestoraClientes();
 
     /**
@@ -79,6 +80,8 @@ public class VentanaClientes extends javax.swing.JDialog {
         tx_ventana_clientes_nuevo_codigo_postal = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_localidad = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        tx_ventana_clientes_nuevo_provincia = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_clientes = new javax.swing.JTable();
@@ -249,6 +252,10 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         tx_ventana_clientes_nuevo_localidad.setText("jTextField1");
 
+        jLabel17.setText("Provincia:");
+
+        tx_ventana_clientes_nuevo_provincia.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -288,11 +295,14 @@ public class VentanaClientes extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(jLabel16))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel16)))
                         .addGap(99, 99, 99)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tx_ventana_clientes_nuevo_telefono_movil)
-                            .addComponent(tx_ventana_clientes_nuevo_localidad))))
+                            .addComponent(tx_ventana_clientes_nuevo_localidad)
+                            .addComponent(tx_ventana_clientes_nuevo_provincia))))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
@@ -351,7 +361,11 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(tx_ventana_clientes_nuevo_localidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 37, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addComponent(tx_ventana_clientes_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -425,10 +439,10 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
     private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
-
+        
         VentanaUtils.limpiarFormulario(jPanel1);
     }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
-
+    
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
         // TODO add your handling code here:
@@ -439,8 +453,18 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-        GestoraClientes gestora = new GestoraClientes();
-        gestora.guardarCliente(obtenerDatos());
+        Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
+                tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
+                tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
+                tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
+                tx_ventana_clientes_nuevo_codigo_postal.getText(), tx_ventana_clientes_nuevo_localidad.getText(),
+                tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
+                tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
+                Gestora.fechaActual(), cb_ventana_clientes_nuevo_tarifa.getSelectedItem(),
+                //this.formaDePago(), String altaEmpleadoCliente
+        );
+            
+            GestoraClientes.guardarCliente(cliente);
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void rb_ventana_clientes_nuevo_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
@@ -463,6 +487,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -491,6 +516,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JTextField tx_ventana_clientes_nuevo_nombre;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_numero_domicilio;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_piso_domicilio;
+    private javax.swing.JTextField tx_ventana_clientes_nuevo_provincia;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono_movil;
     // End of variables declaration//GEN-END:variables
@@ -500,39 +526,39 @@ public class VentanaClientes extends javax.swing.JDialog {
         //Metemos la información del tipo de via dentro del combbox
         cb_ventana_clientes_nuevo_tipo_via.addItem(gestora.tipoDeVia());
         cb_ventana_clientes_nuevo_tipo_via.setModel(new DefaultComboBoxModel());
-
+        
         tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-
+        
         if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
             tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
         }
     }
-
+    
     public void comprobardatos() {
-
+        
         if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
         }
-
+        
         if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
         }
-
+        
         if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
         }
-
+        
         if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
             JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
         }
-
+        
         if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
         }
     }
-
+    
     public Clientes obtenerDatos() {
-
+        
         String apellidos = tx_ventana_clientes_nuevo_apellidos.getText();
         String codigoPostal = tx_ventana_clientes_nuevo_codigo_postal.getText();
         String cuentaBancaria = tx_ventana_clientes_nuevo_cuenta_bancaria.getText();
@@ -546,9 +572,17 @@ public class VentanaClientes extends javax.swing.JDialog {
         String pisoDomicilio = tx_ventana_clientes_nuevo_piso_domicilio.getText();
         String telefono = tx_ventana_clientes_nuevo_telefono.getText();
         String telefonoMovil = tx_ventana_clientes_nuevo_telefono_movil.getText();
-
+        
         return null;
-
+        
     }
-
+    
+    
+    public String formaDePago() {
+        
+        if (rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected() == true) {
+            return "Cuenta bancaria";
+        }
+        return "Efectivo";
+    }
 }

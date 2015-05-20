@@ -9,7 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import gimnasio.HibernateUtil;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -43,4 +45,15 @@ public class Gestora {
     }
 
     //TODO:  Método delete parecido a save
+    
+    public static String fechaActual(){
+        
+        Calendar fecha = new GregorianCalendar();
+        
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        
+        return año + "" + mes + "" + dia;
+    }
 }
