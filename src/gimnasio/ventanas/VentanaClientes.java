@@ -453,18 +453,18 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-        Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
-                tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
-                tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
-                tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
-                tx_ventana_clientes_nuevo_codigo_postal.getText(), tx_ventana_clientes_nuevo_localidad.getText(),
-                tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
-                tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-                Gestora.fechaActual(), cb_ventana_clientes_nuevo_tarifa.getSelectedItem(),
-                //this.formaDePago(), String altaEmpleadoCliente
-        );
+        //Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
+       //         tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
+        //        tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
+        //        tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
+        //        tx_ventana_clientes_nuevo_codigo_postal.getText(), tx_ventana_clientes_nuevo_localidad.getText(),
+        //        tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
+        //        tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
+        //        Gestora.fechaActual(), cb_ventana_clientes_nuevo_tarifa.getSelectedItem(),
+        //        //this.formaDePago(), String altaEmpleadoCliente
+       // );
             
-            GestoraClientes.guardarCliente(cliente);
+         //   GestoraClientes.guardarCliente(cliente);
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void rb_ventana_clientes_nuevo_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
@@ -557,25 +557,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         }
     }
     
-    public Clientes obtenerDatos() {
-        
-        String apellidos = tx_ventana_clientes_nuevo_apellidos.getText();
-        String codigoPostal = tx_ventana_clientes_nuevo_codigo_postal.getText();
-        String cuentaBancaria = tx_ventana_clientes_nuevo_cuenta_bancaria.getText();
-        String direccion = tx_ventana_clientes_nuevo_direccion.getText();
-        String dni = tx_ventana_clientes_nuevo_dni.getText();
-        String email = tx_ventana_clientes_nuevo_email.getText();
-        Date fechaNacimiento = tx_ventana_clientes_nuevo_fecha_nacimiento.getDate();
-        String localidad = tx_ventana_clientes_nuevo_localidad.getText();
-        String nombre = tx_ventana_clientes_nuevo_nombre.getText();
-        String numeroDomicilio = tx_ventana_clientes_nuevo_numero_domicilio.getText();
-        String pisoDomicilio = tx_ventana_clientes_nuevo_piso_domicilio.getText();
-        String telefono = tx_ventana_clientes_nuevo_telefono.getText();
-        String telefonoMovil = tx_ventana_clientes_nuevo_telefono_movil.getText();
-        
-        return null;
-        
-    }
+   
     
     
     public String formaDePago() {

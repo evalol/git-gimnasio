@@ -8,7 +8,6 @@ package datos;
  */
 public class Tarifas  implements java.io.Serializable{
 
-
      private Integer idTarifa;
      private String nombreTarifa;
      private int edadMinimaTarifa;

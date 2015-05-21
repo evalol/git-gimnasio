@@ -7,12 +7,15 @@ package gimnasio.ventanas;
 
 import datos.Tarifas;
 import gimnasio.gestoras.GestoraTarifas;
+import tables.ModeloTablaTarifas;
 
 /**
  *
  * @author Eva
  */
 public class VentanaTarifas extends javax.swing.JDialog {
+    
+    Tarifas[] tarifa;
 
     /**
      * Creates new form VentanaTarifas
@@ -21,6 +24,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
+        tablaTarifas.setModel(new ModeloTablaTarifas(tarifa));
     }
 
     /**
@@ -47,7 +51,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         bGuardarTarifa = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaTarifas = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -163,7 +167,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Nueva tarifa", panelNuevaTarifa);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaTarifas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -174,23 +178,23 @@ public class VentanaTarifas extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaTarifas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lista tarifas", jPanel2);
@@ -347,11 +351,11 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel panelNuevaTarifa;
+    private javax.swing.JTable tablaTarifas;
     private javax.swing.JTextField txNuevoCuota;
     private javax.swing.JTextField txNuevoEdadMaxima;
     private javax.swing.JTextField txNuevoEdadMinima;

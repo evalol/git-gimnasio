@@ -46,14 +46,7 @@ public class Gestora {
 
     //TODO:  Método delete parecido a save
     
-    public static String fechaActual(){
-        
-        Calendar fecha = new GregorianCalendar();
-        
-        int año = fecha.get(Calendar.YEAR);
-        int mes = fecha.get(Calendar.MONTH);
-        int dia = fecha.get(Calendar.DAY_OF_MONTH);
-        
-        return año + "" + mes + "" + dia;
+    public static Date fechaActual(){        
+        return new GregorianCalendar().getTime();
     }
 }
