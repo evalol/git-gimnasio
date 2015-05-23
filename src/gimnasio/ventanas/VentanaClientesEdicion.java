@@ -5,35 +5,18 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaClientes;
-import datos.Clientes;
-import gimnasio.gestoras.Gestora;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import gimnasio.gestoras.GestoraClientes;
-import gimnasio.gestoras.Patrones;
-import java.awt.Frame;
-
 /**
  *
  * @author Eva
  */
-public class VentanaClientes extends javax.swing.JDialog {
-
-    GestoraClientes gestora = new GestoraClientes();
-    VentanaLogin v = new VentanaLogin();
+public class VentanaClientesEdicion extends javax.swing.JDialog {
 
     /**
-     * Creates new form Clientes
+     * Creates new form VentanaClientesEdicion
      */
-    public VentanaClientes(Frame owner, boolean modal) {
-        super(owner, modal);
+    public VentanaClientesEdicion(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
-        VentanaUtils.limpiarFormulario(jPanel1);
-        tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
-        System.out.println(this.isVisible());
-        
     }
 
     /**
@@ -45,8 +28,6 @@ public class VentanaClientes extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bgFormaDePago = new javax.swing.ButtonGroup();
-        Ventana_clientes_busqueda = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -71,13 +52,11 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         rb_ventana_clientes_nuevo_efectivo = new javax.swing.JRadioButton();
         rb_ventana_clientes_nuevo_cuenta_bancaria = new javax.swing.JRadioButton();
-        b_ventana_clientes_nuevo_limpiar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_fecha_nacimiento = new com.toedter.calendar.JDateChooser();
         tx_ventana_clientes_nuevo_email = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         cb_ventana_clientes_nuevo_tarifa = new javax.swing.JComboBox();
-        bGuardarCliente = new javax.swing.JToggleButton();
         jLabel9 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_cuenta_bancaria = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -87,13 +66,8 @@ public class VentanaClientes extends javax.swing.JDialog {
         tx_ventana_clientes_nuevo_localidad = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_provincia = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaClientes = new javax.swing.JTable();
-        botonEditarCliente = new javax.swing.JButton();
-        botonBorrarCliente = new javax.swing.JButton();
-        cbOrdenClientes = new javax.swing.JComboBox();
-        jPanel3 = new javax.swing.JPanel();
+        botonLimpiar = new javax.swing.JButton();
+        botonEditar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -142,21 +116,12 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         jLabel11.setText("Fecha de nacimiento:");
 
-        bgFormaDePago.add(rb_ventana_clientes_nuevo_efectivo);
         rb_ventana_clientes_nuevo_efectivo.setText("Efectivo");
 
-        bgFormaDePago.add(rb_ventana_clientes_nuevo_cuenta_bancaria);
         rb_ventana_clientes_nuevo_cuenta_bancaria.setText("Cuenta bancaria");
         rb_ventana_clientes_nuevo_cuenta_bancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed(evt);
-            }
-        });
-
-        b_ventana_clientes_nuevo_limpiar.setText("Limpiar formulario");
-        b_ventana_clientes_nuevo_limpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_ventana_clientes_nuevo_limpiarActionPerformed(evt);
             }
         });
 
@@ -167,13 +132,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel14.setText("Email:");
 
         cb_ventana_clientes_nuevo_tarifa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        bGuardarCliente.setText("Guardar");
-        bGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bGuardarClienteActionPerformed(evt);
-            }
-        });
 
         jLabel9.setText("Cuenta bancaria:");
 
@@ -199,14 +157,8 @@ public class VentanaClientes extends javax.swing.JDialog {
                     .addComponent(tx_ventana_clientes_nuevo_cuenta_bancaria)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(rb_ventana_clientes_nuevo_efectivo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                         .addComponent(rb_ventana_clientes_nuevo_cuenta_bancaria))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(b_ventana_clientes_nuevo_limpiar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,11 +187,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(tx_ventana_clientes_nuevo_cuenta_bancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_ventana_clientes_nuevo_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         jLabel15.setText("Cógido postal:");
@@ -259,10 +207,30 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         tx_ventana_clientes_nuevo_provincia.setText("jTextField1");
 
+        botonLimpiar.setText("Limpiar formulario");
+        botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLimpiarActionPerformed(evt);
+            }
+        });
+
+        botonEditar.setText("Aplicar cambios");
+        botonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(265, 265, 265)
+                .addComponent(botonLimpiar)
+                .addGap(88, 88, 88)
+                .addComponent(botonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -307,8 +275,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                             .addComponent(tx_ventana_clientes_nuevo_localidad)
                             .addComponent(tx_ventana_clientes_nuevo_provincia))))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,176 +335,110 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17)
                             .addComponent(tx_ventana_clientes_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 10, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
-
-        Ventana_clientes_busqueda.addTab("Nuevo cliente", jPanel1);
-
-        tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaClientes);
-
-        botonEditarCliente.setText("Editar ");
-        botonEditarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEditarClienteActionPerformed(evt);
-            }
-        });
-
-        botonBorrarCliente.setText("Borrar ");
-        botonBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBorrarClienteActionPerformed(evt);
-            }
-        });
-
-        cbOrdenClientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguedad", "Empleado", "Nombre" }));
-        cbOrdenClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOrdenClientesActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(botonEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(botonBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(386, 386, 386)
-                        .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        Ventana_clientes_busqueda.addTab("Lista clientes", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1049, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
-        );
-
-        Ventana_clientes_busqueda.addTab("Búsquedas", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Ventana_clientes_busqueda)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Ventana_clientes_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tx_ventana_clientes_nuevo_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
+
     private void rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
-    private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
+    private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
 
         VentanaUtils.limpiarFormulario(jPanel1);
-    }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
+    }//GEN-LAST:event_botonLimpiarActionPerformed
 
+    private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
+        //Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
+            //         tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
+            //        tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
+            //        tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
+            //        tx_ventana_clientes_nuevo_codigo_postal.getText(), tx_ventana_clientes_nuevo_localidad.getText(),
+            //        tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
+            //        tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
+            //        Gestora.fechaActual(), cb_ventana_clientes_nuevo_tarifa.getSelectedItem(),
+            //        //this.formaDePago(), String altaEmpleadoCliente
+            // );
+
+        //   GestoraClientes.guardarCliente(cliente);
+    }//GEN-LAST:event_botonEditarActionPerformed
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
 
-    private void tx_ventana_clientes_nuevo_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
-
-    private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-        String g = this.formaDePago();
-
-        Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
-                tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
-                tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
-                tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
-                Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()), tx_ventana_clientes_nuevo_localidad.getText(),
-                tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
-                tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-                Gestora.fechaActual(), 1,
-                this.formaDePago(), "miau");
-
-        GestoraClientes.guardarCliente(cliente);
-    }//GEN-LAST:event_bGuardarClienteActionPerformed
-
-    private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEditarClienteActionPerformed
-
-    private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
-        JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar", null, JOptionPane.YES_OPTION);
-    }//GEN-LAST:event_botonBorrarClienteActionPerformed
-
-    private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed
-
-        String seleccion = (String) cbOrdenClientes.getSelectedItem();
-
-        if (seleccion.equals("Antiguedad")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("idCliente")));
-        } else if (seleccion.equals("Empleado")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("altaEmpleadoCliente")));
-        } else if (seleccion.equals("Nombre")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("nombreCliente")));
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
-
-    }//GEN-LAST:event_cbOrdenClientesActionPerformed
-
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                VentanaClientesEdicion dialog = new VentanaClientesEdicion(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane Ventana_clientes_busqueda;
-    private javax.swing.JToggleButton bGuardarCliente;
-    private javax.swing.JButton b_ventana_clientes_nuevo_limpiar;
-    private javax.swing.ButtonGroup bgFormaDePago;
-    private javax.swing.JButton botonBorrarCliente;
-    private javax.swing.JButton botonEditarCliente;
-    private javax.swing.JComboBox cbOrdenClientes;
+    private javax.swing.JToggleButton botonEditar;
+    private javax.swing.JButton botonLimpiar;
     private javax.swing.JComboBox cb_ventana_clientes_nuevo_tarifa;
     private javax.swing.JComboBox cb_ventana_clientes_nuevo_tipo_via;
     private javax.swing.JLabel jLabel1;
@@ -558,14 +459,10 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JRadioButton rb_ventana_clientes_nuevo_cuenta_bancaria;
     private javax.swing.JRadioButton rb_ventana_clientes_nuevo_efectivo;
-    private javax.swing.JTable tablaClientes;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_apellidos;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_codigo_postal;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_cuenta_bancaria;
@@ -581,48 +478,4 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono_movil;
     // End of variables declaration//GEN-END:variables
-
-    public void inicio() {
-
-        //Metemos la información del tipo de via dentro del combbox
-//        cb_ventana_clientes_nuevo_tipo_via.addItem(gestora.tipoDeVia());
-        cb_ventana_clientes_nuevo_tipo_via.setModel(new DefaultComboBoxModel());
-
-        tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-
-        if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
-            tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-        }
-    }
-
-    public void comprobardatos() {
-
-        if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
-            JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
-        }
-
-        if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
-            JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
-        }
-
-        if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
-            JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
-        }
-
-        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
-            JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
-        }
-
-        if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
-            JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
-        }
-    }
-
-    public String formaDePago() {
-
-        if (rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected() == true) {
-            return "Cuenta bancaria";
-        }
-        return "Efectivo";
-    }
 }

@@ -7,8 +7,6 @@ package gimnasio.ventanas;
 
 import datos.Empleados;
 import gimnasio.gestoras.Gestora;
-import java.util.Date;
-import javax.swing.JDialog;
 
 /**
  *
@@ -22,6 +20,7 @@ public class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     public VentanaEmpleadosEdicion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

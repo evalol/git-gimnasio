@@ -19,6 +19,7 @@ public class VentanaActividades extends javax.swing.JDialog {
     public VentanaActividades(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
     }
 
@@ -42,7 +43,7 @@ public class VentanaActividades extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nombre actividad:");
 

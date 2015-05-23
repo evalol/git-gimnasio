@@ -17,18 +17,16 @@ public class ModeloTablaEmpleadosConsulta extends DefaultTableModel {
 
     Empleados[] empleados;
     int filas;
-    String[] nombres = {"Id", "Nombre", "Apellidos",
-        "Dni", "Email", "Teléfono", "Móvil",
-        "Cuenta bancaria", "fechaNac", "fechaAlta",
-        "Sueldo Mes", "Suplemento sueldo", "direccion",
-        "Codigo Postal", "Localidad", "Provincia"};
-    Class[] clases = {Integer.class, String.class, String.class,
-        String.class, String.class, String.class, String.class,
-        String.class, Date.class, Date.class,
-        Integer.class, Integer.class, Integer.class,
+    String[] nombres = {"Nombre", "Apellidos", "Dni",
+        "Email", "Teléfono", "Móvil", "Cuenta bancaria", "fechaNac",
+        "fechaAlta", "Sueldo Mes", "Suplemento sueldo", "Direccion", "Codigo Postal",
+        "Localidad", "Provincia"};
+    Class[] clases = {String.class, String.class, String.class,
+        String.class, String.class, String.class, String.class, Date.class,
+        Date.class, Integer.class, Integer.class, Integer.class, String.class,
         String.class, String.class};
 
-    public ModeloTablaEmpleadosConsulta(Empleados[] empleados, int filas) {
+    public ModeloTablaEmpleadosConsulta(Empleados[] empleados) {
         this.empleados = empleados;
         this.filas = empleados.length;
     }

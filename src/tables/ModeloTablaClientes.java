@@ -7,6 +7,7 @@ package Tables;
 
 import datos.Clientes;
 import java.util.Date;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,11 +27,15 @@ public class ModeloTablaClientes extends DefaultTableModel {
         Date.class, String.class, String.class, String.class,
         String.class, String.class, String.class};
 
-    public ModeloTablaClientes(Clientes[] clientes, int filas) {
+    public ModeloTablaClientes(Clientes[] clientes) {
         this.clientes = clientes;
         this.filas = clientes.length;
     }
 
+    public ModeloTablaClientes(List<Clientes> clientes) {
+        this.clientes = clientes.toArray(new Clientes[clientes.size()]);
+        this.filas = clientes.size();
+    }
     
     @Override
     public int getRowCount() {

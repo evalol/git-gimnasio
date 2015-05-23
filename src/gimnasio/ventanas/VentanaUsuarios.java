@@ -16,6 +16,7 @@ public class VentanaUsuarios extends javax.swing.JDialog {
      */
     public VentanaUsuarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setLocationRelativeTo(null);
         initComponents();
     }
 

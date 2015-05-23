@@ -18,6 +18,7 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
     public VentanaClientesDetalle(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
     }
 

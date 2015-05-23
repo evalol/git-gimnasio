@@ -5,107 +5,16 @@
  */
 package gimnasio.gestoras;
 
-import datos.Actividades;
 import datos.Clientes;
-import datos.Empleados;
-import datos.Tarifas;
-import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Eva
  */
-public class GestoraClientes {
-    
+public class GestoraClientes {   
        
     // TODO Crear una tabla Via(Id, Nombre) y que se relacionen por clave ajena
-    public String tipoDeVia(){
-        
-        String[] vias = new String[]{"Calle", "Avenida", "Plaza", "Carretera", "Travesía", "Callejón"};
-        
-        String via = "";
-        for(int i = 0; i < vias.length; i++){
-             via = vias[i];
-        }
-        return via;
-    }
-    
-    // Usar un objeto Cliente como argumento (Tiene constructor con todos estos campos)
-    public void guardartDatosCLiente(String nombre, String apellidos, String dni, String email, String telefono, 
-            String movil, String cuenta, Date fnacimiento){
-        
-        Clientes cliente = new Clientes();
-        Tarifas tarifa = new Tarifas();
-        
-        
-        //SessionFactory sesion =  SessionFactoryUtil.getSessionFactory();
-        //Session session = sesion.openSession();
-        //Transaction t = session.beginTransaction();
-        
-        cliente.setNombreCliente(nombre);
-        cliente.setApellidosCliente(apellidos);
-        cliente.setDniCliente(dni);
-        cliente.setEmailCliente(email);
-        cliente.setTelefonoCliente(telefono);
-        cliente.setTelefonoMovilCliente(movil);
-        cliente.setCuentabancariaCliente(cuenta); 
-        cliente.setAltaCliente(new Date());
-        cliente.setFechanacimientoCliente(fnacimiento);
-        //cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
-        
-        //if(rb_ventana_clientes_nuevo_efectivo.isSelected()){
-            cliente.setFormapagoCliente("Efectivo");
-        //}else{
-        //    cliente.setFormapagoCliente("Cuenta bancaria");
-        //}
-                
-        //session.save(cliente);
-        //t.commit();
-        //session.close();
-    }
-     
-     
-    public void guardarDatosEmpleado(){
-        
-        Empleados empleado = new Empleados();
-          
-        empleado.getIdEmpleado();  
-        empleado.getNombreEmpleado();  
-        empleado.getApellidosEmpleado();
-        empleado.getDniEmpleado();
-        
-        empleado.getTelefonoEmpleado();
-        empleado.getMovilEmpleado();
-        
-        empleado.getEmailEmpleado();
-        empleado.getCodigoPostalEmpleado();
-        empleado.getCuentaBancariaEmpleado();
-        empleado.getDireccionEmpleado();
-        
-        
-        empleado.getFechaAltaEmpleado();
-        empleado.getFechaNacEmpleado();
-        empleado.getSueldoMesEmpleado();
-        empleado.getSuplementoSueldoEmpleado();
-        
-        empleado.getLocalidadEmpleado();
-        
-        
-        empleado.getPisoEmpleado();
-        empleado.getProvinciaEmpleado();
-        
-        
-    }
-    
-    public void guardarDatosActividad(){
-        
-        Actividades actividad = new Actividades();
-        
-        actividad.getIdActividad();
-        actividad.getNombreActividad();
-        actividad.getEmpleadoEncargadoActividad();
-        actividad.getCuotaPrecio();
-    }
     
     // ESto debería ir en Gestora.java
     //Hacer rollback y que no se termine la aplicacion tras un fallo.
@@ -144,5 +53,11 @@ public class GestoraClientes {
        Gestora.getInstance().save(cliente);
     }
     
+    public static List<Clientes> recuperarClientes(){
+         return Gestora.getInstance().<Clientes>recuperarObjetos(Clientes.class);
+    }
     
+    public static List<Clientes> recuperarClientes(String ordenar){
+         return Gestora.getInstance().<Clientes>recuperarObjetos(Clientes.class, ordenar);
+    }
 }

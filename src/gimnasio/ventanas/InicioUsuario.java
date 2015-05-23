@@ -19,6 +19,7 @@ public class InicioUsuario extends javax.swing.JDialog {
     public InicioUsuario(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

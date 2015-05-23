@@ -16,16 +16,15 @@ import tables.ModeloTablaTarifas;
  */
 public class VentanaTarifas extends javax.swing.JDialog {
 
-    Tarifas[] tarifa;
-
     /**
      * Creates new form VentanaTarifas
      */
     public VentanaTarifas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
-        tablaTarifas.setModel(new ModeloTablaTarifas(tarifa));
+       // tablaTarifas.setModel(new ModeloTablaTarifas(tarifa));
     }
 
     /**
@@ -286,10 +285,10 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_bLimpiarCamposActionPerformed
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
-        
+
         edadesTarifa();
         guardar();
-        
+
     }//GEN-LAST:event_bGuardarTarifaActionPerformed
 
     /**
@@ -367,9 +366,9 @@ public class VentanaTarifas extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "La edad mínima no puede ser superior a la máxima");
         }
     }
-    
-    public void guardar(){
-        
+
+    public void guardar() {
+
         Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
                 Integer.parseInt(txNuevoEdadMaxima.getText()),
                 Integer.parseInt(txNuevoEdadMinima.getText()),

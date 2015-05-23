@@ -17,6 +17,7 @@ public class VentanaHorarios extends javax.swing.JDialog {
     public VentanaHorarios(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

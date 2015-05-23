@@ -5,6 +5,7 @@
  */
 package gimnasio.ventanas;
 
+import gimnasio.gestoras.Gestora;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -20,17 +21,19 @@ public class Portada extends javax.swing.JFrame {
      */
     public Portada() {
         initComponents();
-        Timer t = new Timer(5000, new ActionListener() {
+        setLocationRelativeTo(null);
+
+        new Thread(new Runnable() {
 
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void run() {
+                //Gestora.getInstance();
                 VentanaLogin i = new VentanaLogin(Portada.this, true);
-                Portada.this.dispose();
+                Portada.this.setVisible(false);
                 i.setVisible(true);
+                Portada.this.dispose();
             }
-        });
-        t.setRepeats(false);
-        t.start();
+        }).start();
     }
 
     /**

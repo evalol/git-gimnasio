@@ -9,9 +9,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import gimnasio.HibernateUtil;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  *
@@ -41,12 +41,24 @@ public class Gestora {
     }
     
     public void getEdad(Date fechaNacimiento){
-       
+      
     }
 
     //TODO:  Método delete parecido a save
     
     public static Date fechaActual(){        
         return new GregorianCalendar().getTime();
+    }
+    //T es cualquier clase que le pase
+    public <T> List<T> recuperarObjetos(Class<T> clase){
+        Session s = sesion.openSession();
+        List<T> objeto = s.createQuery("from " + clase.getSimpleName()).list();
+        return objeto;
+    }
+    
+    public <T> List<T> recuperarObjetos(Class<T> clase, String ordenar){
+        Session s = sesion.openSession();
+        List<T> objeto = s.createQuery("from " + clase.getSimpleName() + " t order by t." + ordenar).list();
+        return objeto;
     }
 }

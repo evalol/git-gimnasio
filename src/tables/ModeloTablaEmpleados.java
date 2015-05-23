@@ -27,10 +27,10 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
     Class[] clases = {Integer.class, String.class, String.class,
         String.class, String.class, String.class, String.class,
         String.class, Date.class, Date.class,
-        Integer.class, Integer.class, Integer.class,
-        String.class, String.class};
+        Integer.class, Integer.class, String.class,
+        String.class, String.class, String.class};
 
-    public ModeloTablaEmpleados(Empleados[] empleados, int filas) {
+    public ModeloTablaEmpleados(Empleados[] empleados) {
         this.empleados = empleados;
         this.filas = empleados.length;
     }

@@ -5,11 +5,11 @@
  */
 package gimnasio.ventanas;
 
+import Tables.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.Gestora;
 import gimnasio.gestoras.GestoraEmpleados;
 import java.awt.Frame;
-import java.util.Date;
 
 /**
  *
@@ -20,7 +20,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     public VentanaEmpleados(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
+        //tablaEmpleados.setModel(new ModeloTablaEmpleados()));
     }
 
     /**
@@ -325,6 +327,11 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tablaEmpleados);
 
         botonEditarEmpleado.setText("Editar empleado");
+        botonEditarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEditarEmpleadoActionPerformed(evt);
+            }
+        });
 
         botonBorrarEmpleado.setText("Borrar empleado");
 
@@ -411,6 +418,10 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private void boton_ventana_empleados_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ventana_empleados_agregarActionPerformed
         insertarDatos();
     }//GEN-LAST:event_boton_ventana_empleados_agregarActionPerformed
+
+    private void botonEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarEmpleadoActionPerformed
+        new VentanaEmpleadosEdicion((Frame) this.getParent(), true).setVisible(true);
+    }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
