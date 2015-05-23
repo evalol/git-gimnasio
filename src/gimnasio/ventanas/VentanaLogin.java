@@ -25,9 +25,9 @@ public class VentanaLogin extends javax.swing.JDialog {
     }
 
     public VentanaLogin() {
-        
+
     }
-                
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,20 +119,33 @@ public class VentanaLogin extends javax.swing.JDialog {
 
     private void bAceptarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarLoginActionPerformed
 
-        if ("".contentEquals(txUsuarioLogin.getText()) && "".contentEquals(txContraseñaLogin.getText())) {
+        if (txUsuarioLogin.getText().isEmpty() && txContraseñaLogin.getText().isEmpty()) {
+            
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario ni contraseña");
-        } else if ("".contentEquals(txUsuarioLogin.getText())) {
+            
+        } else if (txUsuarioLogin.getText().isEmpty()) {
+            
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario");
-        } else if ("".equals(txContraseñaLogin.getText())) {
+            
+        } else if (txContraseñaLogin.getText().isEmpty()) {
+            
             JOptionPane.showMessageDialog(this, "No ha introducido ninguna contraseña");
+            
         } else if ("admin".equals(txUsuarioLogin.getText())) {
+            
             setVisible(false);
-            new InicioAdmin((Frame) this.getParent(), true).setVisible(true);            
+            new InicioAdmin((Frame) this.getParent(), true).setVisible(true);
+            
         } else {
+            
             setVisible(false);
-            new InicioUsuario((Frame) this.getParent(), true).setVisible(true);            
+            new InicioUsuario((Frame) this.getParent(), true).setVisible(true);
+            
         }
+        
+        
         this.dispose();
+        ((Frame) this.getParent()).dispose();
     }//GEN-LAST:event_bAceptarLoginActionPerformed
 
     /**
@@ -186,8 +199,7 @@ public class VentanaLogin extends javax.swing.JDialog {
     private javax.swing.JTextField txUsuarioLogin;
     // End of variables declaration//GEN-END:variables
 
-    
-    public String getUsuario(){
+    public String getUsuario() {
         return txUsuarioLogin.getText();
     }
 }

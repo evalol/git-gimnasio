@@ -31,7 +31,6 @@ public class Portada extends javax.swing.JFrame {
                 VentanaLogin i = new VentanaLogin(Portada.this, true);
                 Portada.this.setVisible(false);
                 i.setVisible(true);
-                Portada.this.dispose();
             }
         }).start();
     }

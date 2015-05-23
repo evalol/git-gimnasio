@@ -87,6 +87,7 @@ public class InicioUsuario extends javax.swing.JDialog {
 
     private void botonInicioClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioClientesActionPerformed
         new VentanaClientes((Frame) this.getParent(), true).setVisible(true);
+        
     }//GEN-LAST:event_botonInicioClientesActionPerformed
 
     private void botonInicioTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioTarifasActionPerformed
