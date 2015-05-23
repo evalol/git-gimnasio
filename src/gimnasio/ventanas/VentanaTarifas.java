@@ -7,6 +7,7 @@ package gimnasio.ventanas;
 
 import datos.Tarifas;
 import gimnasio.gestoras.GestoraTarifas;
+import javax.swing.JOptionPane;
 import tables.ModeloTablaTarifas;
 
 /**
@@ -14,7 +15,7 @@ import tables.ModeloTablaTarifas;
  * @author Eva
  */
 public class VentanaTarifas extends javax.swing.JDialog {
-    
+
     Tarifas[] tarifa;
 
     /**
@@ -285,12 +286,10 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_bLimpiarCamposActionPerformed
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
-        Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
-                Integer.parseInt(txNuevoEdadMaxima.getText()),
-                Integer.parseInt(txNuevoEdadMinima.getText()),
-                Integer.parseInt(txNuevoCuota.getText()));
-
-        GestoraTarifas.guardarTarifa(tarifa);
+        
+        edadesTarifa();
+        guardar();
+        
     }//GEN-LAST:event_bGuardarTarifaActionPerformed
 
     /**
@@ -362,5 +361,21 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JTextField txNuevoNombreTarifa;
     // End of variables declaration//GEN-END:variables
 
-   
+    public void edadesTarifa() {
+
+        if (Integer.parseInt(txNuevoEdadMinima.getText()) > Integer.parseInt(txNuevoEdadMinima.getText())) {
+            JOptionPane.showMessageDialog(this, "La edad mínima no puede ser superior a la máxima");
+        }
+    }
+    
+    public void guardar(){
+        
+        Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
+                Integer.parseInt(txNuevoEdadMaxima.getText()),
+                Integer.parseInt(txNuevoEdadMinima.getText()),
+                Integer.parseInt(txNuevoCuota.getText()));
+
+        GestoraTarifas.guardarTarifa(tarifa);
+    }
+
 }

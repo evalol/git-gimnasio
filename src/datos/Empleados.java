@@ -9,7 +9,6 @@ import java.util.Date;
  */
 public class Empleados  implements java.io.Serializable {
 
-
      private Integer idEmpleado;
      private String nombreEmpleado;
      private String apellidosEmpleado;

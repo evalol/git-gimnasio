@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tables;
+package tables;
 
-import datos.Clientes;
 import datos.Empleados;
 import java.util.Date;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Eva
  */
-public class ModeloTablaEmpleados extends DefaultTableModel {
+public class ModeloTablaEmpleadosConsulta extends DefaultTableModel {
 
     Empleados[] empleados;
     int filas;
@@ -30,7 +28,7 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
         Integer.class, Integer.class, Integer.class,
         String.class, String.class};
 
-    public ModeloTablaEmpleados(Empleados[] empleados, int filas) {
+    public ModeloTablaEmpleadosConsulta(Empleados[] empleados, int filas) {
         this.empleados = empleados;
         this.filas = empleados.length;
     }
@@ -139,5 +137,4 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
         }
         return devolver;
     }
-
 }

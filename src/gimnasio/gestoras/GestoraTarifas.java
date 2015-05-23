@@ -12,9 +12,9 @@ import datos.Tarifas;
  * @author Eva
  */
 public class GestoraTarifas {
-    
-     public static void guardarTarifa(Tarifas tarifa){
-       Gestora.getInstance().save(tarifa);
+
+    public static void guardarTarifa(Tarifas tarifa) {
+        Gestora.getInstance().save(tarifa);
     }
-    
+
 }

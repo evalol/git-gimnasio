@@ -6,6 +6,7 @@
 package Tables;
 
 import datos.Clientes;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,12 +17,21 @@ public class ModeloTablaClientes extends DefaultTableModel {
 
     Clientes[] clientes;
     int filas;
+    String[] nombres = {"Id", "Nombre", "Apellidos", "DNI", "Teléfono fijo",
+        "Teléfono móvil", "Dirección", "Código postal", "Localidad", "Provincia",
+        "Fecha de nacimiento", "Cuenta bancaria", "Email", "Fecha alta",
+        "Tarifa", "Forma de pago", "Empleado"};
+    Class[] clases = {Integer.class, String.class, String.class, String.class, String.class,
+        String.class, String.class, String.class, String.class, String.class,
+        Date.class, String.class, String.class, String.class,
+        String.class, String.class, String.class};
 
     public ModeloTablaClientes(Clientes[] clientes, int filas) {
         this.clientes = clientes;
-        this.filas = filas;
+        this.filas = clientes.length;
     }
 
+    
     @Override
     public int getRowCount() {
         return filas;
@@ -34,15 +44,12 @@ public class ModeloTablaClientes extends DefaultTableModel {
 
     @Override
     public String getColumnName(int columnIndex) {
-        String[] nombres = {"Nombre", "Apellidos", "Dni", "Fecha de nacimiento", "", "", "",
-            "", "", "", "", "", "", "", "", "", "", "", ""};
         return nombres[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        Class[] clase = {};
-        return clase[columnIndex];
+        return clases[columnIndex];
     }
 
     @Override
@@ -59,40 +66,73 @@ public class ModeloTablaClientes extends DefaultTableModel {
             if (clientes.length > 0) {
                 switch (columnIndex) {
                     case 0: {
-                        devolver = clientes[rowIndex].getNombreCliente();
+                        devolver = clientes[rowIndex].getIdCliente();
                     }
                     break;
                     case 1: {
+                        devolver = clientes[rowIndex].getNombreCliente();
                     }
                     break;
                     case 2: {
+                        devolver = clientes[rowIndex].getApellidosCliente();
                     }
                     break;
                     case 3: {
+                        devolver = clientes[rowIndex].getDniCliente();
                     }
                     break;
                     case 4: {
+                        devolver = clientes[rowIndex].getTelefonoCliente();
                     }
                     break;
                     case 5: {
+                        devolver = clientes[rowIndex].getTelefonoMovilCliente();
                     }
                     break;
                     case 6: {
+                        devolver = clientes[rowIndex].getDireccionDomicilioCliente() + " "
+                                + clientes[rowIndex].getNumeroDomicilioCliente() + " "
+                                + clientes[rowIndex].getNumeroDomicilioCliente();
                     }
                     break;
                     case 7: {
+                        devolver = clientes[rowIndex].getCodigoPostalCliente();
                     }
                     break;
                     case 8: {
+                        devolver = clientes[rowIndex].getLocalidadCliente();
                     }
                     break;
                     case 9: {
+                        devolver = clientes[rowIndex].getProvinciaCliente();
                     }
                     break;
                     case 10: {
+                        devolver = clientes[rowIndex].getFechanacimientoCliente();
                     }
                     break;
                     case 11: {
+                        devolver = clientes[rowIndex].getCuentabancariaCliente();
+                    }
+                    break;
+                    case 12: {
+                        devolver = clientes[rowIndex].getEmailCliente();
+                    }
+                    break;
+                    case 13: {
+                        devolver = clientes[rowIndex].getAltaCliente();
+                    }
+                    break;
+                    case 14: {
+                        devolver = clientes[rowIndex].getIdTarifaCliente();
+                    }
+                    break;
+                    case 15: {
+                        devolver = clientes[rowIndex].getFormapagoCliente();
+                    }
+                    break;
+                    case 16: {
+                        devolver = clientes[rowIndex].getDniCliente();
                     }
                     break;
                 }

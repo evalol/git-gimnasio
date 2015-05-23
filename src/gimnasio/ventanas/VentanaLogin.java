@@ -19,7 +19,7 @@ public class VentanaLogin extends javax.swing.JDialog {
     public VentanaLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         VentanaUtils.limpiarFormulario(jPanel1);
     }
 
@@ -114,12 +114,13 @@ public class VentanaLogin extends javax.swing.JDialog {
 
     private void bAceptarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarLoginActionPerformed
 
-        if (txUsuarioLogin.getText() == "admin") {
+        if ("admin".equals(txUsuarioLogin.getText())) {
             new InicioAdmin((Frame) this.getParent(), true).setVisible(true);
         } else {
             new InicioUsuario((Frame) this.getParent(), true).setVisible(true);
-        }    
-
+        }
+        
+     
     }//GEN-LAST:event_bAceptarLoginActionPerformed
 
     /**
@@ -173,5 +174,4 @@ public class VentanaLogin extends javax.swing.JDialog {
     private javax.swing.JTextField txUsuarioLogin;
     // End of variables declaration//GEN-END:variables
 
-    
 }
