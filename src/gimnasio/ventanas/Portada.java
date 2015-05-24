@@ -27,7 +27,7 @@ public class Portada extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                //Gestora.getInstance();
+                Gestora.getInstance();
                 VentanaLogin i = new VentanaLogin(Portada.this, true);
                 Portada.this.setVisible(false);
                 i.setVisible(true);

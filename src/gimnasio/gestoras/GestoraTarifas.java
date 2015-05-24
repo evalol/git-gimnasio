@@ -5,7 +5,9 @@
  */
 package gimnasio.gestoras;
 
+import datos.Clientes;
 import datos.Tarifas;
+import java.util.List;
 
 /**
  *
@@ -15,6 +17,14 @@ public class GestoraTarifas {
 
     public static void guardarTarifa(Tarifas tarifa) {
         Gestora.getInstance().save(tarifa);
+    }
+    
+    public static List<Tarifas> recuperarTarifas(){
+         return Gestora.getInstance().<Tarifas>recuperarObjetos(Tarifas.class);
+    }
+    
+    public static List<Tarifas> recuperarTarifas(String ordenar){
+         return Gestora.getInstance().<Tarifas>recuperarObjetos(Tarifas.class, ordenar);
     }
 
 }

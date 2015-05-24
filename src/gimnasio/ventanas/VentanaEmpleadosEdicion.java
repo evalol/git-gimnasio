@@ -6,7 +6,7 @@
 package gimnasio.ventanas;
 
 import datos.Empleados;
-import gimnasio.gestoras.Gestora;
+import gimnasio.gestoras.GestoraEmpleados;
 
 /**
  *
@@ -14,13 +14,18 @@ import gimnasio.gestoras.Gestora;
  */
 public class VentanaEmpleadosEdicion extends javax.swing.JDialog {
 
+    Empleados empleado;
+
     /**
      * Creates new form VentanaEmpleadosEdicion
      */
-    public VentanaEmpleadosEdicion(java.awt.Frame parent, boolean modal) {
+    public VentanaEmpleadosEdicion(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        VentanaUtils.limpiarFormulario(jPanel1);
+        empleado = GestoraEmpleados.getEmpleadoPorId(id);
+        tx_ventana_empleados_nombre.setText(empleado.getNombreEmpleado());
     }
 
     /**
@@ -320,56 +325,28 @@ public class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     }//GEN-LAST:event_botonLimpiarVentanaActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-        Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
-                tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
-                tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
-                Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
-                tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
-                Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText());
+        
+        empleado.setNombreEmpleado(tx_ventana_empleados_nombre.getText());
+        empleado.setApellidosEmpleado(tx_ventana_empleados_apellido.getText());
+        empleado.setDniEmpleado(tx_ventana_empleados_dni.getText());
+        empleado.setEmailEmpleado(tx_ventana_empleados_email.getText());
+        empleado.setTelefonoEmpleado(tx_ventana_empleados_telefono.getText());
+        empleado.setMovilEmpleado(tx_ventana_empleados_movil.getText());
+        empleado.setCuentaBancariaEmpleado(txNuevoCuentaBancaria.getText());
+        empleado.setFechaNacEmpleado(cb_ventana_empleados_fecha_nac.getDate());
+        empleado.setSueldoMesEmpleado(Integer.parseInt(tx_nuevo_sueldo.getText()));
+        empleado.setSuplementoSueldoEmpleado(Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()));
+        empleado.setDireccionEmpleado(tx_ventana_empleados_direccion.getText());
+        empleado.setPisoEmpleado(tx_ventana_empleados_piso.getText());
+        empleado.setNumeroEmpleado(tx_ventana_empleados_piso.getText());
+        empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
+        empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
+        empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
 
+        GestoraEmpleados.actualizarEmpleados(empleado);
+        
     }//GEN-LAST:event_botonEditarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaEmpleadosEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaEmpleadosEdicion dialog = new VentanaEmpleadosEdicion(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEditar;

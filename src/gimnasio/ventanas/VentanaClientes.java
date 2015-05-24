@@ -32,8 +32,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
-        System.out.println(this.isVisible());
-        
     }
 
     /**
@@ -477,7 +475,6 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
     private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
-
         VentanaUtils.limpiarFormulario(jPanel1);
     }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
 

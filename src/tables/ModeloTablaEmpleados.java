@@ -8,6 +8,7 @@ package Tables;
 import datos.Clientes;
 import datos.Empleados;
 import java.util.Date;
+import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,6 +34,11 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
     public ModeloTablaEmpleados(Empleados[] empleados) {
         this.empleados = empleados;
         this.filas = empleados.length;
+    }
+    
+    public ModeloTablaEmpleados(List<Empleados> empleados) {
+        this.empleados = empleados.toArray(new Empleados[empleados.size()]);
+        this.filas = empleados.size();
     }
 
     @Override

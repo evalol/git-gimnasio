@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import gimnasio.HibernateUtil;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -40,6 +41,23 @@ public class Gestora {
         s.close();
     }
     
+    public void update(Object o){
+        
+        Session s = sesion.openSession();
+        Transaction transaction = s.beginTransaction();
+        s.update(o);
+        transaction.commit();
+        s.close();
+    }
+    
+    public Object getObjectById(Class clase, Serializable serializable){
+        
+        Session s = sesion.openSession();        
+        Object devolver = s.get(clase, serializable);
+        s.close();
+        return devolver;
+    }
+    
     public void getEdad(Date fechaNacimiento){
       
     }
@@ -60,5 +78,9 @@ public class Gestora {
         Session s = sesion.openSession();
         List<T> objeto = s.createQuery("from " + clase.getSimpleName() + " t order by t." + ordenar).list();
         return objeto;
+    }
+    
+    public void recuperarId(){
+        
     }
 }
