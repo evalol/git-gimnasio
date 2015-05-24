@@ -488,7 +488,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-        String g = this.formaDePago();
+        String formaPago = this.formaDePago();
 
         Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
                 tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
@@ -497,18 +497,17 @@ public class VentanaClientes extends javax.swing.JDialog {
                 Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()), tx_ventana_clientes_nuevo_localidad.getText(),
                 tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
                 tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-                Gestora.fechaActual(), 1,
-                this.formaDePago(), "miau");
+                Gestora.fechaActual(), 1, formaPago, "miau");
 
         GestoraClientes.guardarCliente(cliente);
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
-        // TODO add your handling code here:
+        new VentanaClientesEdicion((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)).setVisible(true);
     }//GEN-LAST:event_botonEditarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
-        JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar", null, JOptionPane.YES_OPTION);
+        JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
     private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed
@@ -522,7 +521,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         } else if (seleccion.equals("Nombre")) {
             tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("nombreCliente")));
         }
-
 
     }//GEN-LAST:event_cbOrdenClientesActionPerformed
 
@@ -622,4 +620,5 @@ public class VentanaClientes extends javax.swing.JDialog {
         }
         return "Efectivo";
     }
+
 }

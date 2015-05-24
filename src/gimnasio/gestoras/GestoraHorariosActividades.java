@@ -6,6 +6,7 @@
 package gimnasio.gestoras;
 
 import datos.HorariosActividades;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -18,11 +19,15 @@ public class GestoraHorariosActividades {
         Gestora.getInstance().save(horarioActividad);
     }
 
-    public static List<HorariosActividades> recuperarClientes() {
+    public static List<HorariosActividades> recuperarActividades() {
         return Gestora.getInstance().<HorariosActividades>recuperarObjetos(HorariosActividades.class);
     }
 
-    public static List<HorariosActividades> recuperarClientes(String ordenar) {
+    public static List<HorariosActividades> recuperarHorariosActividades(String ordenar) {
         return Gestora.getInstance().<HorariosActividades>recuperarObjetos(HorariosActividades.class, ordenar);
+    }
+
+    public static HorariosActividades getHorariosActividadPorId(Serializable id) {
+        return (HorariosActividades) Gestora.getInstance().getObjectById(HorariosActividades.class, id);
     }
 }

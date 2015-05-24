@@ -5,6 +5,8 @@
  */
 package gimnasio.ventanas;
 
+import java.awt.Frame;
+
 /**
  *
  * @author Eva
@@ -17,6 +19,10 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     public VentanaClientesEdicion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    VentanaClientesEdicion(Frame frame, boolean b, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

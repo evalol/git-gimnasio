@@ -6,7 +6,7 @@
 package gimnasio.gestoras;
 
 import datos.Actividades;
-import datos.Clientes;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -19,11 +19,19 @@ public class GestoraActividades {
        Gestora.getInstance().save(actividad);
     }
     
-    public static List<Clientes> recuperarClientes(){
-         return Gestora.getInstance().<Clientes>recuperarObjetos(Clientes.class);
+    public static void actualizarEmpleados(Actividades actividad) {
+        Gestora.getInstance().update(actividad);
     }
     
-    public static List<Clientes> recuperarClientes(String ordenar){
-         return Gestora.getInstance().<Clientes>recuperarObjetos(Clientes.class, ordenar);
+    public static List<Actividades> recuperarActividades() {
+        return Gestora.getInstance().<Actividades>recuperarObjetos(Actividades.class);
+    }
+
+    public static List<Actividades> recuperarActividades(String ordenar) {
+        return Gestora.getInstance().<Actividades>recuperarObjetos(Actividades.class, ordenar);
+    }
+
+    public static Actividades getActividadPorId(Serializable id) {
+        return (Actividades) Gestora.getInstance().getObjectById(Actividades.class, id);
     }
 }

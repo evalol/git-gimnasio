@@ -5,7 +5,8 @@
  */
 package gimnasio.ventanas;
 
-import datos.Empleados;
+import datos.Clientes;
+import gimnasio.gestoras.GestoraClientes;
 
 /**
  *
@@ -13,13 +14,14 @@ import datos.Empleados;
  */
 public class VentanaClientesDetalle extends javax.swing.JDialog {
 
-    Empleados empleado = new Empleados();
+    Clientes cliente = new Clientes();
 
-    public VentanaClientesDetalle(java.awt.Frame parent, boolean modal) {
+    public VentanaClientesDetalle(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
+        cliente = GestoraClientes.getClientePorId(id);
     }
 
     /**
@@ -247,50 +249,6 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesDetalle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaClientesDetalle dialog = new VentanaClientesDetalle(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel etiApellidos;
@@ -326,23 +284,23 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
 
     public void mostrarDetallesClientes(int idEmpleados) {
 
-        etiApellidos.setText(empleado.getApellidosEmpleado());
-        etiCodPost.setText(empleado.getCodigoPostalEmpleado().toString());
-        etiCuentaBancaria.setText(empleado.getCuentaBancariaEmpleado());
-        etiDireccion.setText(empleado.getDireccionEmpleado());
-        etiDni.setText(empleado.getDniEmpleado());
+        etiApellidos.setText(cliente.getApellidosCliente());
+        etiCodPost.setText(cliente.getCodigoPostalCliente().toString());
+        etiCuentaBancaria.setText(cliente.getCuentabancariaCliente());
+        etiDireccion.setText(cliente.getDireccionDomicilioCliente());
+        etiDni.setText(cliente.getDniCliente());
         etiEdad.setText(null);
-        etiEmail.setText(empleado.getEmailEmpleado());
-        etiFechaNac.setText("" + empleado.getFechaNacEmpleado());
-        etiIdCliente.setText(empleado.getIdEmpleado().toString());
-        etiLocalidad.setText(empleado.getLocalidadEmpleado());
-        etiNombre.setText(empleado.getNombreEmpleado());
-        etiNumero.setText(empleado.getNumeroEmpleado());
-        etiPiso.setText(empleado.getPisoEmpleado());
-        etiProvincia.setText(empleado.getProvinciaEmpleado());
+        etiEmail.setText(cliente.getEmailCliente());
+        etiFechaNac.setText(cliente.getFechanacimientoCliente().toString());
+        etiIdCliente.setText(cliente.getIdCliente().toString());
+        etiLocalidad.setText(cliente.getLocalidadCliente());
+        etiNombre.setText(cliente.getNombreCliente());
+        etiNumero.setText(cliente.getNombreCliente());
+        etiPiso.setText(cliente.getPisoDomicilioCliente());
+        etiProvincia.setText(cliente.getProvinciaCliente());
         etiTarifa.setText(null);
-        etiTelefonoFijo.setText(empleado.getTelefonoEmpleado());
-        etiTelefonoMovil.setText(empleado.getMovilEmpleado());
+        etiTelefonoFijo.setText(cliente.getTelefonoCliente());
+        etiTelefonoMovil.setText(cliente.getTelefonoMovilCliente());
 
     }
 
