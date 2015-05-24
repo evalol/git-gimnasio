@@ -6,6 +6,7 @@
 package tables;
 
 import datos.Tarifas;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,6 +23,11 @@ public class ModeloTablaTarifas extends DefaultTableModel {
     public ModeloTablaTarifas(Tarifas[] tarifas) {
         this.tarifas = tarifas;
         this.filas = tarifas.length;
+    }
+    
+    public ModeloTablaTarifas(List<Tarifas> tarifas) {
+        this.tarifas = tarifas.toArray(new Tarifas[tarifas.size()]);
+        this.filas = tarifas.size();
     }
         
     @Override

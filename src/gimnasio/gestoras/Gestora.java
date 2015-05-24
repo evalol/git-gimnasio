@@ -19,68 +19,94 @@ import java.util.List;
  * @author Edwinem
  */
 public class Gestora {
-    
+
     private static final Gestora INSTANCE = new Gestora();
-    
+
     private final SessionFactory sesion;
-    
+
     private Gestora() {
         sesion = HibernateUtil.getSessionFactory();
     }
-    
+
     public static Gestora getInstance() {
         return Gestora.INSTANCE;
     }
-    
-    public void save(Object o){
-        
+
+    public void save(Object o) {
+
         Session s = sesion.openSession();
         Transaction transaction = s.beginTransaction();
         s.save(o);
         transaction.commit();
         s.close();
     }
-    
-    public void update(Object o){
-        
+
+    public void update(Object o) {
+
         Session s = sesion.openSession();
         Transaction transaction = s.beginTransaction();
         s.update(o);
         transaction.commit();
         s.close();
     }
-    
-    public Object getObjectById(Class clase, Serializable serializable){
-        
-        Session s = sesion.openSession();        
+
+    public void delete(Object o) {
+
+        Session s = sesion.openSession();
+        Transaction transaction = s.beginTransaction();
+        s.delete(o);
+        transaction.commit();
+        s.close();
+    }
+
+    public Object getObjectById(Class clase, Serializable serializable) {
+
+        Session s = sesion.openSession();
         Object devolver = s.get(clase, serializable);
         s.close();
         return devolver;
     }
-    
-    public void getEdad(Date fechaNacimiento){
-      
+
+    public List<Object> ejecutarConsulta(String consulta) {
+
+        Session s = sesion.openSession();
+        List<Object> devolver = s.createQuery(consulta).list();
+        s.close();
+        return devolver;
+    }
+
+    public Object ejecutarConsultaUnResultado(String consulta) {
+
+        Session s = sesion.openSession();
+        Object devolver = s.createQuery(consulta).uniqueResult();
+        s.close();
+        return devolver;
+    }
+
+    public void getEdad(Date fechaNacimiento) {
+
     }
 
     //TODO:  Método delete parecido a save
-    
-    public static Date fechaActual(){        
+    public static Date fechaActual() {
         return new GregorianCalendar().getTime();
     }
+
     //T es cualquier clase que le pase
-    public <T> List<T> recuperarObjetos(Class<T> clase){
+
+    public <T> List<T> recuperarObjetos(Class<T> clase) {
         Session s = sesion.openSession();
         List<T> objeto = s.createQuery("from " + clase.getSimpleName()).list();
         return objeto;
     }
-    
-    public <T> List<T> recuperarObjetos(Class<T> clase, String ordenar){
+
+    public <T> List<T> recuperarObjetos(Class<T> clase, String ordenar) {
         Session s = sesion.openSession();
         List<T> objeto = s.createQuery("from " + clase.getSimpleName() + " t order by t." + ordenar).list();
         return objeto;
     }
-    
-    public void recuperarId(){
-        
+
+    public void recuperarId() {
+
     }
 }

@@ -41,7 +41,7 @@ public class VentanaLogin extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txUsuarioLogin = new javax.swing.JTextField();
-        txContraseñaLogin = new javax.swing.JTextField();
+        txContraseña = new javax.swing.JPasswordField();
         bAceptarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -52,7 +52,7 @@ public class VentanaLogin extends javax.swing.JDialog {
 
         txUsuarioLogin.setText("jTextField1");
 
-        txContraseñaLogin.setText("jTextField2");
+        txContraseña.setText("txContraseña");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,7 +66,7 @@ public class VentanaLogin extends javax.swing.JDialog {
                 .addGap(103, 103, 103)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txUsuarioLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(txContraseñaLogin))
+                    .addComponent(txContraseña))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,8 +79,8 @@ public class VentanaLogin extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txContraseñaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(txContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         bAceptarLogin.setText("Aceptar");
@@ -107,7 +107,7 @@ public class VentanaLogin extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
+                .addContainerGap(128, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(bAceptarLogin)
@@ -119,7 +119,7 @@ public class VentanaLogin extends javax.swing.JDialog {
 
     private void bAceptarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarLoginActionPerformed
 
-        if (txUsuarioLogin.getText().isEmpty() && txContraseñaLogin.getText().isEmpty()) {
+        if (txUsuarioLogin.getText().isEmpty() && txContraseña.getText().isEmpty()) {
             
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario ni contraseña");
             
@@ -127,7 +127,7 @@ public class VentanaLogin extends javax.swing.JDialog {
             
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario");
             
-        } else if (txContraseñaLogin.getText().isEmpty()) {
+        } else if (txContraseña.getText().isEmpty()) {
             
             JOptionPane.showMessageDialog(this, "No ha introducido ninguna contraseña");
             
@@ -195,7 +195,7 @@ public class VentanaLogin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txContraseñaLogin;
+    private javax.swing.JPasswordField txContraseña;
     private javax.swing.JTextField txUsuarioLogin;
     // End of variables declaration//GEN-END:variables
 

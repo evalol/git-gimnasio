@@ -22,6 +22,10 @@ public class GestoraClientes {
     public static void actualizarCliente(Clientes empleado) {
         Gestora.getInstance().update(empleado);
     }
+    
+    public static void borrarCliente(Clientes empleado) {
+        Gestora.getInstance().delete(empleado);
+    }
 
     public static List<Clientes> recuperarClientes() {
         return Gestora.getInstance().<Clientes>recuperarObjetos(Clientes.class);

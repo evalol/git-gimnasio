@@ -5,7 +5,8 @@
  */
 package gimnasio.ventanas;
 
-import java.awt.Frame;
+import datos.Clientes;
+import gimnasio.gestoras.GestoraClientes;
 
 /**
  *
@@ -13,16 +14,13 @@ import java.awt.Frame;
  */
 public class VentanaClientesEdicion extends javax.swing.JDialog {
 
-    /**
-     * Creates new form VentanaClientesEdicion
-     */
-    public VentanaClientesEdicion(java.awt.Frame parent, boolean modal) {
+    Clientes cliente;
+
+    public VentanaClientesEdicion(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
-    }
-
-    VentanaClientesEdicion(Frame frame, boolean b, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cliente = GestoraClientes.getClientePorId(id);
+        mostrarDatos();
     }
 
     /**
@@ -382,65 +380,14 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     }//GEN-LAST:event_botonLimpiarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-        //Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
-            //         tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
-            //        tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
-            //        tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
-            //        tx_ventana_clientes_nuevo_codigo_postal.getText(), tx_ventana_clientes_nuevo_localidad.getText(),
-            //        tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
-            //        tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-            //        Gestora.fechaActual(), cb_ventana_clientes_nuevo_tarifa.getSelectedItem(),
-            //        //this.formaDePago(), String altaEmpleadoCliente
-            // );
 
-        //   GestoraClientes.guardarCliente(cliente);
+        editarClientes();
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaClientesEdicion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaClientesEdicion dialog = new VentanaClientesEdicion(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton botonEditar;
@@ -484,4 +431,44 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono_movil;
     // End of variables declaration//GEN-END:variables
+
+    public void mostrarDatos() {
+
+        tx_ventana_clientes_nuevo_nombre.setText(cliente.getNombreCliente());
+        tx_ventana_clientes_nuevo_apellidos.setText(cliente.getApellidosCliente());
+        tx_ventana_clientes_nuevo_dni.setText(cliente.getDniCliente());
+        tx_ventana_clientes_nuevo_telefono.setText(cliente.getTelefonoCliente());
+        tx_ventana_clientes_nuevo_telefono_movil.setText(cliente.getTelefonoMovilCliente());
+        tx_ventana_clientes_nuevo_direccion.setText(cliente.getDireccionDomicilioCliente());
+        tx_ventana_clientes_nuevo_piso_domicilio.setText(cliente.getPisoDomicilioCliente());
+        tx_ventana_clientes_nuevo_numero_domicilio.setText(cliente.getNumeroDomicilioCliente());
+        tx_ventana_clientes_nuevo_codigo_postal.setText(cliente.getCodigoPostalCliente().toString());
+        tx_ventana_clientes_nuevo_localidad.setText(cliente.getLocalidadCliente());
+        tx_ventana_clientes_nuevo_provincia.setText(cliente.getProvinciaCliente());
+        tx_ventana_clientes_nuevo_fecha_nacimiento.setDate(cliente.getFechanacimientoCliente());
+        tx_ventana_clientes_nuevo_cuenta_bancaria.setText(cliente.getCuentabancariaCliente());
+        tx_ventana_clientes_nuevo_email.setText(cliente.getEmailCliente());
+
+    }
+
+    public void editarClientes() {
+
+        cliente.setNombreCliente(tx_ventana_clientes_nuevo_nombre.getText());
+        cliente.setApellidosCliente(tx_ventana_clientes_nuevo_apellidos.getText());
+        cliente.setDniCliente(tx_ventana_clientes_nuevo_dni.getText());
+        cliente.setTelefonoCliente(tx_ventana_clientes_nuevo_telefono.getText());
+        cliente.setTelefonoMovilCliente(tx_ventana_clientes_nuevo_telefono_movil.getText());
+        cliente.setDireccionDomicilioCliente(tx_ventana_clientes_nuevo_direccion.getText());
+        cliente.setPisoDomicilioCliente(tx_ventana_clientes_nuevo_piso_domicilio.getText());
+        cliente.setNumeroDomicilioCliente(tx_ventana_clientes_nuevo_numero_domicilio.getText());
+        cliente.setCodigoPostalCliente(Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()));
+        cliente.setLocalidadCliente(tx_ventana_clientes_nuevo_localidad.getText());
+        cliente.setProvinciaCliente(tx_ventana_clientes_nuevo_provincia.getText());
+        cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
+        cliente.setCuentabancariaCliente(tx_ventana_clientes_nuevo_cuenta_bancaria.getText());
+        cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText());
+
+        GestoraClientes.actualizarCliente(cliente);
+    }
+
 }

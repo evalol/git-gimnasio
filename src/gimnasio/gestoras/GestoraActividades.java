@@ -6,6 +6,7 @@
 package gimnasio.gestoras;
 
 import datos.Actividades;
+import datos.Clientes;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,8 +20,12 @@ public class GestoraActividades {
        Gestora.getInstance().save(actividad);
     }
     
-    public static void actualizarEmpleados(Actividades actividad) {
+    public static void actualizarActividades(Actividades actividad) {
         Gestora.getInstance().update(actividad);
+    }
+    
+    public static void borrarActividades(Actividades actividad) {
+        Gestora.getInstance().delete(actividad);
     }
     
     public static List<Actividades> recuperarActividades() {

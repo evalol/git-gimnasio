@@ -13,7 +13,7 @@ public class Patrones {
 
     // TODO Estos métodos deben ser estáticos
     public static boolean validarDni(String dni) {
-        return dni.matches("^6[0-9]{8}$");
+        return dni.matches("(\\d{8})([-]?)([A-Z]{1})");
     }
 
     public static boolean validarNumeroCuentaBancaria(String cuenta) {

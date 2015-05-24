@@ -5,7 +5,9 @@
  */
 package gimnasio.ventanas;
 
+import Tables.ModeloTablaEmpleados;
 import datos.Tarifas;
+import gimnasio.gestoras.GestoraEmpleados;
 import gimnasio.gestoras.GestoraTarifas;
 import javax.swing.JOptionPane;
 import tables.ModeloTablaTarifas;
@@ -24,7 +26,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
-       // tablaTarifas.setModel(new ModeloTablaTarifas(tarifa));
+        tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
     }
 
     /**
@@ -52,6 +54,9 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaTarifas = new javax.swing.JTable();
+        botonEditarTarifa = new javax.swing.JButton();
+        botonBorrarTarifa = new javax.swing.JButton();
+        comboOrdenarTarifas = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -180,21 +185,48 @@ public class VentanaTarifas extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tablaTarifas);
 
+        botonEditarTarifa.setText("Editar");
+
+        botonBorrarTarifa.setText("Borrar");
+
+        comboOrdenarTarifas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "De mayor a menor edad", "De menor a mayor edad", "Nombre", "Precio" }));
+        comboOrdenarTarifas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboOrdenarTarifasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 715, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(botonEditarTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(botonBorrarTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(265, 265, 265)
+                        .addComponent(comboOrdenarTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(comboOrdenarTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonEditarTarifa, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                    .addComponent(botonBorrarTarifa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Lista tarifas", jPanel2);
@@ -286,56 +318,34 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
 
-        edadesTarifa();
-        guardar();
-
+        if (edadesTarifa() == true) {
+            guardar();
+        }
     }//GEN-LAST:event_bGuardarTarifaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaTarifas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void comboOrdenarTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenarTarifasActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaTarifas dialog = new VentanaTarifas(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+        String seleccion = (String) comboOrdenarTarifas.getSelectedItem();
+
+        if (seleccion.equals("De menor a mayor edad")) {
+            tablaTarifas.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("edadMinimaTarifa")));
+        } else if (seleccion.equals("De mayor a menor edad")) {
+            tablaTarifas.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("edadMaximaTarifa")));
+        } else if (seleccion.equals("Nombre")) {
+            tablaTarifas.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("nombreTarifa")));
+        } else if (seleccion.equals("Precio")) {
+            tablaTarifas.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("precioTarifa")));
+        }
+
+    }//GEN-LAST:event_comboOrdenarTarifasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bGuardarTarifa;
     private javax.swing.JButton bLimpiarCampos;
+    private javax.swing.JButton botonBorrarTarifa;
+    private javax.swing.JButton botonEditarTarifa;
+    private javax.swing.JComboBox comboOrdenarTarifas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -360,11 +370,13 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JTextField txNuevoNombreTarifa;
     // End of variables declaration//GEN-END:variables
 
-    public void edadesTarifa() {
+    public boolean edadesTarifa() {
 
         if (Integer.parseInt(txNuevoEdadMinima.getText()) > Integer.parseInt(txNuevoEdadMinima.getText())) {
             JOptionPane.showMessageDialog(this, "La edad mínima no puede ser superior a la máxima");
+            return false;
         }
+        return true;
     }
 
     public void guardar() {

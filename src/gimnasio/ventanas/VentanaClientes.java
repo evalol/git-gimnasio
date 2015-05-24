@@ -488,6 +488,32 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
+        
+        if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
+            JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
+            return;
+        }
+
+        if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
+            JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
+            return;
+        }
+
+        if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
+            JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
+            return;
+        }
+
+        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
+            JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
+            return;
+        }
+
+        if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
+            JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
+            return;
+        }
+
         String formaPago = this.formaDePago();
 
         Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
@@ -507,7 +533,14 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEditarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
-        JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
+        
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
+        
+        if(resultado == JOptionPane.YES_OPTION){
+            //BORRAR
+        }else{
+            JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
+        }
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
     private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed
@@ -587,29 +620,6 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
             tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-        }
-    }
-
-    public void comprobardatos() {
-
-        if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
-            JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
-        }
-
-        if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
-            JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
-        }
-
-        if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
-            JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
-        }
-
-        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
-            JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
-        }
-
-        if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
-            JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
         }
     }
 
