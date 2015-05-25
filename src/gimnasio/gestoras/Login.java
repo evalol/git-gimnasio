@@ -28,12 +28,11 @@ public class Login {
             out[j++] = toDigits[(0xF0 & data[i]) >>> 4];
             out[j++] = toDigits[0x0F & data[i]];
         }
-        //return out;
-        return null;
+        return out;
     }
 
     public static String devuelveHash(String contraseña) {
-
+        System.out.println("" + String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER)));
         return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
     }
 

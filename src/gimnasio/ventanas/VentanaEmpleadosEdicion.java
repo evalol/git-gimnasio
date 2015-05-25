@@ -399,7 +399,7 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void editarEmpleado() {
-        
+
         empleado.setNombreEmpleado(tx_ventana_empleados_nombre.getText());
         empleado.setApellidosEmpleado(tx_ventana_empleados_apellido.getText());
         empleado.setDniEmpleado(tx_ventana_empleados_dni.getText());
@@ -416,16 +416,15 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
         empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
         empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
-        if(!txContraseñaNueva.getText().isEmpty()){
+        if (!txContraseñaNueva.getText().isEmpty()) {
             empleado.setContrasenaEmpleado(txContraseñaNueva.getText());
         }
 
         GestoraEmpleados.actualizarEmpleados(empleado);
     }
-    
-    
-    public void mostrarDatos(){
-        
+
+    public void mostrarDatos() {
+
         tx_ventana_empleados_nombre.setText(empleado.getNombreEmpleado());
         tx_ventana_empleados_apellido.setText(empleado.getApellidosEmpleado());
         tx_ventana_empleados_dni.setText(empleado.getDniEmpleado());

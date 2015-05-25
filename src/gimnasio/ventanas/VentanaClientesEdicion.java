@@ -380,8 +380,8 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     }//GEN-LAST:event_botonLimpiarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-
         editarClientes();
+        this.dispose();
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
@@ -469,6 +469,7 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
         cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText());
 
         GestoraClientes.actualizarCliente(cliente);
+        
     }
 
 }

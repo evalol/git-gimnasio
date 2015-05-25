@@ -488,7 +488,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
-        
+
         if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
             return;
@@ -501,11 +501,6 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
-            return;
-        }
-
-        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_clientes_nuevo_cuenta_bancaria.getText())) {
-            JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
             return;
         }
 
@@ -526,6 +521,8 @@ public class VentanaClientes extends javax.swing.JDialog {
                 Gestora.fechaActual(), 1, formaPago, "miau");
 
         GestoraClientes.guardarCliente(cliente);
+        
+        tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
@@ -533,14 +530,16 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEditarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
-        
+
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
-        
-        if(resultado == JOptionPane.YES_OPTION){
-            //BORRAR
-        }else{
+
+        if (resultado == JOptionPane.YES_OPTION) {
+            GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+        } else {
             JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
         }
+        
+        tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
     private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed

@@ -5,13 +5,12 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaEmpleados;
 import datos.Tarifas;
-import gimnasio.gestoras.GestoraEmpleados;
+import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.GestoraTarifas;
-import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import tables.ModeloTablaTarifas;
 
 /**
@@ -84,8 +83,18 @@ public class VentanaTarifas extends javax.swing.JDialog {
                 txNuevoEdadMinimaActionPerformed(evt);
             }
         });
+        txNuevoEdadMinima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txNuevoEdadMinimaKeyTyped(evt);
+            }
+        });
 
         txNuevoEdadMaxima.setText("jTextField3");
+        txNuevoEdadMaxima.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txNuevoEdadMaximaKeyTyped(evt);
+            }
+        });
 
         bLimpiarCampos.setText("Limpiar");
         bLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +106,11 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jLabel8.setText("Edad máxima:");
 
         txNuevoCuota.setText("jTextField4");
+        txNuevoCuota.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txNuevoCuotaKeyTyped(evt);
+            }
+        });
 
         bGuardarTarifa.setText("Guardar");
         bGuardarTarifa.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +209,11 @@ public class VentanaTarifas extends javax.swing.JDialog {
         });
 
         botonBorrarTarifa.setText("Borrar");
+        botonBorrarTarifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBorrarTarifaActionPerformed(evt);
+            }
+        });
 
         comboOrdenarTarifas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "De mayor a menor edad", "De menor a mayor edad", "Nombre", "Precio" }));
         comboOrdenarTarifas.addActionListener(new java.awt.event.ActionListener() {
@@ -334,6 +353,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         } else if (seleccion.equals("Precio")) {
             tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas("precioTarifa")));
         }
+
     }//GEN-LAST:event_comboOrdenarTarifasActionPerformed
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
@@ -354,6 +374,32 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private void botonEditarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarTarifaActionPerformed
         new VentanaTarifasEdicion((Frame) this.getParent(), true, (int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)).setVisible(true);
     }//GEN-LAST:event_botonEditarTarifaActionPerformed
+
+    private void txNuevoEdadMinimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoEdadMinimaKeyTyped
+        comprobarNumerico(txNuevoEdadMinima, evt);
+    }//GEN-LAST:event_txNuevoEdadMinimaKeyTyped
+
+    private void txNuevoEdadMaximaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoEdadMaximaKeyTyped
+        comprobarNumerico(txNuevoEdadMaxima, evt);
+    }//GEN-LAST:event_txNuevoEdadMaximaKeyTyped
+
+    private void txNuevoCuotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoCuotaKeyTyped
+        comprobarNumerico(txNuevoCuota, evt);
+    }//GEN-LAST:event_txNuevoCuotaKeyTyped
+
+    private void botonBorrarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTarifaActionPerformed
+
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar esta tarifa?", null, JOptionPane.YES_OPTION);
+
+        if (resultado == JOptionPane.YES_OPTION) {
+            GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)));
+        } else {
+            JOptionPane.showMessageDialog(this, "La tarifa no se ha borrado.");
+        }
+
+        tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
+
+    }//GEN-LAST:event_botonBorrarTarifaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -397,28 +443,22 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
     public void insertarDatos() {
 
-        
-        if (Patrones.isNumeric(txNuevoEdadMinima.getText()) == false) {
-            JOptionPane.showMessageDialog(this, "El campo edad mínima no es un número.");
-            return;
-        }
-
-        if (Patrones.isNumeric(txNuevoEdadMaxima.getText())  == false) {
-            JOptionPane.showMessageDialog(this, "El campo edad mínima no es un número.");
-            return;
-        }
-
-        if (Patrones.isNumeric(txNuevoCuota.getText())  == false) {
-            JOptionPane.showMessageDialog(this, "El campo cuota no es un número.");
-            return;
-        }
-
         Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
                 Integer.parseInt(txNuevoEdadMaxima.getText()),
                 Integer.parseInt(txNuevoEdadMinima.getText()),
                 Integer.parseInt(txNuevoCuota.getText()));
 
         GestoraTarifas.guardarTarifa(tarifa);
+        
+        tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
     }
 
+    public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
+        
+        char car = evt.getKeyChar();
+        if (((car < '0' || car > '9') && car != '.') || campo.getText().contains(".") && car == '.') {
+            evt.consume();
+        }
+        
+    }
 }

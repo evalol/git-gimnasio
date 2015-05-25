@@ -161,12 +161,16 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txNuevoEdadMinimaActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txNuevoEdadMinimaKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txNuevoEdadMaxima">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField3"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txNuevoEdadMaximaKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bLimpiarCampos">
                   <Properties>
@@ -185,6 +189,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField4"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txNuevoCuotaKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bGuardarTarifa">
                   <Properties>
@@ -283,6 +290,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBorrarTarifaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboOrdenarTarifas">
               <Properties>
