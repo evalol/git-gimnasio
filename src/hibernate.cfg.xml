@@ -7,11 +7,13 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/fitnesscenter</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="datos/HorariosActividades.hbm.xml"/>
+    <mapping resource="datos/Actividades.hbm.xml"/>
     <mapping resource="datos/Actividadestarifas.hbm.xml"/>
+    <mapping resource="datos/HorariosActividades.hbm.xml"/>
+    <mapping resource="datos/Provincias.hbm.xml"/>
     <mapping resource="datos/Tarifas.hbm.xml"/>
     <mapping resource="datos/Empleados.hbm.xml"/>
-    <mapping resource="datos/Actividades.hbm.xml"/>
+    <mapping resource="datos/Domicilios.hbm.xml"/>
     <mapping resource="datos/Clientes.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

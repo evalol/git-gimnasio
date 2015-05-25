@@ -98,8 +98,13 @@
                               <Component id="boton_ventana_empleados_agregar" min="-2" pref="186" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jSeparator1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txContraseñaNueva" min="-2" pref="266" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -125,6 +130,7 @@
                                           <Component id="tx_nuevo_suplemento_sueldo" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -139,76 +145,80 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txNuevoCuentaBancaria" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_email" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_telefono" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_movil" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_dni" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_ventana_empleados_fecha_nac" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_apellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_dni" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_ventana_empleados_fecha_nac" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_ventana_empleados_nombre_tipo_via" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_nuevo_sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_numero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_piso" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_nuevo_suplemento_sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txNuevoCuentaBancaria" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_email" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_telefono" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tx_ventana_empleados_movil" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cb_ventana_empleados_nombre_tipo_via" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_nuevo_sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_numero" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_empleados_piso" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_nuevo_suplemento_sueldo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tx_nuevo_localidad" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -216,7 +226,7 @@
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                                      <EmptySpace pref="62" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="boton_ventana_empleados_limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="boton_ventana_empleados_agregar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -231,7 +241,11 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="tx_nuevo_provincia" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tx_nuevo_provincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txContraseñaNueva" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tx_nuevo_codigo_postal" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -430,6 +444,18 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="tx_nuevo_codigo_postal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel18">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txContrase&#xf1;aNueva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>

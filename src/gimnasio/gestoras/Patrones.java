@@ -31,4 +31,13 @@ public class Patrones {
     public static boolean validarCodigoPostal(String codigo) {
         return codigo.matches("^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$");
     }
+
+    public static boolean isNumeric(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+    }
 }

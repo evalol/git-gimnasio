@@ -9,6 +9,7 @@ import Tables.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.Gestora;
 import gimnasio.gestoras.GestoraEmpleados;
+import gimnasio.gestoras.Login;
 import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author Eva Maria de Vena García
  */
 public class VentanaEmpleados extends javax.swing.JDialog {
-
+    
     public VentanaEmpleados(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
@@ -75,6 +76,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         tx_nuevo_provincia = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         tx_nuevo_codigo_postal = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel18 = new javax.swing.JLabel();
+        txContraseñaNueva = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaEmpleados = new javax.swing.JTable();
@@ -165,6 +169,10 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
         tx_nuevo_codigo_postal.setText("jTextField1");
 
+        jLabel18.setText("Contraseña:");
+
+        txContraseñaNueva.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -215,8 +223,12 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                         .addComponent(boton_ventana_empleados_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txContraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel9))
@@ -226,14 +238,15 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                                         .addGap(31, 31, 31)
                                         .addComponent(tx_ventana_empleados_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(tx_ventana_empleados_movil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel16))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tx_nuevo_sueldo, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                                    .addComponent(tx_nuevo_suplemento_sueldo))))
+                                    .addComponent(tx_nuevo_suplemento_sueldo)))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(33, 33, 33))
         );
@@ -243,69 +256,71 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txNuevoCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(tx_ventana_empleados_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(tx_ventana_empleados_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(tx_ventana_empleados_movil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(tx_ventana_empleados_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(tx_ventana_empleados_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(tx_ventana_empleados_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(cb_ventana_empleados_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(cb_ventana_empleados_nombre_tipo_via, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(tx_ventana_empleados_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)
-                            .addComponent(tx_nuevo_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(tx_ventana_empleados_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(tx_ventana_empleados_piso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(tx_nuevo_suplemento_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(tx_ventana_empleados_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(tx_ventana_empleados_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(tx_ventana_empleados_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(cb_ventana_empleados_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(cb_ventana_empleados_nombre_tipo_via, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(tx_ventana_empleados_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(tx_nuevo_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(tx_ventana_empleados_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(tx_ventana_empleados_piso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(tx_nuevo_suplemento_sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(txNuevoCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(tx_ventana_empleados_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(tx_ventana_empleados_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(tx_ventana_empleados_movil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(112, 112, 112)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(tx_nuevo_localidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(tx_nuevo_localidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(boton_ventana_empleados_limpiar)
                                     .addComponent(boton_ventana_empleados_agregar))
@@ -315,7 +330,10 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                                 .addComponent(jLabel17)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tx_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tx_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18)
+                            .addComponent(txContraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tx_nuevo_codigo_postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -451,9 +469,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
     private void cbOrdenarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenarEmpleadosActionPerformed
-
+        
         String seleccion = (String) cbOrdenarEmpleados.getSelectedItem();
-
+        
         if (seleccion.equals("Antiguedad")) {
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("idEmpleado")));
         } else if (seleccion.equals("Nombre")) {
@@ -464,7 +482,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
-
+        
         if (resultado == JOptionPane.YES_OPTION) {
             //BORRAR
         } else {
@@ -490,6 +508,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -504,9 +523,11 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaEmpleados;
     private javax.swing.JTable tablaEmpleadosConsulta;
+    private javax.swing.JTextField txContraseñaNueva;
     private javax.swing.JTextField txNuevoCuentaBancaria;
     private javax.swing.JTextField tx_nuevo_codigo_postal;
     private javax.swing.JTextField tx_nuevo_localidad;
@@ -525,40 +546,41 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void insertarDatos() {
-
+        
         if (!Patrones.validarCodigoPostal(tx_nuevo_codigo_postal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
             return;
         }
-
+        
         if (!Patrones.validarDni(tx_ventana_empleados_dni.getText())) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
             return;
         }
-
+        
         if (!Patrones.validarEmail(tx_ventana_empleados_email.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
             return;
         }
-
+        
         if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_empleados_numero.getText())) {
             JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
             return;
         }
-
+        
         if (!Patrones.validarTelefonoMovil(tx_ventana_empleados_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
             return;
         }
-
+        
         Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
                 tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
                 tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
                 Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
                 tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
-                Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText());
-
+                Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
+                Login.devuelveHash(txContraseñaNueva.getText()));
+        
         GestoraEmpleados.guardarEmpleados(empleado);
     }
-
+    
 }

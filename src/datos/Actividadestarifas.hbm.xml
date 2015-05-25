@@ -1,16 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-may-2015 17:08:22 by Hibernate Tools 4.3.1 -->
+<!-- Generated 25-may-2015 23:19:01 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Actividadestarifas" table="actividadestarifas" catalog="fitnesscenter" optimistic-lock="version">
-        <composite-id name="id" class="datos.ActividadestarifasId">
-            <key-property name="idactividadActividadestarifas" type="int">
-                <column name="idactividad_actividadestarifas" />
-            </key-property>
-            <key-property name="idtarifasActividadestarifas" type="int">
-                <column name="idtarifas_actividadestarifas" />
-            </key-property>
-        </composite-id>
+        <id name="idActividadestarifas" type="java.lang.Integer">
+            <column name="id_actividadestarifas" />
+            <generator class="identity" />
+        </id>
+        <property name="idactividadActividadestarifas" type="java.lang.Integer">
+            <column name="idactividad_actividadestarifas" />
+        </property>
+        <property name="idtarifasActividadestarifas" type="java.lang.Integer">
+            <column name="idtarifas_actividadestarifas" />
+        </property>
     </class>
 </hibernate-mapping>

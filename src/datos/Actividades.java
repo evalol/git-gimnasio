@@ -1,8 +1,5 @@
 package datos;
-// Generated 10-may-2015 17:08:22 by Hibernate Tools 4.3.1
-
-import java.util.Objects;
-
+// Generated 25-may-2015 23:18:59 by Hibernate Tools 4.3.1
 
 
 
@@ -55,36 +52,7 @@ public class Actividades  implements java.io.Serializable {
         this.cuotaPrecio = cuotaPrecio;
     }
 
-    @Override
-    public String toString() {
-        return "Actividades{" + "nombreActividad=" + nombreActividad + ", cuotaPrecio=" + cuotaPrecio + '}';
-    }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.nombreActividad);
-        hash = 89 * hash + Objects.hashCode(this.cuotaPrecio);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actividades other = (Actividades) obj;
-        if (!Objects.equals(this.nombreActividad, other.nombreActividad)) {
-            return false;
-        }
-        if (!Objects.equals(this.cuotaPrecio, other.cuotaPrecio)) {
-            return false;
-        }
-        return true;
-    }
 
 
 }

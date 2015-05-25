@@ -1,5 +1,5 @@
 package datos;
-// Generated 10-may-2015 17:08:22 by Hibernate Tools 4.3.1
+// Generated 25-may-2015 23:18:59 by Hibernate Tools 4.3.1
 
 
 
@@ -9,21 +9,38 @@ package datos;
 public class Actividadestarifas  implements java.io.Serializable {
 
 
-     private ActividadestarifasId id;
+     private Integer idActividadestarifas;
+     private Integer idactividadActividadestarifas;
+     private Integer idtarifasActividadestarifas;
 
     public Actividadestarifas() {
     }
 
-    public Actividadestarifas(ActividadestarifasId id) {
-       this.id = id;
+    public Actividadestarifas(Integer idactividadActividadestarifas, Integer idtarifasActividadestarifas) {
+       this.idactividadActividadestarifas = idactividadActividadestarifas;
+       this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
    
-    public ActividadestarifasId getId() {
-        return this.id;
+    public Integer getIdActividadestarifas() {
+        return this.idActividadestarifas;
     }
     
-    public void setId(ActividadestarifasId id) {
-        this.id = id;
+    public void setIdActividadestarifas(Integer idActividadestarifas) {
+        this.idActividadestarifas = idActividadestarifas;
+    }
+    public Integer getIdactividadActividadestarifas() {
+        return this.idactividadActividadestarifas;
+    }
+    
+    public void setIdactividadActividadestarifas(Integer idactividadActividadestarifas) {
+        this.idactividadActividadestarifas = idactividadActividadestarifas;
+    }
+    public Integer getIdtarifasActividadestarifas() {
+        return this.idtarifasActividadestarifas;
+    }
+    
+    public void setIdtarifasActividadestarifas(Integer idtarifasActividadestarifas) {
+        this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
 
 

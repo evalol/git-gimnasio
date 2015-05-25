@@ -2,10 +2,12 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="fitnesscenter"/>
-  <table-filter match-name="empleados"/>
-  <table-filter match-name="actividadestarifas"/>
-  <table-filter match-name="actividades"/>
-  <table-filter match-name="clientes"/>
-  <table-filter match-name="horarios_actividades"/>
   <table-filter match-name="tarifas"/>
+  <table-filter match-name="empleados"/>
+  <table-filter match-name="clientes"/>
+  <table-filter match-name="actividades"/>
+  <table-filter match-name="horarios_actividades"/>
+  <table-filter match-name="domicilios"/>
+  <table-filter match-name="actividadestarifas"/>
+  <table-filter match-name="provincias"/>
 </hibernate-reverse-engineering>
