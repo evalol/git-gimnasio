@@ -416,7 +416,9 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
         empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
         empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
-        empleado.setContrasenaEmpleado(txContraseñaNueva.getText());
+        if(!txContraseñaNueva.getText().isEmpty()){
+            empleado.setContrasenaEmpleado(txContraseñaNueva.getText());
+        }
 
         GestoraEmpleados.actualizarEmpleados(empleado);
     }
@@ -440,7 +442,6 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         tx_nuevo_codigo_postal.setText(empleado.getCodigoPostalEmpleado().toString());
         tx_nuevo_provincia.setText(empleado.getProvinciaEmpleado());
         tx_nuevo_localidad.setText(empleado.getLocalidadEmpleado());
-        txContraseñaNueva.setText(empleado.getContrasenaEmpleado());
     }
 
 }

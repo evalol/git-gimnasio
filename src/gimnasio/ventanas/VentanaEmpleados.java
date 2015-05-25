@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author Eva Maria de Vena García
  */
 public class VentanaEmpleados extends javax.swing.JDialog {
-    
+
     public VentanaEmpleados(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
@@ -469,9 +469,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
     private void cbOrdenarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenarEmpleadosActionPerformed
-        
+
         String seleccion = (String) cbOrdenarEmpleados.getSelectedItem();
-        
+
         if (seleccion.equals("Antiguedad")) {
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("idEmpleado")));
         } else if (seleccion.equals("Nombre")) {
@@ -482,7 +482,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
-        
+
         if (resultado == JOptionPane.YES_OPTION) {
             //BORRAR
         } else {
@@ -546,32 +546,27 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void insertarDatos() {
-        
+
         if (!Patrones.validarCodigoPostal(tx_nuevo_codigo_postal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
             return;
         }
-        
+
         if (!Patrones.validarDni(tx_ventana_empleados_dni.getText())) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
             return;
         }
-        
+
         if (!Patrones.validarEmail(tx_ventana_empleados_email.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
             return;
         }
-        
-        if (!Patrones.validarNumeroCuentaBancaria(tx_ventana_empleados_numero.getText())) {
-            JOptionPane.showMessageDialog(this, "El número de cuenta bancaria introducido es incorrecto");
-            return;
-        }
-        
+
         if (!Patrones.validarTelefonoMovil(tx_ventana_empleados_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
             return;
         }
-        
+
         Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
                 tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
                 tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
@@ -579,8 +574,8 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                 tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
                 Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
                 Login.devuelveHash(txContraseñaNueva.getText()));
-        
+
         GestoraEmpleados.guardarEmpleados(empleado);
     }
-    
+
 }
