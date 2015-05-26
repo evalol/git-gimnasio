@@ -105,15 +105,15 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
                     }
                     break;
                     case 8: {
-                        devolver = empleados[rowIndex].getFechaNacEmpleado();
+                        devolver = empleados[rowIndex].getFechanacimientoEmpleado();
                     }
                     break;
                     case 9: {
-                        devolver = empleados[rowIndex].getFechaAltaEmpleado();
+                        devolver = empleados[rowIndex].getFechaaltaEmpleado();
                     }
                     break;
                     case 10: {
-                        devolver = empleados[rowIndex].getSueldoMesEmpleado();
+                        devolver = empleados[rowIndex].getSueldomesEmpleado();
                     }
                     break;
                     case 11: {
@@ -127,7 +127,7 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
                     }
                     break;
                     case 13: {
-                        devolver = empleados[rowIndex].getCodigoPostalEmpleado();
+                        devolver = empleados[rowIndex].getCodigopostalEmpleado();
                     }
                     break;
                     case 14: {

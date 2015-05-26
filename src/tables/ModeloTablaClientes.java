@@ -91,17 +91,17 @@ public class ModeloTablaClientes extends DefaultTableModel {
                     }
                     break;
                     case 5: {
-                        devolver = clientes[rowIndex].getTelefonoMovilCliente();
+                        devolver = clientes[rowIndex].getTelefonomovilCliente();
                     }
                     break;
                     case 6: {
-                        devolver = clientes[rowIndex].getDireccionDomicilioCliente() + " "
-                                + clientes[rowIndex].getNumeroDomicilioCliente() + " "
-                                + clientes[rowIndex].getNumeroDomicilioCliente();
+                        devolver = clientes[rowIndex].getDirecciondomicilioCliente()+ " "
+                                + clientes[rowIndex].getNumerodomicilioCliente()+ " "
+                                + clientes[rowIndex].getPisodomicilioCliente();
                     }
                     break;
                     case 7: {
-                        devolver = clientes[rowIndex].getCodigoPostalCliente();
+                        devolver = clientes[rowIndex].getCodigopostalCliente();
                     }
                     break;
                     case 8: {
@@ -129,7 +129,7 @@ public class ModeloTablaClientes extends DefaultTableModel {
                     }
                     break;
                     case 14: {
-                        devolver = clientes[rowIndex].getIdTarifaCliente();
+                        devolver = clientes[rowIndex].getIdtarifaCliente();
                     }
                     break;
                     case 15: {

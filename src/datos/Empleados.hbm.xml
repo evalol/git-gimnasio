@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-may-2015 0:02:00 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Empleados" table="empleados" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idEmpleado" type="java.lang.Integer">
@@ -29,14 +29,14 @@
         <property name="cuentaBancariaEmpleado" type="string">
             <column name="cuenta_bancaria_empleado" length="50" not-null="true" />
         </property>
-        <property name="fechaNacEmpleado" type="date">
-            <column name="fecha_nac_empleado" length="10" not-null="true" />
+        <property name="fechanacimientoEmpleado" type="date">
+            <column name="fechanacimiento_empleado" length="10" not-null="true" />
         </property>
-        <property name="fechaAltaEmpleado" type="date">
-            <column name="fecha_alta_empleado" length="10" />
+        <property name="fechaaltaEmpleado" type="date">
+            <column name="fechaalta_empleado" length="10" />
         </property>
-        <property name="sueldoMesEmpleado" type="java.lang.Integer">
-            <column name="sueldo_mes_empleado" />
+        <property name="sueldomesEmpleado" type="java.lang.Integer">
+            <column name="sueldomes_empleado" />
         </property>
         <property name="suplementoSueldoEmpleado" type="java.lang.Integer">
             <column name="suplemento_sueldo_empleado" />
@@ -50,8 +50,8 @@
         <property name="numeroEmpleado" type="string">
             <column name="numero_empleado" length="50" />
         </property>
-        <property name="codigoPostalEmpleado" type="java.lang.Integer">
-            <column name="codigo_postal_empleado" />
+        <property name="codigopostalEmpleado" type="java.lang.Integer">
+            <column name="codigopostal_empleado" />
         </property>
         <property name="localidadEmpleado" type="string">
             <column name="localidad_empleado" length="60" />
@@ -60,7 +60,7 @@
             <column name="provincia_empleado" length="60" />
         </property>
         <property name="contrasenaEmpleado" type="string">
-            <column name="contrasena_empleado" length="33" />
+            <column name="contrasena_empleado" length="32" />
         </property>
     </class>
 </hibernate-mapping>

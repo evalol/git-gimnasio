@@ -1,5 +1,5 @@
 package datos;
-// Generated 27-may-2015 0:01:58 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1
 
 
 
@@ -11,17 +11,15 @@ public class Actividades  implements java.io.Serializable {
 
      private Integer idActividad;
      private String nombreActividad;
-     private Integer empleadoEncargadoActividad;
-     private Integer cuotaPrecio;
+     private Integer idempleadoencargadoActividad;
      private Integer idtarifasActividadestarifas;
 
     public Actividades() {
     }
 
-    public Actividades(String nombreActividad, Integer empleadoEncargadoActividad, Integer cuotaPrecio, Integer idtarifasActividadestarifas) {
+    public Actividades(String nombreActividad, Integer idempleadoencargadoActividad, Integer idtarifasActividadestarifas) {
        this.nombreActividad = nombreActividad;
-       this.empleadoEncargadoActividad = empleadoEncargadoActividad;
-       this.cuotaPrecio = cuotaPrecio;
+       this.idempleadoencargadoActividad = idempleadoencargadoActividad;
        this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
    
@@ -39,19 +37,12 @@ public class Actividades  implements java.io.Serializable {
     public void setNombreActividad(String nombreActividad) {
         this.nombreActividad = nombreActividad;
     }
-    public Integer getEmpleadoEncargadoActividad() {
-        return this.empleadoEncargadoActividad;
+    public Integer getIdempleadoencargadoActividad() {
+        return this.idempleadoencargadoActividad;
     }
     
-    public void setEmpleadoEncargadoActividad(Integer empleadoEncargadoActividad) {
-        this.empleadoEncargadoActividad = empleadoEncargadoActividad;
-    }
-    public Integer getCuotaPrecio() {
-        return this.cuotaPrecio;
-    }
-    
-    public void setCuotaPrecio(Integer cuotaPrecio) {
-        this.cuotaPrecio = cuotaPrecio;
+    public void setIdempleadoencargadoActividad(Integer idempleadoencargadoActividad) {
+        this.idempleadoencargadoActividad = idempleadoencargadoActividad;
     }
     public Integer getIdtarifasActividadestarifas() {
         return this.idtarifasActividadestarifas;
@@ -61,11 +52,9 @@ public class Actividades  implements java.io.Serializable {
         this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
 
-    @Override
-    public String toString() {
-        return nombreActividad;
-    }
-    
+
+
+
 }
 
 

@@ -286,9 +286,9 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
     public void mostrarDetallesClientes(int idEmpleados) {
 
         etiApellidos.setText(cliente.getApellidosCliente());
-        etiCodPost.setText(cliente.getCodigoPostalCliente().toString());
+        etiCodPost.setText(cliente.getCodigopostalCliente().toString());
         etiCuentaBancaria.setText(cliente.getCuentabancariaCliente());
-        etiDireccion.setText(cliente.getDireccionDomicilioCliente());
+        etiDireccion.setText(cliente.getDirecciondomicilioCliente());
         etiDni.setText(cliente.getDniCliente());
         etiEdad.setText(null);
         etiEmail.setText(cliente.getEmailCliente());
@@ -297,11 +297,11 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
         etiLocalidad.setText(cliente.getLocalidadCliente());
         etiNombre.setText(cliente.getNombreCliente());
         etiNumero.setText(cliente.getNombreCliente());
-        etiPiso.setText(cliente.getPisoDomicilioCliente());
+        etiPiso.setText(cliente.getPisodomicilioCliente());
         etiProvincia.setText(cliente.getProvinciaCliente());
         etiTarifa.setText(null);
         etiTelefonoFijo.setText(cliente.getTelefonoCliente());
-        etiTelefonoMovil.setText(cliente.getTelefonoMovilCliente());
+        etiTelefonoMovil.setText(cliente.getTelefonomovilCliente());
 
     }
 

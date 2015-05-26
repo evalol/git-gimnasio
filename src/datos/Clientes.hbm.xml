@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-may-2015 0:02:00 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Clientes" table="clientes" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idCliente" type="java.lang.Integer">
@@ -20,20 +20,20 @@
         <property name="telefonoCliente" type="string">
             <column name="telefono_cliente" length="9" />
         </property>
-        <property name="telefonoMovilCliente" type="string">
-            <column name="telefono_movil_cliente" length="9" />
+        <property name="telefonomovilCliente" type="string">
+            <column name="telefonomovil_cliente" length="9" />
         </property>
-        <property name="direccionDomicilioCliente" type="string">
-            <column name="direccion_domicilio_cliente" length="50" />
+        <property name="direcciondomicilioCliente" type="string">
+            <column name="direcciondomicilio_cliente" length="50" />
         </property>
-        <property name="pisoDomicilioCliente" type="string">
-            <column name="piso_domicilio_cliente" length="50" />
+        <property name="pisodomicilioCliente" type="string">
+            <column name="pisodomicilio_cliente" length="50" />
         </property>
-        <property name="numeroDomicilioCliente" type="string">
-            <column name="numero_domicilio_cliente" length="50" />
+        <property name="numerodomicilioCliente" type="string">
+            <column name="numerodomicilio_cliente" length="50" />
         </property>
-        <property name="codigoPostalCliente" type="java.lang.Integer">
-            <column name="codigo_postal_cliente" />
+        <property name="codigopostalCliente" type="java.lang.Integer">
+            <column name="codigopostal_cliente" />
         </property>
         <property name="localidadCliente" type="string">
             <column name="localidad_cliente" length="60" />
@@ -53,14 +53,14 @@
         <property name="altaCliente" type="date">
             <column name="alta_cliente" length="10" />
         </property>
-        <property name="idTarifaCliente" type="java.lang.Integer">
-            <column name="id_tarifa_cliente" />
+        <property name="idtarifaCliente" type="java.lang.Integer">
+            <column name="idtarifa_cliente" />
         </property>
         <property name="formapagoCliente" type="string">
             <column name="formapago_cliente" length="25" not-null="true" />
         </property>
-        <property name="altaEmpleadoCliente" type="string">
-            <column name="alta_empleado_cliente" length="60" />
+        <property name="idempleadoaltaCliente" type="java.lang.Integer">
+            <column name="idempleadoalta_cliente" />
         </property>
     </class>
 </hibernate-mapping>

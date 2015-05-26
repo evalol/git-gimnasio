@@ -17,8 +17,8 @@ public class ModeloTablaActividades extends DefaultTableModel {
 
     private Actividades[] actividades;
     private int filas;
-    String[] nombres = {"Id", "Nombre", "Empleado responsable", "Cuota"};
-    Class[] clases = {Integer.class, String.class, Integer.class, Integer.class, Integer.class};
+    String[] nombres = {"Id", "Nombre", "Empleado responsable"};
+    Class[] clases = {Integer.class, String.class, Integer.class, Integer.class};
 
     public ModeloTablaActividades(Actividades[] actividades) {
         this.actividades = actividades;
@@ -37,7 +37,7 @@ public class ModeloTablaActividades extends DefaultTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
 
     @Override
@@ -72,14 +72,9 @@ public class ModeloTablaActividades extends DefaultTableModel {
                     }
                     break;
                     case 2: {
-                        devolver = actividades[rowIndex].getEmpleadoEncargadoActividad();
+                        devolver = actividades[rowIndex].getIdempleadoencargadoActividad();
                     }
                     break;
-                    case 3: {
-                        devolver = actividades[rowIndex].getCuotaPrecio();
-                    }
-                    break;
-
                 }
             }
         }

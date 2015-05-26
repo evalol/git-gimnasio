@@ -34,6 +34,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     public VentanaClientes(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        tablaClientes.setAutoCreateRowSorter(true);
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         getTarifas();
@@ -94,7 +95,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         tablaClientes = new javax.swing.JTable();
         botonEditarCliente = new javax.swing.JButton();
         botonBorrarCliente = new javax.swing.JButton();
-        cbOrdenClientes = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -405,13 +405,6 @@ public class VentanaClientes extends javax.swing.JDialog {
             }
         });
 
-        cbOrdenClientes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguedad", "Empleado", "Nombre" }));
-        cbOrdenClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOrdenClientesActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -425,18 +418,13 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addComponent(botonBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(348, 348, 348)
-                        .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(69, 69, 69)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -525,7 +513,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                     tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
                     tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
                     Gestora.fechaActual(), ((Tarifas) cb_ventana_clientes_nuevo_tarifa.getSelectedItem()).getIdTarifa(), formaPago, 
-                    Login.getEmpleadoAutenticado().getNombreEmpleado());
+                    Login.getEmpleadoAutenticado().getIdEmpleado());
 
             GestoraClientes.guardarCliente(cliente);
             tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
@@ -560,20 +548,6 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
-    private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed
-
-        String seleccion = (String) cbOrdenClientes.getSelectedItem();
-
-        if (seleccion.equals("Antiguedad")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("idCliente")));
-        } else if (seleccion.equals("Empleado")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("altaEmpleadoCliente")));
-        } else if (seleccion.equals("Nombre")) {
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes("nombreCliente")));
-        }
-
-    }//GEN-LAST:event_cbOrdenClientesActionPerformed
-
     private void cb_ventana_clientes_nuevo_tarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
@@ -590,7 +564,6 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.ButtonGroup bgFormaDePago;
     private javax.swing.JButton botonBorrarCliente;
     private javax.swing.JButton botonEditarCliente;
-    private javax.swing.JComboBox cbOrdenClientes;
     private javax.swing.JComboBox cb_ventana_clientes_nuevo_tarifa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

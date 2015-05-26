@@ -1,5 +1,5 @@
 package datos;
-// Generated 27-may-2015 0:01:58 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,14 +18,14 @@ public class Empleados  implements java.io.Serializable {
      private String telefonoEmpleado;
      private String movilEmpleado;
      private String cuentaBancariaEmpleado;
-     private Date fechaNacEmpleado;
-     private Date fechaAltaEmpleado;
-     private Integer sueldoMesEmpleado;
+     private Date fechanacimientoEmpleado;
+     private Date fechaaltaEmpleado;
+     private Integer sueldomesEmpleado;
      private Integer suplementoSueldoEmpleado;
      private String direccionEmpleado;
      private String pisoEmpleado;
      private String numeroEmpleado;
-     private Integer codigoPostalEmpleado;
+     private Integer codigopostalEmpleado;
      private String localidadEmpleado;
      private String provinciaEmpleado;
      private String contrasenaEmpleado;
@@ -34,12 +34,12 @@ public class Empleados  implements java.io.Serializable {
     }
 
 	
-    public Empleados(String dniEmpleado, String cuentaBancariaEmpleado, Date fechaNacEmpleado) {
+    public Empleados(String dniEmpleado, String cuentaBancariaEmpleado, Date fechanacimientoEmpleado) {
         this.dniEmpleado = dniEmpleado;
         this.cuentaBancariaEmpleado = cuentaBancariaEmpleado;
-        this.fechaNacEmpleado = fechaNacEmpleado;
+        this.fechanacimientoEmpleado = fechanacimientoEmpleado;
     }
-    public Empleados(String nombreEmpleado, String apellidosEmpleado, String dniEmpleado, String emailEmpleado, String telefonoEmpleado, String movilEmpleado, String cuentaBancariaEmpleado, Date fechaNacEmpleado, Date fechaAltaEmpleado, Integer sueldoMesEmpleado, Integer suplementoSueldoEmpleado, String direccionEmpleado, String pisoEmpleado, String numeroEmpleado, Integer codigoPostalEmpleado, String localidadEmpleado, String provinciaEmpleado, String contrasenaEmpleado) {
+    public Empleados(String nombreEmpleado, String apellidosEmpleado, String dniEmpleado, String emailEmpleado, String telefonoEmpleado, String movilEmpleado, String cuentaBancariaEmpleado, Date fechanacimientoEmpleado, Date fechaaltaEmpleado, Integer sueldomesEmpleado, Integer suplementoSueldoEmpleado, String direccionEmpleado, String pisoEmpleado, String numeroEmpleado, Integer codigopostalEmpleado, String localidadEmpleado, String provinciaEmpleado, String contrasenaEmpleado) {
        this.nombreEmpleado = nombreEmpleado;
        this.apellidosEmpleado = apellidosEmpleado;
        this.dniEmpleado = dniEmpleado;
@@ -47,14 +47,14 @@ public class Empleados  implements java.io.Serializable {
        this.telefonoEmpleado = telefonoEmpleado;
        this.movilEmpleado = movilEmpleado;
        this.cuentaBancariaEmpleado = cuentaBancariaEmpleado;
-       this.fechaNacEmpleado = fechaNacEmpleado;
-       this.fechaAltaEmpleado = fechaAltaEmpleado;
-       this.sueldoMesEmpleado = sueldoMesEmpleado;
+       this.fechanacimientoEmpleado = fechanacimientoEmpleado;
+       this.fechaaltaEmpleado = fechaaltaEmpleado;
+       this.sueldomesEmpleado = sueldomesEmpleado;
        this.suplementoSueldoEmpleado = suplementoSueldoEmpleado;
        this.direccionEmpleado = direccionEmpleado;
        this.pisoEmpleado = pisoEmpleado;
        this.numeroEmpleado = numeroEmpleado;
-       this.codigoPostalEmpleado = codigoPostalEmpleado;
+       this.codigopostalEmpleado = codigopostalEmpleado;
        this.localidadEmpleado = localidadEmpleado;
        this.provinciaEmpleado = provinciaEmpleado;
        this.contrasenaEmpleado = contrasenaEmpleado;
@@ -116,26 +116,26 @@ public class Empleados  implements java.io.Serializable {
     public void setCuentaBancariaEmpleado(String cuentaBancariaEmpleado) {
         this.cuentaBancariaEmpleado = cuentaBancariaEmpleado;
     }
-    public Date getFechaNacEmpleado() {
-        return this.fechaNacEmpleado;
+    public Date getFechanacimientoEmpleado() {
+        return this.fechanacimientoEmpleado;
     }
     
-    public void setFechaNacEmpleado(Date fechaNacEmpleado) {
-        this.fechaNacEmpleado = fechaNacEmpleado;
+    public void setFechanacimientoEmpleado(Date fechanacimientoEmpleado) {
+        this.fechanacimientoEmpleado = fechanacimientoEmpleado;
     }
-    public Date getFechaAltaEmpleado() {
-        return this.fechaAltaEmpleado;
-    }
-    
-    public void setFechaAltaEmpleado(Date fechaAltaEmpleado) {
-        this.fechaAltaEmpleado = fechaAltaEmpleado;
-    }
-    public Integer getSueldoMesEmpleado() {
-        return this.sueldoMesEmpleado;
+    public Date getFechaaltaEmpleado() {
+        return this.fechaaltaEmpleado;
     }
     
-    public void setSueldoMesEmpleado(Integer sueldoMesEmpleado) {
-        this.sueldoMesEmpleado = sueldoMesEmpleado;
+    public void setFechaaltaEmpleado(Date fechaaltaEmpleado) {
+        this.fechaaltaEmpleado = fechaaltaEmpleado;
+    }
+    public Integer getSueldomesEmpleado() {
+        return this.sueldomesEmpleado;
+    }
+    
+    public void setSueldomesEmpleado(Integer sueldomesEmpleado) {
+        this.sueldomesEmpleado = sueldomesEmpleado;
     }
     public Integer getSuplementoSueldoEmpleado() {
         return this.suplementoSueldoEmpleado;
@@ -165,12 +165,12 @@ public class Empleados  implements java.io.Serializable {
     public void setNumeroEmpleado(String numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
     }
-    public Integer getCodigoPostalEmpleado() {
-        return this.codigoPostalEmpleado;
+    public Integer getCodigopostalEmpleado() {
+        return this.codigopostalEmpleado;
     }
     
-    public void setCodigoPostalEmpleado(Integer codigoPostalEmpleado) {
-        this.codigoPostalEmpleado = codigoPostalEmpleado;
+    public void setCodigopostalEmpleado(Integer codigopostalEmpleado) {
+        this.codigopostalEmpleado = codigopostalEmpleado;
     }
     public String getLocalidadEmpleado() {
         return this.localidadEmpleado;
@@ -194,10 +194,8 @@ public class Empleados  implements java.io.Serializable {
         this.contrasenaEmpleado = contrasenaEmpleado;
     }
 
-    @Override
-    public String toString() {
-        return nombreEmpleado;
-    }
+
+
 
 }
 

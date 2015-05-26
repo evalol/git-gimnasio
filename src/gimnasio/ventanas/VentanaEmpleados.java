@@ -24,6 +24,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     public VentanaEmpleados(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        tablaEmpleados.setAutoCreateRowSorter(true);
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
@@ -85,7 +86,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         tablaEmpleados = new javax.swing.JTable();
         botonEditarEmpleado = new javax.swing.JButton();
         botonBorrarEmpleado = new javax.swing.JButton();
-        cbOrdenarEmpleados = new javax.swing.JComboBox();
         botonDetalles = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -370,13 +370,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
             }
         });
 
-        cbOrdenarEmpleados.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Antiguedad", "Nombre", " " }));
-        cbOrdenarEmpleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOrdenarEmpleadosActionPerformed(evt);
-            }
-        });
-
         botonDetalles.setText("Detalles");
         botonDetalles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,9 +391,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                         .addGap(72, 72, 72)
                         .addComponent(botonDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(407, 407, 407)
-                        .addComponent(cbOrdenarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -408,9 +398,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(cbOrdenarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(75, 75, 75)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -480,18 +468,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);        
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
-    private void cbOrdenarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenarEmpleadosActionPerformed
-
-        String seleccion = (String) cbOrdenarEmpleados.getSelectedItem();
-
-        if (seleccion.equals("Antiguedad")) {
-            tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("idEmpleado")));
-        } else if (seleccion.equals("Nombre")) {
-            tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados("nombreEmpleado")));
-        }
-
-    }//GEN-LAST:event_cbOrdenarEmpleadosActionPerformed
-
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
         try {
             int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
@@ -519,7 +495,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JButton botonEditarEmpleado;
     private javax.swing.JButton boton_ventana_empleados_agregar;
     private javax.swing.JButton boton_ventana_empleados_limpiar;
-    private javax.swing.JComboBox cbOrdenarEmpleados;
     private com.toedter.calendar.JDateChooser cb_ventana_empleados_fecha_nac;
     private javax.swing.JComboBox cb_ventana_empleados_nombre_tipo_via;
     private javax.swing.JLabel jLabel1;

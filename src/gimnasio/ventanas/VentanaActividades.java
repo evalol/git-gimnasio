@@ -6,12 +6,12 @@
 package gimnasio.ventanas;
 
 import Tables.ModeloTablaActividades;
-import Tables.ModeloTablaClientes;
 import datos.Actividades;
 import datos.Empleados;
+import datos.Tarifas;
 import gimnasio.gestoras.GestoraActividades;
-import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.GestoraEmpleados;
+import gimnasio.gestoras.GestoraTarifas;
 import java.awt.Frame;
 import java.awt.HeadlessException;
 import java.util.List;
@@ -31,9 +31,11 @@ public class VentanaActividades extends javax.swing.JDialog {
     public VentanaActividades(Frame owner, boolean modal) {
         super(owner, modal);
         initComponents();
+        tablaActividades.setAutoCreateRowSorter(true);
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
-        getEmpleados();
+        rellenaComboEmpleados();
+        rellenaComboTarifas();
         tablaActividades.setModel(new ModeloTablaActividades(GestoraActividades.recuperarActividades()));
     }
 
@@ -56,10 +58,11 @@ public class VentanaActividades extends javax.swing.JDialog {
         cbEmpleadoActividad = new javax.swing.JComboBox();
         botonLimpiar = new javax.swing.JButton();
         botonInsertar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cbTarifasActividad = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaActividades = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox();
         botonBorrar = new javax.swing.JButton();
         botonEditar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -97,6 +100,10 @@ public class VentanaActividades extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setText("Tarifa actividad:");
+
+        cbTarifasActividad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,14 +120,17 @@ public class VentanaActividades extends javax.swing.JDialog {
                         .addGap(40, 40, 40)
                         .addComponent(txNombreActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbTarifasActividad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txPrecioActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txPrecioActividad, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))))
                 .addContainerGap(229, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,9 +146,13 @@ public class VentanaActividades extends javax.swing.JDialog {
                     .addComponent(cbEmpleadoActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cbTarifasActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txPrecioActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(116, 116, 116)
+                .addGap(84, 84, 84)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,13 +173,6 @@ public class VentanaActividades extends javax.swing.JDialog {
             }
         ));
         jScrollPane1.setViewportView(tablaActividades);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         botonBorrar.setText("Borrar");
         botonBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,9 +198,6 @@ public class VentanaActividades extends javax.swing.JDialog {
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -203,10 +207,8 @@ public class VentanaActividades extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
@@ -254,8 +256,8 @@ public class VentanaActividades extends javax.swing.JDialog {
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
         try {
             Actividades actividad = new Actividades(txNombreActividad.getText(),
-                    ((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado(),
-                    Integer.parseInt(txPrecioActividad.getText()), 1);
+                    ((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado(), 
+                    ((Tarifas) cbTarifasActividad.getSelectedItem()).getIdTarifa());
             GestoraActividades.guardarActividades(actividad);
             JOptionPane.showMessageDialog(this, "Se ha insertado la actividad.");
         } catch (NumberFormatException numberFormatException) {
@@ -266,10 +268,6 @@ public class VentanaActividades extends javax.swing.JDialog {
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
         borrarActividad();
     }//GEN-LAST:event_botonBorrarActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
         new VentanaActividadesEditor((Frame) this.getParent(), true, (int) tablaActividades.getValueAt(tablaActividades.getSelectedRow(), 0)).setVisible(true);
@@ -283,8 +281,9 @@ public class VentanaActividades extends javax.swing.JDialog {
     private javax.swing.JButton botonInsertar;
     private javax.swing.JButton botonLimpiar;
     private javax.swing.JComboBox cbEmpleadoActividad;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbTarifasActividad;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -305,10 +304,16 @@ public class VentanaActividades extends javax.swing.JDialog {
         }
     }
 
-    public void getEmpleados() {
+    public void rellenaComboEmpleados() {
         List<Empleados> lista = GestoraEmpleados.recuperarEmpleados();
         cbEmpleadoActividad.setModel(new DefaultComboBoxModel(lista.toArray(new Empleados[lista.size()])));
         cbEmpleadoActividad.addItem("");
+    }
+
+    public void rellenaComboTarifas() {
+        List<Tarifas> lista = GestoraTarifas.recuperarTarifas();
+        cbTarifasActividad.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
+        cbTarifasActividad.addItem("");
     }
 
     private void borrarActividad() {

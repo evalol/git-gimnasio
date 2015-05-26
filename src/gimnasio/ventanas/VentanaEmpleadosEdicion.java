@@ -382,13 +382,13 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
             empleado.setTelefonoEmpleado(tx_ventana_empleados_telefono.getText());
             empleado.setMovilEmpleado(tx_ventana_empleados_movil.getText());
             empleado.setCuentaBancariaEmpleado(txNuevoCuentaBancaria.getText());
-            empleado.setFechaNacEmpleado(cb_ventana_empleados_fecha_nac.getDate());
-            empleado.setSueldoMesEmpleado(Integer.parseInt(tx_nuevo_sueldo.getText()));
+            empleado.setFechanacimientoEmpleado(cb_ventana_empleados_fecha_nac.getDate());
+            empleado.setSueldomesEmpleado(Integer.parseInt(tx_nuevo_sueldo.getText()));
             empleado.setSuplementoSueldoEmpleado(Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()));
             empleado.setDireccionEmpleado(tx_ventana_empleados_direccion.getText());
             empleado.setPisoEmpleado(tx_ventana_empleados_piso.getText());
             empleado.setNumeroEmpleado(tx_ventana_empleados_numero.getText());
-            empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
+            empleado.setCodigopostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
             empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
             empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
 
@@ -410,13 +410,13 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         tx_ventana_empleados_telefono.setText(empleado.getTelefonoEmpleado());
         tx_ventana_empleados_movil.setText(empleado.getMovilEmpleado());
         txNuevoCuentaBancaria.setText(empleado.getCuentaBancariaEmpleado());
-        cb_ventana_empleados_fecha_nac.setDate(empleado.getFechaNacEmpleado());
-        tx_nuevo_sueldo.setText(empleado.getSueldoMesEmpleado().toString());
+        cb_ventana_empleados_fecha_nac.setDate(empleado.getFechanacimientoEmpleado());
+        tx_nuevo_sueldo.setText(empleado.getSueldomesEmpleado().toString());
         tx_nuevo_suplemento_sueldo.setText(empleado.getSuplementoSueldoEmpleado().toString());
         tx_ventana_empleados_direccion.setText(empleado.getDireccionEmpleado());
         tx_ventana_empleados_piso.setText(empleado.getPisoEmpleado());
         tx_ventana_empleados_numero.setText(empleado.getNumeroEmpleado());
-        tx_nuevo_codigo_postal.setText(empleado.getCodigoPostalEmpleado().toString());
+        tx_nuevo_codigo_postal.setText(empleado.getCodigopostalEmpleado().toString());
         tx_nuevo_provincia.setText(empleado.getProvinciaEmpleado());
         tx_nuevo_localidad.setText(empleado.getLocalidadEmpleado());
 

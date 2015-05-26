@@ -1,5 +1,5 @@
 package datos;
-// Generated 27-may-2015 0:01:58 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,20 +15,20 @@ public class Clientes  implements java.io.Serializable {
      private String apellidosCliente;
      private String dniCliente;
      private String telefonoCliente;
-     private String telefonoMovilCliente;
-     private String direccionDomicilioCliente;
-     private String pisoDomicilioCliente;
-     private String numeroDomicilioCliente;
-     private Integer codigoPostalCliente;
+     private String telefonomovilCliente;
+     private String direcciondomicilioCliente;
+     private String pisodomicilioCliente;
+     private String numerodomicilioCliente;
+     private Integer codigopostalCliente;
      private String localidadCliente;
      private String provinciaCliente;
      private Date fechanacimientoCliente;
      private String cuentabancariaCliente;
      private String emailCliente;
      private Date altaCliente;
-     private Integer idTarifaCliente;
+     private Integer idtarifaCliente;
      private String formapagoCliente;
-     private String altaEmpleadoCliente;
+     private Integer idempleadoaltaCliente;
 
     public Clientes() {
     }
@@ -40,25 +40,25 @@ public class Clientes  implements java.io.Serializable {
         this.cuentabancariaCliente = cuentabancariaCliente;
         this.formapagoCliente = formapagoCliente;
     }
-    public Clientes(String nombreCliente, String apellidosCliente, String dniCliente, String telefonoCliente, String telefonoMovilCliente, String direccionDomicilioCliente, String pisoDomicilioCliente, String numeroDomicilioCliente, Integer codigoPostalCliente, String localidadCliente, String provinciaCliente, Date fechanacimientoCliente, String cuentabancariaCliente, String emailCliente, Date altaCliente, Integer idTarifaCliente, String formapagoCliente, String altaEmpleadoCliente) {
+    public Clientes(String nombreCliente, String apellidosCliente, String dniCliente, String telefonoCliente, String telefonomovilCliente, String direcciondomicilioCliente, String pisodomicilioCliente, String numerodomicilioCliente, Integer codigopostalCliente, String localidadCliente, String provinciaCliente, Date fechanacimientoCliente, String cuentabancariaCliente, String emailCliente, Date altaCliente, Integer idtarifaCliente, String formapagoCliente, Integer idempleadoaltaCliente) {
        this.nombreCliente = nombreCliente;
        this.apellidosCliente = apellidosCliente;
        this.dniCliente = dniCliente;
        this.telefonoCliente = telefonoCliente;
-       this.telefonoMovilCliente = telefonoMovilCliente;
-       this.direccionDomicilioCliente = direccionDomicilioCliente;
-       this.pisoDomicilioCliente = pisoDomicilioCliente;
-       this.numeroDomicilioCliente = numeroDomicilioCliente;
-       this.codigoPostalCliente = codigoPostalCliente;
+       this.telefonomovilCliente = telefonomovilCliente;
+       this.direcciondomicilioCliente = direcciondomicilioCliente;
+       this.pisodomicilioCliente = pisodomicilioCliente;
+       this.numerodomicilioCliente = numerodomicilioCliente;
+       this.codigopostalCliente = codigopostalCliente;
        this.localidadCliente = localidadCliente;
        this.provinciaCliente = provinciaCliente;
        this.fechanacimientoCliente = fechanacimientoCliente;
        this.cuentabancariaCliente = cuentabancariaCliente;
        this.emailCliente = emailCliente;
        this.altaCliente = altaCliente;
-       this.idTarifaCliente = idTarifaCliente;
+       this.idtarifaCliente = idtarifaCliente;
        this.formapagoCliente = formapagoCliente;
-       this.altaEmpleadoCliente = altaEmpleadoCliente;
+       this.idempleadoaltaCliente = idempleadoaltaCliente;
     }
    
     public Integer getIdCliente() {
@@ -96,40 +96,40 @@ public class Clientes  implements java.io.Serializable {
     public void setTelefonoCliente(String telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
     }
-    public String getTelefonoMovilCliente() {
-        return this.telefonoMovilCliente;
+    public String getTelefonomovilCliente() {
+        return this.telefonomovilCliente;
     }
     
-    public void setTelefonoMovilCliente(String telefonoMovilCliente) {
-        this.telefonoMovilCliente = telefonoMovilCliente;
+    public void setTelefonomovilCliente(String telefonomovilCliente) {
+        this.telefonomovilCliente = telefonomovilCliente;
     }
-    public String getDireccionDomicilioCliente() {
-        return this.direccionDomicilioCliente;
-    }
-    
-    public void setDireccionDomicilioCliente(String direccionDomicilioCliente) {
-        this.direccionDomicilioCliente = direccionDomicilioCliente;
-    }
-    public String getPisoDomicilioCliente() {
-        return this.pisoDomicilioCliente;
+    public String getDirecciondomicilioCliente() {
+        return this.direcciondomicilioCliente;
     }
     
-    public void setPisoDomicilioCliente(String pisoDomicilioCliente) {
-        this.pisoDomicilioCliente = pisoDomicilioCliente;
+    public void setDirecciondomicilioCliente(String direcciondomicilioCliente) {
+        this.direcciondomicilioCliente = direcciondomicilioCliente;
     }
-    public String getNumeroDomicilioCliente() {
-        return this.numeroDomicilioCliente;
-    }
-    
-    public void setNumeroDomicilioCliente(String numeroDomicilioCliente) {
-        this.numeroDomicilioCliente = numeroDomicilioCliente;
-    }
-    public Integer getCodigoPostalCliente() {
-        return this.codigoPostalCliente;
+    public String getPisodomicilioCliente() {
+        return this.pisodomicilioCliente;
     }
     
-    public void setCodigoPostalCliente(Integer codigoPostalCliente) {
-        this.codigoPostalCliente = codigoPostalCliente;
+    public void setPisodomicilioCliente(String pisodomicilioCliente) {
+        this.pisodomicilioCliente = pisodomicilioCliente;
+    }
+    public String getNumerodomicilioCliente() {
+        return this.numerodomicilioCliente;
+    }
+    
+    public void setNumerodomicilioCliente(String numerodomicilioCliente) {
+        this.numerodomicilioCliente = numerodomicilioCliente;
+    }
+    public Integer getCodigopostalCliente() {
+        return this.codigopostalCliente;
+    }
+    
+    public void setCodigopostalCliente(Integer codigopostalCliente) {
+        this.codigopostalCliente = codigopostalCliente;
     }
     public String getLocalidadCliente() {
         return this.localidadCliente;
@@ -173,12 +173,12 @@ public class Clientes  implements java.io.Serializable {
     public void setAltaCliente(Date altaCliente) {
         this.altaCliente = altaCliente;
     }
-    public Integer getIdTarifaCliente() {
-        return this.idTarifaCliente;
+    public Integer getIdtarifaCliente() {
+        return this.idtarifaCliente;
     }
     
-    public void setIdTarifaCliente(Integer idTarifaCliente) {
-        this.idTarifaCliente = idTarifaCliente;
+    public void setIdtarifaCliente(Integer idtarifaCliente) {
+        this.idtarifaCliente = idtarifaCliente;
     }
     public String getFormapagoCliente() {
         return this.formapagoCliente;
@@ -187,12 +187,12 @@ public class Clientes  implements java.io.Serializable {
     public void setFormapagoCliente(String formapagoCliente) {
         this.formapagoCliente = formapagoCliente;
     }
-    public String getAltaEmpleadoCliente() {
-        return this.altaEmpleadoCliente;
+    public Integer getIdempleadoaltaCliente() {
+        return this.idempleadoaltaCliente;
     }
     
-    public void setAltaEmpleadoCliente(String altaEmpleadoCliente) {
-        this.altaEmpleadoCliente = altaEmpleadoCliente;
+    public void setIdempleadoaltaCliente(Integer idempleadoaltaCliente) {
+        this.idempleadoaltaCliente = idempleadoaltaCliente;
     }
 
 

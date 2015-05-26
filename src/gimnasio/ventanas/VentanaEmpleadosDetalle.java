@@ -271,13 +271,13 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
 public void mostrarDetallesEmpleados(int idEmpleados) {
 
         etiApellidos.setText(empleado.getApellidosEmpleado());
-        etiCodPost.setText(empleado.getCodigoPostalEmpleado().toString());
+        etiCodPost.setText(empleado.getContrasenaEmpleado().toString());
         etiCuentaBancaria.setText(empleado.getCuentaBancariaEmpleado());
         etiDireccion.setText(empleado.getDireccionEmpleado());
         etiDni.setText(empleado.getDniEmpleado());
         etiEdad.setText(null);
         etiEmail.setText(empleado.getEmailEmpleado());
-        etiFechaNac.setText("" + empleado.getFechaNacEmpleado());
+        etiFechaNac.setText(empleado.getFechanacimientoEmpleado().toString());
         etiLocalidad.setText(empleado.getLocalidadEmpleado());
         etiNombre.setText(empleado.getNombreEmpleado());
         etiNumero.setText(empleado.getNumeroEmpleado());

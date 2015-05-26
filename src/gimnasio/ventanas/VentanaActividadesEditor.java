@@ -9,8 +9,8 @@ import datos.Actividades;
 import datos.Empleados;
 import datos.Tarifas;
 import gimnasio.gestoras.GestoraActividades;
-import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.GestoraEmpleados;
+import gimnasio.gestoras.GestoraTarifas;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -23,12 +23,13 @@ import javax.swing.JTextField;
 public class VentanaActividadesEditor extends javax.swing.JDialog {
     
     Actividades actividad;
-
+    
     public VentanaActividadesEditor(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
         actividad = GestoraActividades.getActividadPorId(id);
-        getEmpleados();
+        rellenarComboEmpleados();
+        rellenaComboTarifas();
         mostraratos();
     }
 
@@ -50,6 +51,8 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
         cbEmpleadoActividad = new javax.swing.JComboBox();
         botonLimpiar = new javax.swing.JButton();
         botonEditar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cbTarifasActividad = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,30 +87,37 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setText("Tarifa actividad:");
+
+        cbTarifasActividad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbEmpleadoActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(40, 40, 40)
-                        .addComponent(txNombreActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txPrecioActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbEmpleadoActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(40, 40, 40)
+                            .addComponent(txNombreActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txPrecioActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbTarifasActividad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,9 +133,13 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
                     .addComponent(cbEmpleadoActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cbTarifasActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txPrecioActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(116, 116, 116)
+                .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
                     .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -173,7 +187,9 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
     private javax.swing.JButton botonEditar;
     private javax.swing.JButton botonLimpiar;
     private javax.swing.JComboBox cbEmpleadoActividad;
+    private javax.swing.JComboBox cbTarifasActividad;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -184,9 +200,9 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
     public void editarActividades() {
         
         try {
-            actividad.setEmpleadoEncargadoActividad(((Empleados)cbEmpleadoActividad.getSelectedItem()).getIdEmpleado());
-            actividad.setCuotaPrecio(Integer.parseInt(txPrecioActividad.getText()));
+            actividad.setIdempleadoencargadoActividad(((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado());
             actividad.setNombreActividad(txNombreActividad.getText());
+            actividad.setIdtarifasActividadestarifas(((Tarifas) cbEmpleadoActividad.getSelectedItem()).getIdTarifa());
             
             GestoraActividades.actualizarActividades(actividad);
             JOptionPane.showMessageDialog(this, "Se ha actualizado la actividad correctamente.");
@@ -198,24 +214,34 @@ public class VentanaActividadesEditor extends javax.swing.JDialog {
         
     }
     
-    public void getEmpleados() {
+    public void rellenarComboEmpleados() {
         List<Empleados> lista = GestoraEmpleados.recuperarEmpleados();
         cbEmpleadoActividad.setModel(new DefaultComboBoxModel(lista.toArray(new Empleados[lista.size()])));
         cbEmpleadoActividad.addItem("");
     }
     
     public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
-
+        
         char car = evt.getKeyChar();
         if (((car < '0' || car > '9') && car != '.') || campo.getText().contains(".") && car == '.') {
             evt.consume();
         }
     }
     
-    public void mostraratos(){
+    public void rellenaComboTarifas() {
+        List<Tarifas> lista = GestoraTarifas.recuperarTarifas();
+        cbTarifasActividad.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
+        cbTarifasActividad.addItem("");
+    }
+    
+    public void mostraratos() {
+        
         txNombreActividad.setText(actividad.getNombreActividad());
-        txPrecioActividad.setText(actividad.getCuotaPrecio().toString());
-        cbEmpleadoActividad.setSelectedItem(actividad.getEmpleadoEncargadoActividad());
+        cbEmpleadoActividad.setSelectedItem(GestoraEmpleados.getEmpleadoPorId(actividad.getIdempleadoencargadoActividad()));
+        
+        Tarifas tarifa = GestoraTarifas.getTarifaPorId(actividad.getIdtarifasActividadestarifas());
+        cbTarifasActividad.setSelectedItem(tarifa);
+        txPrecioActividad.setText(String.valueOf(tarifa.getPrecioTarifa()));
     }
     
 }
