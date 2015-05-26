@@ -1,5 +1,5 @@
 package datos;
-// Generated 25-may-2015 23:18:59 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 0:01:58 by Hibernate Tools 4.3.1
 
 
 
@@ -13,14 +13,16 @@ public class Actividades  implements java.io.Serializable {
      private String nombreActividad;
      private Integer empleadoEncargadoActividad;
      private Integer cuotaPrecio;
+     private Integer idtarifasActividadestarifas;
 
     public Actividades() {
     }
 
-    public Actividades(String nombreActividad, Integer empleadoEncargadoActividad, Integer cuotaPrecio) {
+    public Actividades(String nombreActividad, Integer empleadoEncargadoActividad, Integer cuotaPrecio, Integer idtarifasActividadestarifas) {
        this.nombreActividad = nombreActividad;
        this.empleadoEncargadoActividad = empleadoEncargadoActividad;
        this.cuotaPrecio = cuotaPrecio;
+       this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
    
     public Integer getIdActividad() {
@@ -50,6 +52,13 @@ public class Actividades  implements java.io.Serializable {
     
     public void setCuotaPrecio(Integer cuotaPrecio) {
         this.cuotaPrecio = cuotaPrecio;
+    }
+    public Integer getIdtarifasActividadestarifas() {
+        return this.idtarifasActividadestarifas;
+    }
+    
+    public void setIdtarifasActividadestarifas(Integer idtarifasActividadestarifas) {
+        this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
 
 

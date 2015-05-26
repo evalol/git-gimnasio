@@ -22,6 +22,7 @@ public class VentanaClientesDetalle extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         cliente = GestoraClientes.getClientePorId(id);
+        mostrarDetallesClientes(id);
     }
 
     /**

@@ -17,8 +17,8 @@ public class ModeloTablaTarifas extends DefaultTableModel {
 
     Tarifas[] tarifas;
     int filas;
-    String[] nombres = {"Nombre", "Edad mínima", "Edad máxima", "Cuota"};
-    Class[] clases = {String.class, Integer.class, Integer.class, Integer.class};
+    String[] nombres = {"Id", "Nombre", "Edad mínima", "Edad máxima", "Cuota"};
+    Class[] clases = {Integer.class, String.class, Integer.class, Integer.class, Integer.class};
 
     public ModeloTablaTarifas(Tarifas[] tarifas) {
         this.tarifas = tarifas;
@@ -37,7 +37,7 @@ public class ModeloTablaTarifas extends DefaultTableModel {
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -64,18 +64,21 @@ public class ModeloTablaTarifas extends DefaultTableModel {
             if (tarifas.length > 0) {
                 switch (columnIndex) {
                     case 0: {
+                        devolver = tarifas[rowIndex].getIdTarifa();
+                    }
+                    case 1: {
                         devolver = tarifas[rowIndex].getNombreTarifa();
                     }
                     break;
-                    case 1: {
+                    case 2: {
                         devolver = tarifas[rowIndex].getEdadMinimaTarifa();
                     }
                     break;
-                    case 2: {
+                    case 3: {
                         devolver = tarifas[rowIndex].getEdadMaximaTarifa();
                     }
                     break;
-                    case 3: {
+                    case 4: {
                         devolver = tarifas[rowIndex].getPrecioTarifa();
                     }
                     break;

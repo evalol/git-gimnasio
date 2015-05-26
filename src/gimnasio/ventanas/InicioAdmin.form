@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -28,10 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="botonInicioTarifas" max="32767" attributes="0"/>
-                  <Component id="botonUsuarios" pref="223" max="32767" attributes="0"/>
-              </Group>
+              <Component id="botonInicioTarifas" min="-2" pref="223" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="botonInicioActividades" pref="223" max="32767" attributes="0"/>
@@ -45,10 +42,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="botonInicioEmpleados" pref="135" max="32767" attributes="0"/>
-                  <Component id="botonUsuarios" max="32767" attributes="0"/>
-              </Group>
+              <Component id="botonInicioEmpleados" min="-2" pref="135" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botonInicioTarifas" alignment="3" min="-2" pref="135" max="-2" attributes="0"/>
@@ -82,14 +76,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonInicioTarifasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonUsuarios">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Usuarios"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonUsuariosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -5,11 +5,9 @@
  */
 package Tables;
 
-import datos.Clientes;
 import datos.Empleados;
 import java.util.Date;
 import java.util.List;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /**

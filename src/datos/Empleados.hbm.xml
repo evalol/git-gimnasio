@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25-may-2015 23:19:01 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-may-2015 0:02:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Empleados" table="empleados" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idEmpleado" type="java.lang.Integer">
@@ -60,7 +60,7 @@
             <column name="provincia_empleado" length="60" />
         </property>
         <property name="contrasenaEmpleado" type="string">
-            <column name="contrasena_empleado" length="32" />
+            <column name="contrasena_empleado" length="33" />
         </property>
     </class>
 </hibernate-mapping>

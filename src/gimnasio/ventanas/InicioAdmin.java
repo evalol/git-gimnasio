@@ -33,7 +33,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         botonInicioActividades = new javax.swing.JButton();
         botonInicioEmpleados = new javax.swing.JButton();
         botonInicioTarifas = new javax.swing.JButton();
-        botonUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -63,22 +62,13 @@ public class InicioAdmin extends javax.swing.JFrame {
             }
         });
 
-        botonUsuarios.setText("Usuarios");
-        botonUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonUsuariosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonInicioTarifas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonInicioActividades, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
@@ -89,9 +79,7 @@ public class InicioAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                    .addComponent(botonUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,10 +102,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         new VentanaEmpleados((Frame) this.getParent(), true).setVisible(true);
     }//GEN-LAST:event_botonInicioEmpleadosActionPerformed
 
-    private void botonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUsuariosActionPerformed
-        new VentanaUsuarios((Frame) this.getParent(), true).setVisible(true);
-    }//GEN-LAST:event_botonUsuariosActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
         this.dispose();
@@ -129,6 +113,5 @@ public class InicioAdmin extends javax.swing.JFrame {
     private javax.swing.JButton botonInicioActividades;
     private javax.swing.JButton botonInicioEmpleados;
     private javax.swing.JButton botonInicioTarifas;
-    private javax.swing.JButton botonUsuarios;
     // End of variables declaration//GEN-END:variables
 }

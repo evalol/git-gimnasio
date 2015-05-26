@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25-may-2015 23:19:01 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-may-2015 0:02:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Actividades" table="actividades" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idActividad" type="java.lang.Integer">
@@ -16,6 +16,9 @@
         </property>
         <property name="cuotaPrecio" type="java.lang.Integer">
             <column name="cuota_precio" />
+        </property>
+        <property name="idtarifasActividadestarifas" type="java.lang.Integer">
+            <column name="idtarifas_actividadestarifas" />
         </property>
     </class>
 </hibernate-mapping>

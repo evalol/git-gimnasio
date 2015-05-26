@@ -7,6 +7,7 @@ package gimnasio.ventanas;
 
 import datos.Tarifas;
 import gimnasio.gestoras.GestoraTarifas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,7 @@ public class VentanaTarifasEdicion extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         tarifa = GestoraTarifas.getTarifaPorId(id);
-        mostrarDatos();
+        mostrarDatos(id);
     }
 
     /**
@@ -159,19 +160,29 @@ public class VentanaTarifasEdicion extends javax.swing.JDialog {
     private javax.swing.JTextField txNuevoNombreTarifa;
     // End of variables declaration//GEN-END:variables
 
-    private void mostrarDatos() {
+    private void mostrarDatos(int id) {
+
         txNuevoCuota.setText("" + tarifa.getPrecioTarifa());
         txNuevoEdadMaxima.setText("" + tarifa.getEdadMaximaTarifa());
         txNuevoEdadMinima.setText("" + tarifa.getEdadMinimaTarifa());
         txNuevoNombreTarifa.setText(tarifa.getNombreTarifa());
+
     }
-    
-    private void editarTarifa(){
-        tarifa.setPrecioTarifa(Integer.parseInt(txNuevoCuota.getText()));
-        tarifa.setEdadMaximaTarifa(Integer.parseInt(txNuevoEdadMaxima.getText()));
-        tarifa.setEdadMinimaTarifa(Integer.parseInt(txNuevoEdadMinima.getText()));
-        tarifa.setNombreTarifa(txNuevoNombreTarifa.getText());
-        
-        GestoraTarifas.actualizarTarifas(tarifa);
+
+    private void editarTarifa() {
+
+        try {
+            tarifa.setPrecioTarifa(Integer.parseInt(txNuevoCuota.getText()));
+            tarifa.setEdadMaximaTarifa(Integer.parseInt(txNuevoEdadMaxima.getText()));
+            tarifa.setEdadMinimaTarifa(Integer.parseInt(txNuevoEdadMinima.getText()));
+            tarifa.setNombreTarifa(txNuevoNombreTarifa.getText());
+
+            GestoraTarifas.actualizarTarifas(tarifa);
+            JOptionPane.showMessageDialog(this, "Se ha actualizado correctamente la tarifa");
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "No se ha podido actualizar la tarifa");
+        }
+
     }
 }

@@ -9,6 +9,7 @@ import datos.Tarifas;
 import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.GestoraTarifas;
 import java.awt.Frame;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import tables.ModeloTablaTarifas;
@@ -372,7 +373,15 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_txNuevoEdadMinimaActionPerformed
 
     private void botonEditarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarTarifaActionPerformed
-        new VentanaTarifasEdicion((Frame) this.getParent(), true, (int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)).setVisible(true);
+        try {
+            if (tablaTarifas.getSelectedRow() >= 0) {
+                new VentanaTarifasEdicion((Frame) this.getParent(), true, (int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Seleccione la tarifa que quiera editar.");
+            }
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(this, "No se puede editar.");
+        }
     }//GEN-LAST:event_botonEditarTarifaActionPerformed
 
     private void txNuevoEdadMinimaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoEdadMinimaKeyTyped
@@ -388,17 +397,26 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_txNuevoCuotaKeyTyped
 
     private void botonBorrarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTarifaActionPerformed
+        
+        try {
+            if (tablaTarifas.getSelectedRow() >= 0) {
 
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar esta tarifa?", null, JOptionPane.YES_OPTION);
+                int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar esta tarifa?", null, JOptionPane.YES_OPTION);
 
-        if (resultado == JOptionPane.YES_OPTION) {
-            GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)));
-        } else {
-            JOptionPane.showMessageDialog(this, "La tarifa no se ha borrado.");
+                if (resultado == JOptionPane.YES_OPTION) {
+                    GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)));
+                } else {
+                    JOptionPane.showMessageDialog(this, "La tarifa no se ha borrado.");
+                }
+
+                tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
+            } else {
+                JOptionPane.showMessageDialog(this, "Seleccione la tarifa que quiere borrar.");
+            }
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(this, "No se puede borrar.");
         }
-
-        tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
-
+        
     }//GEN-LAST:event_botonBorrarTarifaActionPerformed
 
 
@@ -442,23 +460,28 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }
 
     public void insertarDatos() {
-
-        Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
-                Integer.parseInt(txNuevoEdadMaxima.getText()),
-                Integer.parseInt(txNuevoEdadMinima.getText()),
-                Integer.parseInt(txNuevoCuota.getText()));
-
-        GestoraTarifas.guardarTarifa(tarifa);
         
-        tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
+        try {
+            Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
+                    Integer.parseInt(txNuevoEdadMaxima.getText()),
+                    Integer.parseInt(txNuevoEdadMinima.getText()),
+                    Integer.parseInt(txNuevoCuota.getText()));
+
+            GestoraTarifas.guardarTarifa(tarifa);
+            tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
+            JOptionPane.showMessageDialog(this, "Se ha insertado la tarifa.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "No se ha podido insertar la tarifa.");
+        }
+
     }
 
     public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
-        
+
         char car = evt.getKeyChar();
         if (((car < '0' || car > '9') && car != '.') || campo.getText().contains(".") && car == '.') {
             evt.consume();
         }
-        
+
     }
 }

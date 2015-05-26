@@ -7,6 +7,7 @@ package gimnasio.ventanas;
 
 import datos.Clientes;
 import gimnasio.gestoras.GestoraClientes;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -375,13 +376,11 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
     private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
-
         VentanaUtils.limpiarFormulario(jPanel1);
     }//GEN-LAST:event_botonLimpiarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
         editarClientes();
-        this.dispose();
     }//GEN-LAST:event_botonEditarActionPerformed
 
     private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
@@ -453,23 +452,29 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
 
     public void editarClientes() {
 
-        cliente.setNombreCliente(tx_ventana_clientes_nuevo_nombre.getText());
-        cliente.setApellidosCliente(tx_ventana_clientes_nuevo_apellidos.getText());
-        cliente.setDniCliente(tx_ventana_clientes_nuevo_dni.getText());
-        cliente.setTelefonoCliente(tx_ventana_clientes_nuevo_telefono.getText());
-        cliente.setTelefonoMovilCliente(tx_ventana_clientes_nuevo_telefono_movil.getText());
-        cliente.setDireccionDomicilioCliente(tx_ventana_clientes_nuevo_direccion.getText());
-        cliente.setPisoDomicilioCliente(tx_ventana_clientes_nuevo_piso_domicilio.getText());
-        cliente.setNumeroDomicilioCliente(tx_ventana_clientes_nuevo_numero_domicilio.getText());
-        cliente.setCodigoPostalCliente(Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()));
-        cliente.setLocalidadCliente(tx_ventana_clientes_nuevo_localidad.getText());
-        cliente.setProvinciaCliente(tx_ventana_clientes_nuevo_provincia.getText());
-        cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
-        cliente.setCuentabancariaCliente(tx_ventana_clientes_nuevo_cuenta_bancaria.getText());
-        cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText());
+        try {
+            cliente.setNombreCliente(tx_ventana_clientes_nuevo_nombre.getText());
+            cliente.setApellidosCliente(tx_ventana_clientes_nuevo_apellidos.getText());
+            cliente.setDniCliente(tx_ventana_clientes_nuevo_dni.getText());
+            cliente.setTelefonoCliente(tx_ventana_clientes_nuevo_telefono.getText());
+            cliente.setTelefonoMovilCliente(tx_ventana_clientes_nuevo_telefono_movil.getText());
+            cliente.setDireccionDomicilioCliente(tx_ventana_clientes_nuevo_direccion.getText());
+            cliente.setPisoDomicilioCliente(tx_ventana_clientes_nuevo_piso_domicilio.getText());
+            cliente.setNumeroDomicilioCliente(tx_ventana_clientes_nuevo_numero_domicilio.getText());
+            cliente.setCodigoPostalCliente(Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()));
+            cliente.setLocalidadCliente(tx_ventana_clientes_nuevo_localidad.getText());
+            cliente.setProvinciaCliente(tx_ventana_clientes_nuevo_provincia.getText());
+            cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
+            cliente.setCuentabancariaCliente(tx_ventana_clientes_nuevo_cuenta_bancaria.getText());
+            cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText());
 
-        GestoraClientes.actualizarCliente(cliente);
-        
+            GestoraClientes.actualizarCliente(cliente);
+            JOptionPane.showMessageDialog(this, "Se ha actualizado el cliente correctamente.");
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No se ha podido actualizar el cliente.");
+        }
+
     }
 
 }

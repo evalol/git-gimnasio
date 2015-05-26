@@ -7,11 +7,17 @@ package gimnasio.ventanas;
 
 import Tables.ModeloTablaClientes;
 import datos.Clientes;
+import datos.Tarifas;
 import gimnasio.gestoras.Gestora;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.GestoraClientes;
+import gimnasio.gestoras.GestoraTarifas;
+import gimnasio.gestoras.Login;
 import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
+import java.awt.HeadlessException;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -30,7 +36,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
-        inicio();
+        getTarifas();
         tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }
 
@@ -136,6 +142,11 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         bgFormaDePago.add(rb_ventana_clientes_nuevo_efectivo);
         rb_ventana_clientes_nuevo_efectivo.setText("Efectivo");
+        rb_ventana_clientes_nuevo_efectivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_ventana_clientes_nuevo_efectivoActionPerformed(evt);
+            }
+        });
 
         bgFormaDePago.add(rb_ventana_clientes_nuevo_cuenta_bancaria);
         rb_ventana_clientes_nuevo_cuenta_bancaria.setText("Cuenta bancaria");
@@ -159,6 +170,11 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel14.setText("Email:");
 
         cb_ventana_clientes_nuevo_tarifa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_ventana_clientes_nuevo_tarifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_ventana_clientes_nuevo_tarifaActionPerformed(evt);
+            }
+        });
 
         bGuardarCliente.setText("Guardar");
         bGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +186,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel9.setText("Cuenta bancaria:");
 
         tx_ventana_clientes_nuevo_cuenta_bancaria.setText("jTextField8");
+        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -459,7 +476,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
-        // TODO add your handling code here:
+        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(true);
     }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
 
     private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
@@ -499,20 +516,25 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         String formaPago = this.formaDePago();
 
-        Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
-                tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
-                tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
-                tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
-                Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()), tx_ventana_clientes_nuevo_localidad.getText(),
-                tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
-                tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-                Gestora.fechaActual(), 1, formaPago, "miau");
+        try {
+            Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
+                    tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
+                    tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
+                    tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
+                    Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()), tx_ventana_clientes_nuevo_localidad.getText(),
+                    tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
+                    tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
+                    Gestora.fechaActual(), ((Tarifas) cb_ventana_clientes_nuevo_tarifa.getSelectedItem()).getIdTarifa(), formaPago, 
+                    Login.getEmpleadoAutenticado().getNombreEmpleado());
 
-        GestoraClientes.guardarCliente(cliente);
-
-        tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
-        
-        JOptionPane.showMessageDialog(this, "Se ha introducido el cliente correctamente.");
+            GestoraClientes.guardarCliente(cliente);
+            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
+            JOptionPane.showMessageDialog(this, "Se ha introducido el cliente correctamente.");
+        } catch (NumberFormatException numberFormatException) {
+            JOptionPane.showMessageDialog(this, "No se ha podido introducir el cliente correctamente.");
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(this, "No se ha podido introducir el cliente correctamente.");
+        }
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
@@ -521,15 +543,21 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
 
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
+        try {
+            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
 
-        if (resultado == JOptionPane.YES_OPTION) {
-            GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
-        } else {
-            JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
+            if (resultado == JOptionPane.YES_OPTION) {
+                GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+            } else {
+                JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
+            }
+
+            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
+            JOptionPane.showMessageDialog(this, "Cliente borrado.");
+        } catch (HeadlessException headlessException) {
+            JOptionPane.showMessageDialog(this, "No se ha podido borrar el cliente correctamente.");
         }
 
-        tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
     private void cbOrdenClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenClientesActionPerformed
@@ -545,6 +573,14 @@ public class VentanaClientes extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_cbOrdenClientesActionPerformed
+
+    private void cb_ventana_clientes_nuevo_tarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
+
+    private void rb_ventana_clientes_nuevo_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
+        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(false);
+    }//GEN-LAST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -596,15 +632,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono;
     private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono_movil;
     // End of variables declaration//GEN-END:variables
-
-    public void inicio() {
-
-        tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-
-        if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
-            tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-        } 
-    }
+ 
 
     public String formaDePago() {
 
@@ -613,5 +641,13 @@ public class VentanaClientes extends javax.swing.JDialog {
         }
         return "Efectivo";
     }
+
+    public void getTarifas() {
+        List<Tarifas> lista = GestoraTarifas.recuperarTarifas();
+        cb_ventana_clientes_nuevo_tarifa.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
+        cb_ventana_clientes_nuevo_tarifa.addItem("");
+    }
+    
+    
 
 }
