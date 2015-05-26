@@ -61,9 +61,11 @@ public class Actividades  implements java.io.Serializable {
         this.idtarifasActividadestarifas = idtarifasActividadestarifas;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return nombreActividad;
+    }
+    
 }
 
 

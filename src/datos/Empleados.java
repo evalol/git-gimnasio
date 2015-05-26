@@ -194,8 +194,10 @@ public class Empleados  implements java.io.Serializable {
         this.contrasenaEmpleado = contrasenaEmpleado;
     }
 
-
-
+    @Override
+    public String toString() {
+        return nombreEmpleado;
+    }
 
 }
 
