@@ -11,13 +11,12 @@ import java.awt.Frame;
  *
  * @author Eva
  */
-public class InicioAdmin extends javax.swing.JDialog {
+public class InicioAdmin extends javax.swing.JFrame {
 
     /**
      * Creates new form Inicio
      */
-    public InicioAdmin(Frame owner, boolean modal) {
-        super(owner, modal);
+    public InicioAdmin() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -37,6 +36,11 @@ public class InicioAdmin extends javax.swing.JDialog {
         botonUsuarios = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         botonInicioActividades.setText("Actividades");
         botonInicioActividades.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +118,12 @@ public class InicioAdmin extends javax.swing.JDialog {
         new VentanaUsuarios((Frame) this.getParent(), true).setVisible(true);
     }//GEN-LAST:event_botonUsuariosActionPerformed
 
-    
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosing
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonInicioActividades;

@@ -5,6 +5,7 @@
  */
 package gimnasio.gestoras;
 
+import datos.Empleados;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,7 +17,10 @@ import java.util.logging.Logger;
  * @author Eva
  */
 public class Login {
-    //Convierte los bytes en un array de dígitos
+
+    // EL Empleados autenticado
+    private static Empleados empleadoAutenticado;
+    // Para convertir los bytes en un array de dígitos
     private static final char[] DIGITS_LOWER
             = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -32,8 +36,8 @@ public class Login {
     }
 
     public static String devuelveHash(String contraseña) {
-        System.out.println("" + String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER)));
-        return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
+
+        return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER)).trim();
     }
 
     public static byte[] getHash(String password) {
@@ -50,5 +54,34 @@ public class Login {
         }
 
         return null;
+    }
+
+    public static boolean realizaLogin(String usuario, String contraseña) {
+
+        contraseña = devuelveHash(contraseña);
+
+        Empleados temp = (Empleados) Gestora.getInstance()
+                .ejecutarConsultaUnResultado("from Empleados alias where alias.nombreEmpleado = '"
+                        + usuario + "' and alias.contrasenaEmpleado = '" + contraseña + "'");
+
+        if (temp != null) {
+
+            empleadoAutenticado = temp;
+            return true;
+
+        } else {
+
+            return false;
+        }
+
+    }
+
+    public static boolean isEmpleadoAutenticadoAdmin() {
+
+        return empleadoAutenticado != null && empleadoAutenticado.getNombreEmpleado().equals("admin");
+    }
+
+    public static Empleados getEmpleadoAutenticado() {
+        return empleadoAutenticado;
     }
 }

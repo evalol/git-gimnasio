@@ -28,9 +28,9 @@ public class Portada extends javax.swing.JFrame {
             @Override
             public void run() {
                 Gestora.getInstance();
-                VentanaLogin i = new VentanaLogin(Portada.this, true);
-                Portada.this.setVisible(false);
+                VentanaLogin i = new VentanaLogin();
                 i.setVisible(true);
+                Portada.this.dispose();
             }
         }).start();
     }
@@ -103,10 +103,8 @@ public class Portada extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Portada().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Portada().setVisible(true);
         });
     }
 

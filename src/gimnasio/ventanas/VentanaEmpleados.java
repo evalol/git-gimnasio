@@ -565,8 +565,8 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         if (!Patrones.validarTelefonoMovil(tx_ventana_empleados_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
             return;
-        }
-
+        }        
+        
         Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
                 tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
                 tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),

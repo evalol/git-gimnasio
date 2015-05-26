@@ -60,7 +60,7 @@
             <column name="provincia_empleado" length="60" />
         </property>
         <property name="contrasenaEmpleado" type="string">
-            <column name="contrasena_empleado" length="33" />
+            <column name="contrasena_empleado" length="32" />
         </property>
     </class>
 </hibernate-mapping>

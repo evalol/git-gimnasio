@@ -11,13 +11,12 @@ import java.awt.Frame;
  *
  * @author Eva
  */
-public class InicioUsuario extends javax.swing.JDialog {
+public class InicioUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form Inicio
      */
-    public InicioUsuario(Frame owner, boolean modal) {
-        super(owner, modal);
+    public InicioUsuario() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -35,7 +34,11 @@ public class InicioUsuario extends javax.swing.JDialog {
         botonInicioActividades = new javax.swing.JButton();
         botonInicioTarifas = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         botonInicioClientes.setText("Clientes");
         botonInicioClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +100,12 @@ public class InicioUsuario extends javax.swing.JDialog {
     private void botonInicioActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioActividadesActionPerformed
         new VentanaActividades((Frame) this.getParent(), true).setVisible(true);
     }//GEN-LAST:event_botonInicioActividadesActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosing
 
     
 

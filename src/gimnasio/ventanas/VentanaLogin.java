@@ -5,6 +5,7 @@
  */
 package gimnasio.ventanas;
 
+import gimnasio.gestoras.Login;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
@@ -12,20 +13,15 @@ import javax.swing.JOptionPane;
  *
  * @author Eva
  */
-public class VentanaLogin extends javax.swing.JDialog {
+public class VentanaLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaLogin
      */
-    public VentanaLogin(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public VentanaLogin() {
         initComponents();
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
-    }
-
-    public VentanaLogin() {
-
     }
 
     /**
@@ -44,7 +40,11 @@ public class VentanaLogin extends javax.swing.JDialog {
         txContraseña = new javax.swing.JPasswordField();
         bAceptarLogin = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Usuario:");
 
@@ -119,76 +119,48 @@ public class VentanaLogin extends javax.swing.JDialog {
 
     private void bAceptarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarLoginActionPerformed
 
-        if (txUsuarioLogin.getText().isEmpty() && txContraseña.getText().isEmpty()) {
-            
+        String usuario = txUsuarioLogin.getText();
+        String contraseña = String.valueOf(txContraseña.getPassword());
+
+        if (usuario.isEmpty() && contraseña.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario ni contraseña");
-            
-        } else if (txUsuarioLogin.getText().isEmpty()) {
-            
+
+        } else if (usuario.isEmpty()) {
+
             JOptionPane.showMessageDialog(this, "No ha introducido ningún usuario");
-            
-        } else if (txContraseña.getText().isEmpty()) {
-            
+
+        } else if (contraseña.isEmpty()) {
+
             JOptionPane.showMessageDialog(this, "No ha introducido ninguna contraseña");
-            
-        } else if ("admin".equals(txUsuarioLogin.getText())) {
-            
-            setVisible(false);
-            new InicioAdmin((Frame) this.getParent(), true).setVisible(true);
-            
+
         } else {
-            
-            setVisible(false);
-            new InicioUsuario((Frame) this.getParent(), true).setVisible(true);
-            
+
+            if (Login.realizaLogin(usuario, contraseña)) {
+
+                setVisible(false);
+                if (Login.isEmpleadoAutenticadoAdmin()) {
+
+                    new InicioAdmin().setVisible(true);
+                } else {
+
+                    new InicioUsuario().setVisible(true);
+                }
+                this.dispose();
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Login incorrecto");
+            }
         }
-        
-        
-        this.dispose();
-        ((Frame) this.getParent()).dispose();
+
     }//GEN-LAST:event_bAceptarLoginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentanaLogin dialog = new VentanaLogin(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosing
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptarLogin;
