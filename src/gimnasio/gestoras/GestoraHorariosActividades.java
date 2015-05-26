@@ -19,6 +19,14 @@ public class GestoraHorariosActividades {
         Gestora.getInstance().save(horarioActividad);
     }
 
+    public static void actualizarActividades(HorariosActividades horarioActividad) {
+        Gestora.getInstance().update(horarioActividad);
+    }
+
+    public static void borrarActividades(HorariosActividades horarioActividad) {
+        Gestora.getInstance().delete(horarioActividad);
+    }
+
     public static List<HorariosActividades> recuperarActividades() {
         return Gestora.getInstance().<HorariosActividades>recuperarObjetos(HorariosActividades.class);
     }

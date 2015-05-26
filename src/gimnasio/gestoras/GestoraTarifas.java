@@ -6,7 +6,6 @@
 package gimnasio.gestoras;
 
 import datos.Clientes;
-import datos.Empleados;
 import datos.Tarifas;
 import java.io.Serializable;
 import java.util.List;
@@ -25,7 +24,7 @@ public class GestoraTarifas {
         Gestora.getInstance().update(tarifas);
     }
 
-    public static void borrarCliente(Tarifas empleado) {
+    public static void borrarTarifa(Tarifas empleado) {
         Gestora.getInstance().delete(empleado);
     }
 

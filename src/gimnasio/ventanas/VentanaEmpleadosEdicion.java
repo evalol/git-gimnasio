@@ -5,8 +5,10 @@
  */
 package gimnasio.ventanas;
 
+import Tables.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.GestoraEmpleados;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,9 +75,6 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         tx_ventana_empleados_email = new javax.swing.JTextField();
         txNuevoCuentaBancaria = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel18 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        txContraseñaNueva = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -155,10 +154,6 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
 
         txNuevoCuentaBancaria.setText("jTextField9");
 
-        jLabel18.setText("Contraseña:");
-
-        txContraseñaNueva.setText("jTextField1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -175,13 +170,7 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
                     .addComponent(tx_nuevo_codigo_postal, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tx_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                        .addComponent(txContraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -246,25 +235,14 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(165, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
-                                .addComponent(tx_ventana_empleados_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(120, 120, 120)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tx_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txContraseñaNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(tx_ventana_empleados_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(120, 120, 120)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tx_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tx_nuevo_codigo_postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,8 +329,7 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     }//GEN-LAST:event_botonLimpiarVentanaActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-
-
+        editarEmpleado();
     }//GEN-LAST:event_botonEditarActionPerformed
 
 
@@ -369,7 +346,6 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -379,8 +355,6 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txContraseñaNueva;
     private javax.swing.JTextField txNuevoCuentaBancaria;
     private javax.swing.JTextField tx_nuevo_codigo_postal;
     private javax.swing.JTextField tx_nuevo_localidad;
@@ -400,27 +374,31 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
 
     public void editarEmpleado() {
 
-        empleado.setNombreEmpleado(tx_ventana_empleados_nombre.getText());
-        empleado.setApellidosEmpleado(tx_ventana_empleados_apellido.getText());
-        empleado.setDniEmpleado(tx_ventana_empleados_dni.getText());
-        empleado.setEmailEmpleado(tx_ventana_empleados_email.getText());
-        empleado.setTelefonoEmpleado(tx_ventana_empleados_telefono.getText());
-        empleado.setMovilEmpleado(tx_ventana_empleados_movil.getText());
-        empleado.setCuentaBancariaEmpleado(txNuevoCuentaBancaria.getText());
-        empleado.setFechaNacEmpleado(cb_ventana_empleados_fecha_nac.getDate());
-        empleado.setSueldoMesEmpleado(Integer.parseInt(tx_nuevo_sueldo.getText()));
-        empleado.setSuplementoSueldoEmpleado(Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()));
-        empleado.setDireccionEmpleado(tx_ventana_empleados_direccion.getText());
-        empleado.setPisoEmpleado(tx_ventana_empleados_piso.getText());
-        empleado.setNumeroEmpleado(tx_ventana_empleados_numero.getText());
-        empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
-        empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
-        empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
-        if (!txContraseñaNueva.getText().isEmpty()) {
-            empleado.setContrasenaEmpleado(txContraseñaNueva.getText());
+        try {
+            empleado.setNombreEmpleado(tx_ventana_empleados_nombre.getText());
+            empleado.setApellidosEmpleado(tx_ventana_empleados_apellido.getText());
+            empleado.setDniEmpleado(tx_ventana_empleados_dni.getText());
+            empleado.setEmailEmpleado(tx_ventana_empleados_email.getText());
+            empleado.setTelefonoEmpleado(tx_ventana_empleados_telefono.getText());
+            empleado.setMovilEmpleado(tx_ventana_empleados_movil.getText());
+            empleado.setCuentaBancariaEmpleado(txNuevoCuentaBancaria.getText());
+            empleado.setFechaNacEmpleado(cb_ventana_empleados_fecha_nac.getDate());
+            empleado.setSueldoMesEmpleado(Integer.parseInt(tx_nuevo_sueldo.getText()));
+            empleado.setSuplementoSueldoEmpleado(Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()));
+            empleado.setDireccionEmpleado(tx_ventana_empleados_direccion.getText());
+            empleado.setPisoEmpleado(tx_ventana_empleados_piso.getText());
+            empleado.setNumeroEmpleado(tx_ventana_empleados_numero.getText());
+            empleado.setCodigoPostalEmpleado(Integer.parseInt(tx_nuevo_codigo_postal.getText()));
+            empleado.setProvinciaEmpleado(tx_nuevo_provincia.getText());
+            empleado.setLocalidadEmpleado(tx_nuevo_localidad.getText());
+
+            GestoraEmpleados.actualizarEmpleados(empleado);
+            JOptionPane.showMessageDialog(this, "Se han actualizado los actualizar el empleado correctamente.");
+            this.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "No se ha podido actualizar el empleado.");
         }
 
-        GestoraEmpleados.actualizarEmpleados(empleado);
     }
 
     public void mostrarDatos() {
@@ -441,6 +419,7 @@ public final class VentanaEmpleadosEdicion extends javax.swing.JDialog {
         tx_nuevo_codigo_postal.setText(empleado.getCodigoPostalEmpleado().toString());
         tx_nuevo_provincia.setText(empleado.getProvinciaEmpleado());
         tx_nuevo_localidad.setText(empleado.getLocalidadEmpleado());
+
     }
 
 }

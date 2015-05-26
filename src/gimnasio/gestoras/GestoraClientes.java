@@ -19,12 +19,12 @@ public class GestoraClientes {
         Gestora.getInstance().save(cliente);
     }
 
-    public static void actualizarCliente(Clientes empleado) {
-        Gestora.getInstance().update(empleado);
+    public static void actualizarCliente(Clientes cliente) {
+        Gestora.getInstance().update(cliente);
     }
     
-    public static void borrarCliente(Clientes empleado) {
-        Gestora.getInstance().delete(empleado);
+    public static void borrarCliente(Clientes cliente) {
+        Gestora.getInstance().delete(cliente);
     }
 
     public static List<Clientes> recuperarClientes() {

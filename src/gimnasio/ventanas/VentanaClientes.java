@@ -8,7 +8,6 @@ package gimnasio.ventanas;
 import Tables.ModeloTablaClientes;
 import datos.Clientes;
 import gimnasio.gestoras.Gestora;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.Patrones;
@@ -31,6 +30,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
+        inicio();
         tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }
 
@@ -59,8 +59,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         tx_ventana_clientes_nuevo_numero_domicilio = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_piso_domicilio = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        cb_ventana_clientes_nuevo_tipo_via = new javax.swing.JComboBox();
         tx_ventana_clientes_nuevo_direccion = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         tx_ventana_clientes_nuevo_telefono_movil = new javax.swing.JTextField();
@@ -125,10 +123,6 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel7.setText("Piso:");
 
         tx_ventana_clientes_nuevo_piso_domicilio.setText("jTextField7");
-
-        jLabel8.setText("Tipo de vía:");
-
-        cb_ventana_clientes_nuevo_tipo_via.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tx_ventana_clientes_nuevo_direccion.setText("jTextField9");
 
@@ -278,7 +272,6 @@ public class VentanaClientes extends javax.swing.JDialog {
                             .addComponent(tx_ventana_clientes_nuevo_nombre)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel15))
@@ -291,8 +284,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                                 .addComponent(tx_ventana_clientes_nuevo_piso_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tx_ventana_clientes_nuevo_codigo_postal)
-                            .addComponent(cb_ventana_clientes_nuevo_tipo_via, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(tx_ventana_clientes_nuevo_codigo_postal)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -340,11 +332,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(tx_ventana_clientes_nuevo_telefono_movil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(cb_ventana_clientes_nuevo_tipo_via, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tx_ventana_clientes_nuevo_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
@@ -366,7 +354,7 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel17)
                             .addComponent(tx_ventana_clientes_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 41, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -414,24 +402,24 @@ public class VentanaClientes extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(251, 251, 251)
                         .addComponent(botonEditarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
                         .addComponent(botonBorrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(386, 386, 386)
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
                         .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(23, 23, 23)
                 .addComponent(cbOrdenClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -521,8 +509,10 @@ public class VentanaClientes extends javax.swing.JDialog {
                 Gestora.fechaActual(), 1, formaPago, "miau");
 
         GestoraClientes.guardarCliente(cliente);
-        
+
         tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
+        
+        JOptionPane.showMessageDialog(this, "Se ha introducido el cliente correctamente.");
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
@@ -538,7 +528,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
         }
-        
+
         tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
@@ -566,7 +556,6 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JButton botonEditarCliente;
     private javax.swing.JComboBox cbOrdenClientes;
     private javax.swing.JComboBox cb_ventana_clientes_nuevo_tarifa;
-    private javax.swing.JComboBox cb_ventana_clientes_nuevo_tipo_via;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -582,7 +571,6 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -611,15 +599,11 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     public void inicio() {
 
-        //Metemos la información del tipo de via dentro del combbox
-//        cb_ventana_clientes_nuevo_tipo_via.addItem(gestora.tipoDeVia());
-        cb_ventana_clientes_nuevo_tipo_via.setModel(new DefaultComboBoxModel());
-
         tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
 
         if (!rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected()) {
             tx_ventana_clientes_nuevo_cuenta_bancaria.isEnabled();
-        }
+        } 
     }
 
     public String formaDePago() {

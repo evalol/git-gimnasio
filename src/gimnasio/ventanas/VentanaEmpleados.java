@@ -12,6 +12,7 @@ import gimnasio.gestoras.GestoraEmpleados;
 import gimnasio.gestoras.Login;
 import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
@@ -85,6 +86,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         botonEditarEmpleado = new javax.swing.JButton();
         botonBorrarEmpleado = new javax.swing.JButton();
         cbOrdenarEmpleados = new javax.swing.JComboBox();
+        botonDetalles = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaEmpleadosConsulta = new javax.swing.JTable();
@@ -375,6 +377,13 @@ public class VentanaEmpleados extends javax.swing.JDialog {
             }
         });
 
+        botonDetalles.setText("Detalles");
+        botonDetalles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDetallesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -382,17 +391,19 @@ public class VentanaEmpleados extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
+                        .addGap(166, 166, 166)
                         .addComponent(botonEditarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(botonBorrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addComponent(botonBorrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(botonDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(407, 407, 407)
-                        .addComponent(cbOrdenarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                        .addComponent(cbOrdenarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,9 +413,10 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botonEditarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(botonBorrarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botonBorrarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonDetalles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -465,7 +477,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_boton_ventana_empleados_agregarActionPerformed
 
     private void botonEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarEmpleadoActionPerformed
-        new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
+        new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);        
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
     private void cbOrdenarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrdenarEmpleadosActionPerformed
@@ -481,18 +493,29 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_cbOrdenarEmpleadosActionPerformed
 
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
+        try {
+            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
 
-        if (resultado == JOptionPane.YES_OPTION) {
-            //BORRAR
-        } else {
-            JOptionPane.showMessageDialog(this, "El empleado no se ha borrado.");
+            if (resultado == JOptionPane.YES_OPTION) {
+                GestoraEmpleados.borrarEmpleado(GestoraEmpleados.getEmpleadoPorId((Serializable) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)));
+            } else {
+                JOptionPane.showMessageDialog(this, "El empleado no se ha borrado.");
+            }
+
+            tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No se ha introducido borrar el empleado.");
         }
     }//GEN-LAST:event_botonBorrarEmpleadoActionPerformed
+
+    private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
+        new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);        
+    }//GEN-LAST:event_botonDetallesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBorrarEmpleado;
+    private javax.swing.JButton botonDetalles;
     private javax.swing.JButton botonEditarEmpleado;
     private javax.swing.JButton boton_ventana_empleados_agregar;
     private javax.swing.JButton boton_ventana_empleados_limpiar;
@@ -565,17 +588,23 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         if (!Patrones.validarTelefonoMovil(tx_ventana_empleados_movil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
             return;
-        }        
-        
-        Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
-                tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
-                tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
-                Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
-                tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
-                Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
-                Login.devuelveHash(txContraseñaNueva.getText()));
+        }
+        try {
+            Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
+                    tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
+                    tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
+                    Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
+                    tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
+                    Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
+                    Login.devuelveHash(txContraseñaNueva.getText()));
 
-        GestoraEmpleados.guardarEmpleados(empleado);
+            GestoraEmpleados.guardarEmpleados(empleado);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "No se ha introducido introducir el empleado.");
+        }
+        tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
+
+        JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
     }
 
 }

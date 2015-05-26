@@ -24,6 +24,7 @@ public class VentanaEmpleadosDetalle extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         empleado = GestoraEmpleados.getEmpleadoPorId(id);
+        mostrarDetallesEmpleados(id);
     }
 
     /**
