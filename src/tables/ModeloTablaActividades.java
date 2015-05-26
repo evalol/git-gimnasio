@@ -6,38 +6,48 @@
 package Tables;
 
 import datos.Actividades;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Eva
  */
-public class ModeloTablaActividades extends DefaultTableModel{
-    
+public class ModeloTablaActividades extends DefaultTableModel {
+
     private Actividades[] actividades;
-    private int rows;
-    
-    
+    private int filas;
+    String[] nombres = {"Id", "Nombre", "Empleado responsable", "Cuota"};
+    Class[] clases = {Integer.class, String.class, Integer.class, Integer.class, Integer.class};
+
+    public ModeloTablaActividades(Actividades[] actividades) {
+        this.actividades = actividades;
+        this.filas = actividades.length;
+    }
+
+    public ModeloTablaActividades(List<Actividades> actividades) {
+        this.actividades = actividades.toArray(new Actividades[actividades.size()]);
+        this.filas = actividades.size();
+    }
+
     @Override
     public int getRowCount() {
-        return rows;
+        return filas;
     }
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 4;
     }
 
     @Override
     public String getColumnName(int columnIndex) {
-        String[] rowNames = {"","","","","","","","","","","",""}; 
-        return rowNames[columnIndex];
+        return nombres[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-       Class[] rowClasses =  {};
-       return rowClasses[columnIndex];
+        return clases[columnIndex];
     }
 
     @Override
@@ -47,40 +57,33 @@ public class ModeloTablaActividades extends DefaultTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        
-        Object restore = null;
-        
-        if(this.getRowCount() != 0){
-            if(actividades.length > 0){
-                switch(columnIndex){
-                    case 0:{}
+
+        Object devolver = null;
+
+        if (this.getRowCount() != 0) {
+            if (actividades.length > 0) {
+                switch (columnIndex) {
+                    case 0: {
+                        devolver = actividades[rowIndex].getIdActividad();
+                    }
                     break;
-                    case 1:{}
+                    case 1: {
+                        devolver = actividades[rowIndex].getNombreActividad();
+                    }
                     break;
-                    case 2:{}
+                    case 2: {
+                        devolver = actividades[rowIndex].getEmpleadoEncargadoActividad();
+                    }
                     break;
-                    case 3:{}
+                    case 3: {
+                        devolver = actividades[rowIndex].getCuotaPrecio();
+                    }
                     break;
-                    case 4:{}
-                    break;
-                    case 5:{}
-                    break;
-                    case 6:{}
-                    break;
-                    case 7:{}
-                    break;
-                    case 8:{}
-                    break;
-                    case 9:{}
-                    break;
-                    case 10:{}
-                    break;
-                    case 11:{}
-                    break;
+
                 }
             }
         }
-        
-        return restore;
-    }    
+
+        return devolver;
+    }
 }
