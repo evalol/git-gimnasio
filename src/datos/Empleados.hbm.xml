@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-may-2015 20:48:03 by Hibernate Tools 4.3.1 -->
+<!-- Generated 27-may-2015 21:12:02 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="datos.Empleados" table="empleados" catalog="fitnesscenter" optimistic-lock="version">
         <id name="idEmpleado" type="java.lang.Integer">
@@ -62,8 +62,8 @@
         <property name="contrasenaEmpleado" type="string">
             <column name="contrasena_empleado" length="32" />
         </property>
-        <property name="loginCliente" type="string">
-            <column name="login_cliente" length="6" />
+        <property name="loginEmpleado" type="string">
+            <column name="login_empleado" length="6" />
         </property>
     </class>
 </hibernate-mapping>

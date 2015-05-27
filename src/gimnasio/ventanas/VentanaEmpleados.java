@@ -552,7 +552,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         }
         try {
             String nombre = tx_ventana_empleados_nombre.getText();
-            String apellidos = tx_ventana_empleados_apellido.getText();
+            String apellidos = tx_ventana_empleados_apellido.getText().replace(" ", "");
             Empleados empleado = new Empleados(nombre, apellidos,
                     tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
                     tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),

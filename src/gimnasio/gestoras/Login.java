@@ -61,7 +61,7 @@ public class Login {
         contraseña = devuelveHash(contraseña);
 
         Empleados temp = (Empleados) Gestora.getInstance()
-                .ejecutarConsultaUnResultado("from Empleados alias where alias.nombreEmpleado = '"
+                .ejecutarConsultaUnResultado("from Empleados alias where alias.loginEmpleado = '"
                         + usuario + "' and alias.contrasenaEmpleado = '" + contraseña + "'");
 
         if (temp != null) {

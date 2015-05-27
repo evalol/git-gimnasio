@@ -1,5 +1,5 @@
 package datos;
-// Generated 27-may-2015 20:48:02 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 21:12:01 by Hibernate Tools 4.3.1
 
 
 
