@@ -49,11 +49,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         tx_ventana_empleados_apellido = new javax.swing.JTextField();
         tx_ventana_empleados_dni = new javax.swing.JTextField();
         cb_ventana_empleados_fecha_nac = new com.toedter.calendar.JDateChooser();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cb_ventana_empleados_nombre_tipo_via = new javax.swing.JComboBox();
         tx_ventana_empleados_direccion = new javax.swing.JTextField();
         tx_ventana_empleados_numero = new javax.swing.JTextField();
         tx_ventana_empleados_piso = new javax.swing.JTextField();
@@ -105,15 +103,11 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
         tx_ventana_empleados_dni.setText("jTextField1");
 
-        jLabel5.setText("Tipo de via:");
-
         jLabel6.setText("Direccion:");
 
         jLabel7.setText("Numero:");
 
         jLabel8.setText("Piso:");
-
-        cb_ventana_empleados_nombre_tipo_via.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tx_ventana_empleados_direccion.setText("jTextField4");
 
@@ -186,7 +180,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
@@ -206,7 +199,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addComponent(tx_ventana_empleados_piso, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cb_ventana_empleados_nombre_tipo_via, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tx_nuevo_localidad)
                     .addComponent(tx_nuevo_codigo_postal))
                 .addGap(43, 43, 43)
@@ -275,11 +267,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(cb_ventana_empleados_fecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(cb_ventana_empleados_nombre_tipo_via, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGap(56, 56, 56)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
                                     .addComponent(tx_ventana_empleados_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +453,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_boton_ventana_empleados_agregarActionPerformed
 
     private void botonEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarEmpleadoActionPerformed
-        new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);        
+        new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
@@ -480,12 +468,12 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No se ha introducido borrar el empleado.");
+            JOptionPane.showMessageDialog(this, "No se ha podido borrar el empleado.");
         }
     }//GEN-LAST:event_botonBorrarEmpleadoActionPerformed
 
     private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
-        new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);        
+        new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
     }//GEN-LAST:event_botonDetallesActionPerformed
 
 
@@ -496,7 +484,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JButton boton_ventana_empleados_agregar;
     private javax.swing.JButton boton_ventana_empleados_limpiar;
     private com.toedter.calendar.JDateChooser cb_ventana_empleados_fecha_nac;
-    private javax.swing.JComboBox cb_ventana_empleados_nombre_tipo_via;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -510,7 +497,6 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -573,15 +559,18 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                     Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
                     tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
                     Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
-                    Login.devuelveHash(txContraseñaNueva.getText()),nombre.substring(0, 3) + apellidos.substring(0, 3));
+                    Login.devuelveHash(txContraseñaNueva.getText()), nombre.substring(0, 3) + apellidos.substring(0, 3));
 
             GestoraEmpleados.guardarEmpleados(empleado);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "No se ha introducido introducir el empleado.");
-        }
-        tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
+            
+            tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
 
-        JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
+            JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "No se ha podido introducir el empleado.");
+        }
+
     }
 
 }
