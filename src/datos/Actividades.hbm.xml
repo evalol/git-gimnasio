@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-may-2015 20:48:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="datos.Actividades" table="actividades" catalog="fitnesscenter" optimistic-lock="version">
+        <id name="idActividad" type="java.lang.Integer">
+            <column name="id_actividad" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreActividad" type="string">
+            <column name="nombre_actividad" length="50" />
+        </property>
+        <property name="idempleadoencargadoActividad" type="java.lang.Integer">
+            <column name="idempleadoencargado_actividad" />
+        </property>
+        <property name="idtarifasActividadestarifas" type="java.lang.Integer">
+            <column name="idtarifas_actividadestarifas" />
+        </property>
+    </class>
+</hibernate-mapping>

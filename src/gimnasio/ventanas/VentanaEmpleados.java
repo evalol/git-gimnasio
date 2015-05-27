@@ -565,13 +565,15 @@ public class VentanaEmpleados extends javax.swing.JDialog {
             return;
         }
         try {
-            Empleados empleado = new Empleados(tx_ventana_empleados_nombre.getText(), tx_ventana_empleados_apellido.getText(),
+            String nombre = tx_ventana_empleados_nombre.getText();
+            String apellidos = tx_ventana_empleados_apellido.getText();
+            Empleados empleado = new Empleados(nombre, apellidos,
                     tx_ventana_empleados_dni.getText(), tx_ventana_empleados_email.getText(), tx_ventana_empleados_telefono.getText(),
                     tx_ventana_empleados_movil.getText(), txNuevoCuentaBancaria.getText(), cb_ventana_empleados_fecha_nac.getDate(),
                     Gestora.fechaActual(), Integer.parseInt(tx_nuevo_sueldo.getText()), Integer.parseInt(tx_nuevo_suplemento_sueldo.getText()),
                     tx_ventana_empleados_direccion.getText(), tx_ventana_empleados_piso.getText(), tx_ventana_empleados_piso.getText(),
                     Integer.parseInt(tx_nuevo_codigo_postal.getText()), tx_nuevo_provincia.getText(), tx_nuevo_localidad.getText(),
-                    Login.devuelveHash(txContraseñaNueva.getText()));
+                    Login.devuelveHash(txContraseñaNueva.getText()),nombre.substring(0, 3) + apellidos.substring(0, 3));
 
             GestoraEmpleados.guardarEmpleados(empleado);
         } catch (Exception ex) {
