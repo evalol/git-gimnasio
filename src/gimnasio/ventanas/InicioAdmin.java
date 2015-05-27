@@ -9,7 +9,7 @@ import java.awt.Frame;
 
 /**
  *
- * @author Eva
+ * @author Eva María de Vena
  */
 public class InicioAdmin extends javax.swing.JFrame {
 
@@ -33,7 +33,7 @@ public class InicioAdmin extends javax.swing.JFrame {
         botonInicioActividades = new javax.swing.JButton();
         botonInicioEmpleados = new javax.swing.JButton();
         botonInicioTarifas = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botonInicioClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inicio administrador");
@@ -65,7 +65,12 @@ public class InicioAdmin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Clientes");
+        botonInicioClientes.setText("Clientes");
+        botonInicioClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioClientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,7 +83,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                     .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonInicioTarifas, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
@@ -88,7 +93,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonInicioEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonInicioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonInicioActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,16 +117,19 @@ public class InicioAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_botonInicioEmpleadosActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
+    private void botonInicioClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioClientesActionPerformed
+        new VentanaClientes((Frame) this.getParent(), true).setVisible(true);
+    }//GEN-LAST:event_botonInicioClientesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonInicioActividades;
+    private javax.swing.JButton botonInicioClientes;
     private javax.swing.JButton botonInicioEmpleados;
     private javax.swing.JButton botonInicioTarifas;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
