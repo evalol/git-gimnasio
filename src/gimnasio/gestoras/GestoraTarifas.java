@@ -16,26 +16,58 @@ import java.util.List;
  */
 public class GestoraTarifas {
 
+    /**
+     * Guarda una tarifa
+     *
+     * @param tarifa La tarifa a guardar
+     */
     public static void guardarTarifa(Tarifas tarifa) {
         Gestora.getInstance().save(tarifa);
     }
 
-    public static void actualizarTarifas(Tarifas tarifas) {
-        Gestora.getInstance().update(tarifas);
+    /**
+     * Actualiza una tarifas
+     *
+     * @param tarifa La tarifa para actualizar
+     */
+    public static void actualizarTarifas(Tarifas tarifa) {
+        Gestora.getInstance().update(tarifa);
     }
 
-    public static void borrarTarifa(Tarifas empleado) {
-        Gestora.getInstance().delete(empleado);
+    /**
+     * Borra una Tarifas
+     *
+     * @param tarifa La Tarifas a borrar
+     */
+    public static void borrarTarifa(Tarifas tarifa) {
+        Gestora.getInstance().delete(tarifa);
     }
 
+    /**
+     * Recupera todas las tarifas
+     *
+     * @return Una lista de tarifas de esa clase
+     */
     public static List<Tarifas> recuperarTarifas() {
         return Gestora.getInstance().<Tarifas>recuperarObjetos(Tarifas.class);
     }
 
+    /**
+     * Recupera todas las tarifas ordenadas
+     *
+     * @param ordenar El campo por el que se ordena
+     * @return Una lista de tarifas de esa clase
+     */
     public static List<Tarifas> recuperarTarifas(String ordenar) {
         return Gestora.getInstance().<Tarifas>recuperarObjetos(Tarifas.class, ordenar);
     }
 
+    /**
+     * Recupera una tarifa a partir de un id
+     *
+     * @param id El id
+     * @return La tarifa recuperada o null
+     */
     public static Tarifas getTarifaPorId(Serializable id) {
         return (Tarifas) Gestora.getInstance().getObjectById(Clientes.class, id);
     }

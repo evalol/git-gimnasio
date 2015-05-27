@@ -6,7 +6,6 @@
 package gimnasio.gestoras;
 
 import datos.Actividades;
-import datos.Clientes;
 import java.io.Serializable;
 import java.util.List;
 
