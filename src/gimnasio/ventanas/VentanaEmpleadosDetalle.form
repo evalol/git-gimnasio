@@ -24,18 +24,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -47,8 +43,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="215" max="32767" attributes="0"/>
-                  <Component id="etiApellidos" min="-2" pref="207" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="etiApellidos" min="-2" pref="205" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -66,30 +62,32 @@
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="etiTelefonoMovil" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="etiNumero" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="etiPiso" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="etiCodPost" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="etiNumero" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                  <Component id="etiPiso" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="etiCodPost" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="etiDireccion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiTelefonoFijo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiDni" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiEdad" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="etiProvincia" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="etiLocalidad" min="-2" pref="88" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="etiCuentaBancaria" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiTelefonoMovil" alignment="0" max="32767" attributes="0"/>
+                              <Component id="etiFechaNac" alignment="1" pref="182" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="etiDireccion" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiTelefonoFijo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiDni" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiEdad" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiFechaNac" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiNombre" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="etiProvincia" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="etiLocalidad" min="-2" pref="88" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="etiCuentaBancaria" alignment="0" max="32767" attributes="0"/>
-                          <Component id="etiEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="etiNombre" min="-2" pref="203" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -99,7 +97,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                   <Component id="etiApellidos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="275" max="32767" attributes="0"/>
+                  <EmptySpace pref="309" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -161,7 +159,7 @@
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="etiEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
