@@ -6,13 +6,10 @@
 package gimnasio.ventanas;
 
 import gimnasio.gestoras.Gestora;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
 
 /**
  *
- * @author Eva
+ * @author  Eva María de Vena
  */
 public class Portada extends javax.swing.JFrame {
 

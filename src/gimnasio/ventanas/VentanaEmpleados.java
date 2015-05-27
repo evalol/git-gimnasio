@@ -86,8 +86,11 @@ public class VentanaEmpleados extends javax.swing.JDialog {
         botonBorrarEmpleado = new javax.swing.JButton();
         botonDetalles = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        txBusqueda = new javax.swing.JTextField();
+        botonBuscar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaEmpleadosConsulta = new javax.swing.JTable();
+        tableBusquedas = new javax.swing.JTable();
 
         jLabel1.setText("Nombre empleado:");
 
@@ -398,7 +401,13 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Lista empleados", jPanel2);
 
-        tablaEmpleadosConsulta.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel19.setText("Buscar:");
+
+        txBusqueda.setText("jTextField4");
+
+        botonBuscar.setText("Buscar");
+
+        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -409,23 +418,36 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(tablaEmpleadosConsulta);
+        jScrollPane2.setViewportView(tableBusquedas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(jLabel19)
+                .addGap(68, 68, 68)
+                .addComponent(txBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(413, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 853, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(298, 298, 298))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonBuscar))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Busqueda", jPanel3);
@@ -468,7 +490,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No se ha introducido borrar el empleado.");
+            JOptionPane.showMessageDialog(this, "No se ha podido borrar el empleado.");
         }
     }//GEN-LAST:event_botonBorrarEmpleadoActionPerformed
 
@@ -479,6 +501,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonBorrarEmpleado;
+    private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonDetalles;
     private javax.swing.JButton botonEditarEmpleado;
     private javax.swing.JButton boton_ventana_empleados_agregar;
@@ -494,6 +517,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -510,7 +534,8 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tablaEmpleados;
-    private javax.swing.JTable tablaEmpleadosConsulta;
+    private javax.swing.JTable tableBusquedas;
+    private javax.swing.JTextField txBusqueda;
     private javax.swing.JTextField txContraseñaNueva;
     private javax.swing.JTextField txNuevoCuentaBancaria;
     private javax.swing.JTextField tx_nuevo_codigo_postal;
@@ -564,10 +589,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
             GestoraEmpleados.guardarEmpleados(empleado);
 
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
-
             JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "No se ha introducido introducir el empleado.");
+            JOptionPane.showMessageDialog(this, "No se ha podido introducir el empleado.");
         }
 
     }

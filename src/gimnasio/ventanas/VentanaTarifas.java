@@ -61,9 +61,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         comboOrdenarTarifas = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txBusquedaEdadMinima = new javax.swing.JTextField();
-        txBusquedaEdadMaxima = new javax.swing.JTextField();
+        txBusqueda = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableBusquedas = new javax.swing.JTable();
         botonBuscar = new javax.swing.JButton();
@@ -79,11 +77,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
         txNuevoNombreTarifa.setText("txNuevoNombreTarifa");
 
         txNuevoEdadMinima.setText("jTextField2");
-        txNuevoEdadMinima.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txNuevoEdadMinimaActionPerformed(evt);
-            }
-        });
         txNuevoEdadMinima.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txNuevoEdadMinimaKeyTyped(evt);
@@ -144,7 +137,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
                     .addComponent(txNuevoEdadMaxima)
                     .addComponent(txNuevoCuota)
                     .addComponent(txNuevoNombreTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +234,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,13 +252,9 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Lista tarifas", jPanel2);
 
-        jLabel7.setText("Bucar por edad mínima:");
+        jLabel7.setText("Buscar:");
 
-        jLabel9.setText("Buscar por edad máxima:");
-
-        txBusquedaEdadMinima.setText("jTextField4");
-
-        txBusquedaEdadMaxima.setText("jTextField5");
+        txBusqueda.setText("jTextField4");
 
         tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -286,41 +275,29 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9))
-                        .addGap(83, 83, 83)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txBusquedaEdadMinima, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                            .addComponent(txBusquedaEdadMaxima))
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51))
+                        .addComponent(txBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 107, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txBusquedaEdadMinima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txBusquedaEdadMaxima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonBuscar))
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Búsqueda ", jPanel3);
@@ -368,10 +345,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
     }//GEN-LAST:event_bLimpiarCamposActionPerformed
 
-    private void txNuevoEdadMinimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNuevoEdadMinimaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txNuevoEdadMinimaActionPerformed
-
     private void botonEditarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarTarifaActionPerformed
         try {
             if (tablaTarifas.getSelectedRow() >= 0) {
@@ -397,7 +370,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_txNuevoCuotaKeyTyped
 
     private void botonBorrarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTarifaActionPerformed
-        
+
         try {
             if (tablaTarifas.getSelectedRow() >= 0) {
 
@@ -416,7 +389,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         } catch (HeadlessException headlessException) {
             JOptionPane.showMessageDialog(this, "No se puede borrar.");
         }
-        
+
     }//GEN-LAST:event_botonBorrarTarifaActionPerformed
 
 
@@ -432,7 +405,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
@@ -442,8 +414,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JPanel panelNuevaTarifa;
     private javax.swing.JTable tablaTarifas;
     private javax.swing.JTable tableBusquedas;
-    private javax.swing.JTextField txBusquedaEdadMaxima;
-    private javax.swing.JTextField txBusquedaEdadMinima;
+    private javax.swing.JTextField txBusqueda;
     private javax.swing.JTextField txNuevoCuota;
     private javax.swing.JTextField txNuevoEdadMaxima;
     private javax.swing.JTextField txNuevoEdadMinima;
@@ -460,7 +431,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }
 
     public void insertarDatos() {
-        
+
         try {
             Tarifas tarifa = new Tarifas(txNuevoNombreTarifa.getText(),
                     Integer.parseInt(txNuevoEdadMaxima.getText()),

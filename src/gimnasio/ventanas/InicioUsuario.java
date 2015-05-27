@@ -9,7 +9,7 @@ import java.awt.Frame;
 
 /**
  *
- * @author Eva
+ * @author Eva María de Vena
  */
 public class InicioUsuario extends javax.swing.JFrame {
 
@@ -90,7 +90,6 @@ public class InicioUsuario extends javax.swing.JFrame {
 
     private void botonInicioClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioClientesActionPerformed
         new VentanaClientes((Frame) this.getParent(), true).setVisible(true);
-        
     }//GEN-LAST:event_botonInicioClientesActionPerformed
 
     private void botonInicioTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioTarifasActionPerformed
@@ -102,12 +101,10 @@ public class InicioUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botonInicioActividadesActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonInicioActividades;
