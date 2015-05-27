@@ -6,10 +6,12 @@
 package gimnasio.ventanas;
 
 import gimnasio.gestoras.Gestora;
+import images.JPanelBackground;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author  Eva María de Vena
+ * @author Eva María de Vena
  */
 public class Portada extends javax.swing.JFrame {
 
@@ -19,16 +21,16 @@ public class Portada extends javax.swing.JFrame {
     public Portada() {
         initComponents();
         setLocationRelativeTo(null);
-
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                Gestora.getInstance();
-                VentanaLogin i = new VentanaLogin();
-                i.setVisible(true);
-                Portada.this.dispose();
-            }
+        
+        setIconImage(new ImageIcon(Portada.class.getResource("/images/ico.jpg")).getImage());
+        jPanelBackground1.setOpaque(false);
+        jPanelBackground1.setBackground(new ImageIcon(Portada.class.getResource("/images/logo.gif")));
+        
+        new Thread(() -> {
+            Gestora.getInstance();
+            VentanaLogin i = new VentanaLogin();
+            i.setVisible(true);
+            Portada.this.dispose();
         }).start();
     }
 
@@ -41,48 +43,30 @@ public class Portada extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelBackground1 = new images.JPanelBackground();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 667, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelBackground1Layout = new javax.swing.GroupLayout(jPanelBackground1);
+        jPanelBackground1.setLayout(jPanelBackground1Layout);
+        jPanelBackground1Layout.setHorizontalGroup(
+            jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelBackground1Layout.setVerticalGroup(
+            jPanelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 376, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -99,7 +83,7 @@ public class Portada extends javax.swing.JFrame {
          */
         try {
             
-                    javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Portada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -118,7 +102,6 @@ public class Portada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private images.JPanelBackground jPanelBackground1;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package gimnasio.ventanas;
 
 import gimnasio.gestoras.Login;
 import java.awt.Frame;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,8 @@ public class VentanaLogin extends javax.swing.JFrame {
      */
     public VentanaLogin() {
         initComponents();
+        
+        setIconImage(new ImageIcon(VentanaLogin.class.getResource("/images/ico.jpg")).getImage());
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
     }

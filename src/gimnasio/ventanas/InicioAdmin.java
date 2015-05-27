@@ -6,6 +6,7 @@
 package gimnasio.ventanas;
 
 import java.awt.Frame;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,6 +19,7 @@ public class InicioAdmin extends javax.swing.JFrame {
      */
     public InicioAdmin() {
         initComponents();
+        setIconImage(new ImageIcon(InicioUsuario.class.getResource("/images/ico.jpg")).getImage());
         setLocationRelativeTo(null);
     }
 
