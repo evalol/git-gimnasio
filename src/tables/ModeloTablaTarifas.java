@@ -66,6 +66,7 @@ public class ModeloTablaTarifas extends DefaultTableModel {
                     case 0: {
                         devolver = tarifas[rowIndex].getIdTarifa();
                     }
+                    break;
                     case 1: {
                         devolver = tarifas[rowIndex].getNombreTarifa();
                     }

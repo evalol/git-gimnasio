@@ -587,10 +587,12 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                     Login.devuelveHash(txContraseñaNueva.getText()), nombre.substring(0, 3) + apellidos.substring(0, 3));
 
             GestoraEmpleados.guardarEmpleados(empleado);
-
+            
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
+
             JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
         } catch (Exception ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(this, "No se ha podido introducir el empleado.");
         }
 

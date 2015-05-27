@@ -18,6 +18,9 @@ import java.awt.Frame;
 import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import tables.ModeloTablaTarifas;
 
 /**
  *
@@ -35,7 +38,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         super(owner, modal);
         initComponents();
         tablaClientes.setAutoCreateRowSorter(true);
-        tableBusquedas.setAutoCreateRowSorter(true);        
+        tableBusquedas.setAutoCreateRowSorter(true);
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         getTarifas();
@@ -461,8 +464,6 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         jLabel19.setText("Buscar:");
 
-        txBusqueda.setText("jTextField4");
-
         botonBuscar.setText("Buscar");
         botonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,17 +471,6 @@ public class VentanaClientes extends javax.swing.JDialog {
             }
         });
 
-        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane2.setViewportView(tableBusquedas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -629,7 +619,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonDetallesActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        // TODO add your handling code here:
+        buscar();
     }//GEN-LAST:event_botonBuscarActionPerformed
 
 
@@ -702,4 +692,44 @@ public class VentanaClientes extends javax.swing.JDialog {
         cb_ventana_clientes_nuevo_tarifa.addItem("");
     }
 
+    private void buscar() {
+
+        String buscar = txBusqueda.getText();
+        int buscarN = 0;
+        if (Patrones.isNumeric(buscar))
+            buscarN = Integer.parseInt(buscar);
+        if (!buscar.isEmpty()) {
+
+            Session s = Gestora.getInstance().openSession();
+            Query q = s.createQuery("from Clientes t where t.nombreCliente = :n or "
+                    + "t.apellidosCliente = :min or "
+                    + "t.dniCliente = :d or "
+                    + "t.telefonoCliente = :tc or "
+                    + "t.telefonomovilCliente = :tm or "
+                    + "t.direcciondomicilioCliente = :dir or "
+                    + "t.pisodomicilioCliente = :piso or "
+                    + "t.numerodomicilioCliente = :num or "
+                    + "t.codigopostalCliente = :cod or "
+                    + "t.localidadCliente = :loc or "
+                    + "t.provinciaCliente = :prov or "
+                    + "t.cuentabancariaCliente = :cuen or "
+                    + "t.emailCliente = :email or "
+                    + "t.formapagoCliente = :forma");
+            q.setParameter("n", buscar);
+            q.setParameter("min", buscar);
+            q.setParameter("d", buscar);
+            q.setParameter("tc", buscar);
+            q.setParameter("tm", buscar);
+            q.setParameter("dir", buscar);
+            q.setParameter("piso", buscar);
+            q.setParameter("num", buscar);
+            q.setParameter("cod", buscarN);
+            q.setParameter("loc", buscar);
+            q.setParameter("prov", buscar);
+            q.setParameter("cuen", buscar);
+            q.setParameter("email", buscar);
+            q.setParameter("forma", buscar);
+            tableBusquedas.setModel(new ModeloTablaClientes(q.list()));
+        }
+    }
 }

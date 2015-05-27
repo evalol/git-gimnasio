@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -147,6 +148,21 @@ public class Gestora {
         List<T> objeto = s.createQuery("from " + clase.getSimpleName()).list();
         return objeto;
     }
+    
+    /**
+     * ESte método se usa para recuperar todos los objetos de una clase. Hace
+     * uso de Java Generics
+     *
+     * @param <T> El nombre de la clase
+     * @param clase La clase
+     * @return Una lista de objetos de esa clase
+     */
+    public <T> List<T> recuperarObjetosConWhere(Class<T> clase, String where) {
+        Session s = sesion.openSession();
+        System.out.println("from " + clase.getSimpleName() + " t where " + where);
+        List<T> objeto = s.createQuery("from " + clase.getSimpleName() + " t where " + where).list();
+        return objeto;
+    }
 
     /**
      * ESte método se usa para recuperar todos los objetos de una clase
@@ -166,4 +182,10 @@ public class Gestora {
     public void recuperarId() {
 
     }
+
+    public Session openSession() throws HibernateException {
+        return sesion.openSession();
+    }
+    
+    
 }

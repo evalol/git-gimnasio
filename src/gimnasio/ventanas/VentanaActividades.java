@@ -9,15 +9,21 @@ import Tables.ModeloTablaActividades;
 import datos.Actividades;
 import datos.Empleados;
 import datos.Tarifas;
+import gimnasio.gestoras.Gestora;
 import gimnasio.gestoras.GestoraActividades;
 import gimnasio.gestoras.GestoraEmpleados;
 import gimnasio.gestoras.GestoraTarifas;
+import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import java.awt.HeadlessException;
+import java.text.MessageFormat;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import tables.ModeloTablaTarifas;
 
 /**
  *
@@ -170,17 +176,6 @@ public class VentanaActividades extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Nueva actividad", jPanel1);
 
-        tablaActividades.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane1.setViewportView(tablaActividades);
 
         botonBorrar.setText("Borrar");
@@ -229,22 +224,14 @@ public class VentanaActividades extends javax.swing.JDialog {
 
         jLabel7.setText("Buscar:");
 
-        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane2.setViewportView(tableBusquedas);
 
-        txBusqueda.setText("jTextField4");
-
         botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -302,7 +289,7 @@ public class VentanaActividades extends javax.swing.JDialog {
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
         try {
             Actividades actividad = new Actividades(txNombreActividad.getText(),
-                    ((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado(), 
+                    ((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado(),
                     ((Tarifas) cbTarifasActividad.getSelectedItem()).getIdTarifa());
             GestoraActividades.guardarActividades(actividad);
             JOptionPane.showMessageDialog(this, "Se ha insertado la actividad.");
@@ -319,6 +306,10 @@ public class VentanaActividades extends javax.swing.JDialog {
         new VentanaActividadesEditor((Frame) this.getParent(), true, (int) tablaActividades.getValueAt(tablaActividades.getSelectedRow(), 0)).setVisible(true);
         tablaActividades.setModel(new ModeloTablaActividades(GestoraActividades.recuperarActividades()));
     }//GEN-LAST:event_botonEditarActionPerformed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        buscar();
+    }//GEN-LAST:event_botonBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -383,4 +374,24 @@ public class VentanaActividades extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "No se ha podido borrar la actividad correctamente.");
         }
     }
+
+    private void buscar() {
+
+        String buscar = txBusqueda.getText();
+        int buscarN = 0;
+        if (Patrones.isNumeric(buscar))
+            buscarN = Integer.parseInt(buscar);
+        if (!buscar.isEmpty()) {
+
+            Session s = Gestora.getInstance().openSession();
+            Query q = s.createQuery("from Actividades t where t.nombreActividad = :n or "
+                    + "t.idempleadoencargadoActividad = :min or "
+                    + "t.idtarifasActividadestarifas = :max");
+            q.setParameter("n", buscar);
+            q.setParameter("min", buscarN);
+            q.setParameter("max", buscarN);
+            tableBusquedas.setModel(new ModeloTablaActividades(q.list()));
+        }
+    }
+
 }

@@ -6,12 +6,16 @@
 package gimnasio.ventanas;
 
 import datos.Tarifas;
+import gimnasio.gestoras.Gestora;
 import gimnasio.gestoras.GestoraClientes;
 import gimnasio.gestoras.GestoraTarifas;
+import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import tables.ModeloTablaTarifas;
 
 /**
@@ -28,7 +32,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         tablaTarifas.setAutoCreateRowSorter(true);
-        tableBusquedas.setAutoCreateRowSorter(true);
+        tablaBusquedas.setAutoCreateRowSorter(true);
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
         tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
     }
@@ -64,7 +68,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         txBusqueda = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableBusquedas = new javax.swing.JTable();
+        tablaBusquedas = new javax.swing.JTable();
         botonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -184,17 +188,6 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
         jTabbedPane1.addTab("Nueva tarifa", panelNuevaTarifa);
 
-        tablaTarifas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane1.setViewportView(tablaTarifas);
 
         botonEditarTarifa.setText("Editar");
@@ -243,22 +236,14 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
         jLabel7.setText("Buscar:");
 
-        txBusqueda.setText("jTextField4");
-
-        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tableBusquedas);
+        jScrollPane2.setViewportView(tablaBusquedas);
 
         botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -306,6 +291,11 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboOrdenarTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenarTarifasActionPerformed
+
+
+    }//GEN-LAST:event_comboOrdenarTarifasActionPerformed
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed
 
@@ -365,6 +355,10 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
     }//GEN-LAST:event_botonBorrarTarifaActionPerformed
 
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        buscar();
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bGuardarTarifa;
@@ -384,8 +378,8 @@ public class VentanaTarifas extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panelNuevaTarifa;
+    private javax.swing.JTable tablaBusquedas;
     private javax.swing.JTable tablaTarifas;
-    private javax.swing.JTable tableBusquedas;
     private javax.swing.JTextField txBusqueda;
     private javax.swing.JTextField txNuevoCuota;
     private javax.swing.JTextField txNuevoEdadMaxima;
@@ -426,5 +420,26 @@ public class VentanaTarifas extends javax.swing.JDialog {
             evt.consume();
         }
 
+    }
+
+    private void buscar() {
+        
+        String buscar = txBusqueda.getText();
+        int buscarN = 0;
+        if(Patrones.isNumeric(buscar))
+            buscarN = Integer.parseInt(buscar);
+        if (!buscar.isEmpty()) {
+
+            Session s = Gestora.getInstance().openSession();
+            Query q = s.createQuery("from Tarifas t where t.nombreTarifa = :n or "
+                            + "t.edadMinimaTarifa = :min or "
+                            + "t.edadMaximaTarifa = :max or "
+                            + "t.precioTarifa = :p");
+            q.setParameter("n", buscar);
+            q.setParameter("min", buscarN);
+            q.setParameter("max", buscarN);
+            q.setParameter("p", buscarN);
+            tablaBusquedas.setModel(new ModeloTablaTarifas(q.list()));
+        }
     }
 }
