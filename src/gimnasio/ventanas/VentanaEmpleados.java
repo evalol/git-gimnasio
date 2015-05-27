@@ -5,6 +5,7 @@
  */
 package gimnasio.ventanas;
 
+import Tables.ModeloTablaClientes;
 import Tables.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.Gestora;
@@ -14,6 +15,9 @@ import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import java.io.Serializable;
 import javax.swing.JOptionPane;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import tables.ModeloTablaEmpleadosConsulta;
 
 /**
  *
@@ -403,21 +407,13 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
         jLabel19.setText("Buscar:");
 
-        txBusqueda.setText("jTextField4");
-
         botonBuscar.setText("Buscar");
-
-        tableBusquedas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
             }
-        ));
+        });
+
         jScrollPane2.setViewportView(tableBusquedas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -497,6 +493,10 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
         new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
     }//GEN-LAST:event_botonDetallesActionPerformed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        buscar();
+    }//GEN-LAST:event_botonBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -587,7 +587,7 @@ public class VentanaEmpleados extends javax.swing.JDialog {
                     Login.devuelveHash(txContraseñaNueva.getText()), nombre.substring(0, 3) + apellidos.substring(0, 3));
 
             GestoraEmpleados.guardarEmpleados(empleado);
-            
+
             tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
 
             JOptionPane.showMessageDialog(this, "Se ha introducido el empleado correctamente.");
@@ -598,4 +598,48 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
     }
 
+    private void buscar() {
+
+        String buscar = txBusqueda.getText();
+        int buscarN = 0;
+        if (Patrones.isNumeric(buscar))
+            buscarN = Integer.parseInt(buscar);
+        if (!buscar.isEmpty()) {
+
+            Session s = Gestora.getInstance().openSession();
+            Query q = s.createQuery("from Empleados t where t.nombreEmpleado = :n or "
+                    + "t.apellidosEmpleado = :min or "
+                    + "t.dniEmpleado = :d or "
+                    + "t.emailEmpleado = :email or "
+                    + "t.telefonoEmpleado = :t or "
+                    + "t.movilEmpleado = :mov or "
+                    + "t.cuentaBancariaEmpleado = :cuen or "
+                    + "t.sueldomesEmpleado = :sueldo or "
+                    + "t.suplementoSueldoEmpleado = :supl or "
+                    + "t.direccionEmpleado = :dir or "
+                    + "t.pisoEmpleado = :piso or "
+                    + "t.numeroEmpleado = :num or "
+                    + "t.codigopostalEmpleado = :cod or "
+                    + "t.localidadEmpleado = :local or "
+                    + "t.provinciaEmpleado = :provin or "
+                    + "t.loginEmpleado = :login");
+            q.setParameter("n", buscar);
+            q.setParameter("min", buscar);
+            q.setParameter("d", buscar);
+            q.setParameter("email", buscar);
+            q.setParameter("t", buscar);
+            q.setParameter("mov", buscar);
+            q.setParameter("cuen", buscar);
+            q.setParameter("sueldo", buscarN);
+            q.setParameter("supl", buscarN);
+            q.setParameter("dir", buscar);
+            q.setParameter("piso", buscar);
+            q.setParameter("num", buscar);
+            q.setParameter("cod", buscarN);
+            q.setParameter("local", buscar);
+            q.setParameter("provin", buscar);
+            q.setParameter("login", buscar);
+            tableBusquedas.setModel(new ModeloTablaEmpleadosConsulta(q.list()));
+        }
+    }
 }

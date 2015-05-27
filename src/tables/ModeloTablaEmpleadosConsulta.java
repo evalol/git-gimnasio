@@ -7,6 +7,7 @@ package tables;
 
 import datos.Empleados;
 import java.util.Date;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,17 +19,20 @@ public class ModeloTablaEmpleadosConsulta extends DefaultTableModel {
     Empleados[] empleados;
     int filas;
     String[] nombres = {"Nombre", "Apellidos", "Dni",
-        "Email", "Teléfono", "Móvil", "Cuenta bancaria", "fechaNac",
-        "fechaAlta", "Sueldo Mes", "Suplemento sueldo", "Direccion", "Codigo Postal",
+        "Email", "Teléfono", "Móvil", "Cuenta bancaria", "Sueldo Mes", "Suplemento sueldo", "Direccion", "Codigo Postal",
         "Localidad", "Provincia"};
     Class[] clases = {String.class, String.class, String.class,
-        String.class, String.class, String.class, String.class, Date.class,
-        Date.class, Integer.class, Integer.class, Integer.class, String.class,
+        String.class, String.class, String.class, String.class, Integer.class, Integer.class, Integer.class, String.class,
         String.class, String.class};
 
     public ModeloTablaEmpleadosConsulta(Empleados[] empleados) {
         this.empleados = empleados;
         this.filas = empleados.length;
+    }
+
+    public ModeloTablaEmpleadosConsulta(List<Empleados> empleados) {
+        this.empleados = empleados.toArray(new Empleados[empleados.size()]);
+        this.filas = empleados.size();
     }
 
     @Override
@@ -97,36 +101,28 @@ public class ModeloTablaEmpleadosConsulta extends DefaultTableModel {
                     }
                     break;
                     case 8: {
-                        devolver = empleados[rowIndex].getFechanacimientoEmpleado();
-                    }
-                    break;
-                    case 9: {
-                        devolver = empleados[rowIndex].getFechaaltaEmpleado();
-                    }
-                    break;
-                    case 10: {
                         devolver = empleados[rowIndex].getSueldomesEmpleado();
                     }
                     break;
-                    case 11: {
+                    case 9: {
                         devolver = empleados[rowIndex].getSuplementoSueldoEmpleado();
                     }
                     break;
-                    case 12: {
+                    case 10: {
                         devolver = empleados[rowIndex].getDireccionEmpleado() + " "
                                 + empleados[rowIndex].getPisoEmpleado() + " "
                                 + empleados[rowIndex].getNumeroEmpleado();
                     }
                     break;
-                    case 13: {
+                    case 11: {
                         devolver = empleados[rowIndex].getCodigopostalEmpleado();
                     }
                     break;
-                    case 14: {
+                    case 12: {
                         devolver = empleados[rowIndex].getLocalidadEmpleado();
                     }
                     break;
-                    case 15: {
+                    case 13: {
                         devolver = empleados[rowIndex].getProvinciaEmpleado();
                     }
                     break;
