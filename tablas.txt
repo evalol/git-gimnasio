@@ -42,7 +42,8 @@ numero_empleado varchar(50),
 codigopostal_empleado int(5),
 localidad_empleado varchar(60),
 provincia_empleado varchar(60), 
-contrasena_empleado char(32)
+contrasena_empleado char(32),
+login_empleado char(6)
 );
 
 drop table if exists tarifas;
@@ -71,4 +72,5 @@ INSERT INTO actividades (nombre_actividad, idempleadoencargado_actividad,idtarif
 INSERT INTO actividades (nombre_actividad, idempleadoencargado_actividad,idtarifas_actividadestarifas) VALUES ('Boxeo', 1, 2);
 
 
-INSERT INTO empleados VALUES (1,'admin','admin','12345678L','admin@gimnasio.com','900000000','600000000','admin','2015-05-04','2015-05-26',1000,100,'admin','00','00',12345,'admin','admin','21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO empleados VALUES (1,'admin','admin','12345678L','admin@gimnasio.com','900000000','600000000','admin','2015-05-04','2015-05-26',1000,100,'admin','00','00',12345,'admin','admin','21232f297a57a5a743894a0e4a801fc3', 'admin');
+INSERT INTO empleados VALUES (2,'eva','de vena','12345679L','eva@gimnasio.com','900000000','600000000','eva','2015-05-04','2015-05-26',1000,100,'eva','00','00',12345,'eva','eva','21232f297a57a5a743894a0e4a801fc3', 'evadev');
