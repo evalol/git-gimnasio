@@ -1,5 +1,5 @@
 package datos;
-// Generated 27-may-2015 0:50:17 by Hibernate Tools 4.3.1
+// Generated 27-may-2015 20:48:02 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -29,6 +29,7 @@ public class Empleados  implements java.io.Serializable {
      private String localidadEmpleado;
      private String provinciaEmpleado;
      private String contrasenaEmpleado;
+     private String loginCliente;
 
     public Empleados() {
     }
@@ -39,7 +40,7 @@ public class Empleados  implements java.io.Serializable {
         this.cuentaBancariaEmpleado = cuentaBancariaEmpleado;
         this.fechanacimientoEmpleado = fechanacimientoEmpleado;
     }
-    public Empleados(String nombreEmpleado, String apellidosEmpleado, String dniEmpleado, String emailEmpleado, String telefonoEmpleado, String movilEmpleado, String cuentaBancariaEmpleado, Date fechanacimientoEmpleado, Date fechaaltaEmpleado, Integer sueldomesEmpleado, Integer suplementoSueldoEmpleado, String direccionEmpleado, String pisoEmpleado, String numeroEmpleado, Integer codigopostalEmpleado, String localidadEmpleado, String provinciaEmpleado, String contrasenaEmpleado) {
+    public Empleados(String nombreEmpleado, String apellidosEmpleado, String dniEmpleado, String emailEmpleado, String telefonoEmpleado, String movilEmpleado, String cuentaBancariaEmpleado, Date fechanacimientoEmpleado, Date fechaaltaEmpleado, Integer sueldomesEmpleado, Integer suplementoSueldoEmpleado, String direccionEmpleado, String pisoEmpleado, String numeroEmpleado, Integer codigopostalEmpleado, String localidadEmpleado, String provinciaEmpleado, String contrasenaEmpleado, String loginCliente) {
        this.nombreEmpleado = nombreEmpleado;
        this.apellidosEmpleado = apellidosEmpleado;
        this.dniEmpleado = dniEmpleado;
@@ -58,6 +59,7 @@ public class Empleados  implements java.io.Serializable {
        this.localidadEmpleado = localidadEmpleado;
        this.provinciaEmpleado = provinciaEmpleado;
        this.contrasenaEmpleado = contrasenaEmpleado;
+       this.loginCliente = loginCliente;
     }
    
     public Integer getIdEmpleado() {
@@ -192,6 +194,13 @@ public class Empleados  implements java.io.Serializable {
     
     public void setContrasenaEmpleado(String contrasenaEmpleado) {
         this.contrasenaEmpleado = contrasenaEmpleado;
+    }
+    public String getLoginCliente() {
+        return this.loginCliente;
+    }
+    
+    public void setLoginCliente(String loginCliente) {
+        this.loginCliente = loginCliente;
     }
 
 
