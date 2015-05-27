@@ -12,28 +12,25 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Eva
+ * @author Eva Maria de Vena
  */
 public class ModeloTablaEmpleados extends DefaultTableModel {
 
     Empleados[] empleados;
     int filas;
-    String[] nombres = {"Id", "Nombre", "Apellidos",
-        "Dni", "Email", "Teléfono", "Móvil",
-        "Cuenta bancaria", "fechaNac", "fechaAlta",
-        "Sueldo Mes", "Suplemento sueldo", "direccion",
-        "Codigo Postal", "Localidad", "Provincia"};
-    Class[] clases = {Integer.class, String.class, String.class,
-        String.class, String.class, String.class, String.class,
-        String.class, Date.class, Date.class,
-        Integer.class, Integer.class, String.class,
-        String.class, String.class, String.class};
+    String[] nombres = {"Id", "Nombre", "Apellidos", "Dni", "Email", "Teléfono", 
+        "Móvil", "Cuenta bancaria", "fechaNac", "fechaAlta", "Sueldo Mes", 
+        "Suplemento sueldo", "direccion", "Codigo Postal", "Localidad", "Provincia", "Alias"};
+    Class[] clases = {Integer.class, String.class, String.class, String.class, 
+        String.class, String.class, String.class, String.class, Date.class, Date.class,
+        Integer.class, Integer.class, String.class, String.class, String.class,
+        String.class, String.class};
 
     public ModeloTablaEmpleados(Empleados[] empleados) {
         this.empleados = empleados;
         this.filas = empleados.length;
     }
-    
+
     public ModeloTablaEmpleados(List<Empleados> empleados) {
         this.empleados = empleados.toArray(new Empleados[empleados.size()]);
         this.filas = empleados.size();
@@ -136,6 +133,10 @@ public class ModeloTablaEmpleados extends DefaultTableModel {
                     break;
                     case 15: {
                         devolver = empleados[rowIndex].getProvinciaEmpleado();
+                    }
+                    break;
+                    case 16: {
+                        devolver = empleados[rowIndex].getLoginEmpleado();
                     }
                     break;
                 }

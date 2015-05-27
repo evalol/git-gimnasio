@@ -16,7 +16,7 @@ import tables.ModeloTablaTarifas;
 
 /**
  *
- * @author Eva
+ * @author Eva María de Vena
  */
 public class VentanaTarifas extends javax.swing.JDialog {
 
@@ -27,6 +27,8 @@ public class VentanaTarifas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        tablaTarifas.setAutoCreateRowSorter(true);
+        tableBusquedas.setAutoCreateRowSorter(true);
         VentanaUtils.limpiarFormulario(panelNuevaTarifa);
         tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas()));
     }
@@ -320,18 +322,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
 
     private void comboOrdenarTarifasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenarTarifasActionPerformed
 
-        String seleccion = (String) comboOrdenarTarifas.getSelectedItem();
-
-        if (seleccion.equals("De menor a mayor edad")) {
-            tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas("edadMinimaTarifa")));
-        } else if (seleccion.equals("De mayor a menor edad")) {
-            tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas("edadMaximaTarifa")));
-        } else if (seleccion.equals("Nombre")) {
-            tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas("nombreTarifa")));
-        } else if (seleccion.equals("Precio")) {
-            tablaTarifas.setModel(new ModeloTablaTarifas(GestoraTarifas.recuperarTarifas("precioTarifa")));
-        }
-
+     
     }//GEN-LAST:event_comboOrdenarTarifasActionPerformed
 
     private void bGuardarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarTarifaActionPerformed

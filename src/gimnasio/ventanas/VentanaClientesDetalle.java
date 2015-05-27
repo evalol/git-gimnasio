@@ -10,7 +10,7 @@ import gimnasio.gestoras.GestoraClientes;
 
 /**
  *
- * @author Eva
+ * @author Eva María de Vena
  */
 public class VentanaClientesDetalle extends javax.swing.JDialog {
 

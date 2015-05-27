@@ -35,6 +35,7 @@ public class VentanaClientes extends javax.swing.JDialog {
         super(owner, modal);
         initComponents();
         tablaClientes.setAutoCreateRowSorter(true);
+        tableBusquedas.setAutoCreateRowSorter(true);        
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         getTarifas();

@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Eva
+ * @author Eva Maria de Vena
  */
 public class ModeloTablaClientes extends DefaultTableModel {
 

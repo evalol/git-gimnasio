@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Eva
+ * @author Eva María de Vena
  */
 public class VentanaClientesEdicion extends javax.swing.JDialog {
 

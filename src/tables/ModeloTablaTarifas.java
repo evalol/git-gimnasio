@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Eva
+ * @author Eva Maria de Vena
  */
 public class ModeloTablaTarifas extends DefaultTableModel {
 
