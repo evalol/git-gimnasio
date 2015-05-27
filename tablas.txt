@@ -1,0 +1,74 @@
+drop table if exists clientes;
+create table clientes(
+id_cliente int(4) not null primary key auto_increment,
+nombre_cliente varchar(50),
+apellidos_cliente varchar(50),
+dni_cliente varchar(9) unique not null,
+telefono_cliente varchar(9),
+telefonomovil_cliente varchar(9),
+direcciondomicilio_cliente varchar(50),
+pisodomicilio_cliente varchar(50),
+numerodomicilio_cliente varchar(50),
+codigopostal_cliente int(5),
+localidad_cliente varchar(60),
+provincia_cliente varchar(60),
+fechanacimiento_cliente date not null,
+cuentabancaria_cliente varchar(50) not null,
+email_cliente varchar(60),
+alta_cliente date,
+idtarifa_cliente int(4) references tarifas(id_tarifa),
+formapago_cliente varchar(25) not null,
+idempleadoalta_cliente int(4) references empleados(id_empleado)
+);
+
+
+drop table if exists empleados;
+create table empleados(
+id_empleado int(4) not null primary key auto_increment,
+nombre_empleado varchar(50),
+apellidos_empleado varchar(50),
+dni_empleado varchar(9) unique not null,
+email_empleado varchar(50),
+telefono_empleado varchar(9),
+movil_empleado varchar(9),
+cuenta_bancaria_empleado varchar(50) not null,
+fechanacimiento_empleado date not null,
+fechaalta_empleado date,
+sueldomes_empleado int(6),
+suplemento_sueldo_empleado int(6),
+direccion_empleado varchar(50),
+piso_empleado varchar(50),
+numero_empleado varchar(50),
+codigopostal_empleado int(5),
+localidad_empleado varchar(60),
+provincia_empleado varchar(60), 
+contrasena_empleado char(32)
+);
+
+drop table if exists tarifas;
+create table tarifas(
+id_tarifa int(4) not null primary key auto_increment,
+nombre_tarifa varchar(50) not null,
+edad_minima_tarifa int(4) not null,
+edad_maxima_tarifa int(4) not null,
+precio_tarifa int(4) not null
+);
+
+drop table if exists actividades;
+create table actividades(
+id_actividad int(4) not null primary key auto_increment,
+nombre_actividad varchar(50),
+idempleadoencargado_actividad int(4) references empleados (id_empleado),
+idtarifas_actividadestarifas int(4) references tarifas(id_tarifa)
+);
+
+INSERT INTO tarifas (nombre_tarifa, edad_minima_tarifa,edad_maxima_tarifa,precio_tarifa) VALUES ('Normal', 1, 99, 50);
+INSERT INTO tarifas (nombre_tarifa, edad_minima_tarifa,edad_maxima_tarifa,precio_tarifa) VALUES ('Reducida', 1, 99, 30);
+
+
+INSERT INTO actividades (nombre_actividad, idempleadoencargado_actividad,idtarifas_actividadestarifas) VALUES ('Spining', 1, 1);
+INSERT INTO actividades (nombre_actividad, idempleadoencargado_actividad,idtarifas_actividadestarifas) VALUES ('Running', 2, 1);
+INSERT INTO actividades (nombre_actividad, idempleadoencargado_actividad,idtarifas_actividadestarifas) VALUES ('Boxeo', 1, 2);
+
+
+INSERT INTO empleados VALUES (1,'admin','admin','12345678L','admin@gimnasio.com','900000000','600000000','admin','2015-05-04','2015-05-26',1000,100,'admin','00','00',12345,'admin','admin','21232f297a57a5a743894a0e4a801fc3');

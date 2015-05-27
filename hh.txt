@@ -1,0 +1,2 @@
+Initial SessionFactory creation failed.org.hibernate.exception.SQLGrammarException: Error calling Driver#connect
+Exception in thread "Thread-2" java.lang.ExceptionInInitializerError
