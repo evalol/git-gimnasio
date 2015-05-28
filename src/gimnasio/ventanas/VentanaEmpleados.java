@@ -471,27 +471,36 @@ public class VentanaEmpleados extends javax.swing.JDialog {
     }//GEN-LAST:event_boton_ventana_empleados_agregarActionPerformed
 
     private void botonEditarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarEmpleadoActionPerformed
-        new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
+        int row = tablaEmpleados.getSelectedRow();
+        if (row >= 0) {
+            new VentanaEmpleadosEdicion((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
+        }
     }//GEN-LAST:event_botonEditarEmpleadoActionPerformed
 
     private void botonBorrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarEmpleadoActionPerformed
-        try {
-            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
+        int row = tablaEmpleados.getSelectedRow();
+        if (row >= 0) {
+            try {
+                int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese empleado?", null, JOptionPane.YES_OPTION);
 
-            if (resultado == JOptionPane.YES_OPTION) {
-                GestoraEmpleados.borrarEmpleado(GestoraEmpleados.getEmpleadoPorId((Serializable) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)));
-            } else {
-                JOptionPane.showMessageDialog(this, "El empleado no se ha borrado.");
+                if (resultado == JOptionPane.YES_OPTION) {
+                    GestoraEmpleados.borrarEmpleado(GestoraEmpleados.getEmpleadoPorId((Serializable) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)));
+                } else {
+                    JOptionPane.showMessageDialog(this, "El empleado no se ha borrado.");
+                }
+
+                tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "No se ha podido borrar el empleado.");
             }
-
-            tablaEmpleados.setModel(new ModeloTablaEmpleados(GestoraEmpleados.recuperarEmpleados()));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No se ha podido borrar el empleado.");
         }
     }//GEN-LAST:event_botonBorrarEmpleadoActionPerformed
 
     private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
-        new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
+        int row = tablaEmpleados.getSelectedRow();
+        if (row >= 0) {
+            new VentanaEmpleadosDetalle((Frame) this.getParent(), true, (int) tablaEmpleados.getValueAt(tablaEmpleados.getSelectedRow(), 0)).setVisible(true);
+        }
     }//GEN-LAST:event_botonDetallesActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
@@ -602,8 +611,9 @@ public class VentanaEmpleados extends javax.swing.JDialog {
 
         String buscar = txBusqueda.getText();
         int buscarN = 0;
-        if (Patrones.isNumeric(buscar))
+        if (Patrones.isNumeric(buscar)) {
             buscarN = Integer.parseInt(buscar);
+        }
         if (!buscar.isEmpty()) {
 
             Session s = Gestora.getInstance().openSession();

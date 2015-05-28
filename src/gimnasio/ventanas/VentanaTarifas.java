@@ -309,6 +309,7 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }//GEN-LAST:event_bLimpiarCamposActionPerformed
 
     private void botonEditarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarTarifaActionPerformed
+
         try {
             if (tablaTarifas.getSelectedRow() >= 0) {
                 new VentanaTarifasEdicion((Frame) this.getParent(), true, (int) tablaTarifas.getValueAt(tablaTarifas.getSelectedRow(), 0)).setVisible(true);
@@ -423,18 +424,19 @@ public class VentanaTarifas extends javax.swing.JDialog {
     }
 
     private void buscar() {
-        
+
         String buscar = txBusqueda.getText();
         int buscarN = 0;
-        if(Patrones.isNumeric(buscar))
+        if (Patrones.isNumeric(buscar)) {
             buscarN = Integer.parseInt(buscar);
+        }
         if (!buscar.isEmpty()) {
 
             Session s = Gestora.getInstance().openSession();
             Query q = s.createQuery("from Tarifas t where t.nombreTarifa = :n or "
-                            + "t.edadMinimaTarifa = :min or "
-                            + "t.edadMaximaTarifa = :max or "
-                            + "t.precioTarifa = :p");
+                    + "t.edadMinimaTarifa = :min or "
+                    + "t.edadMaximaTarifa = :max or "
+                    + "t.precioTarifa = :p");
             q.setParameter("n", buscar);
             q.setParameter("min", buscarN);
             q.setParameter("max", buscarN);

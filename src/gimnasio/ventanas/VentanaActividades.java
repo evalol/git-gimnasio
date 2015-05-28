@@ -299,7 +299,10 @@ public class VentanaActividades extends javax.swing.JDialog {
     }//GEN-LAST:event_botonInsertarActionPerformed
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
-        borrarActividad();
+        int row = tablaActividades.getSelectedRow();
+        if (row >= 0) {
+            borrarActividad();
+        }
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed

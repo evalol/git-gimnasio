@@ -597,22 +597,23 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonEditarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
+        int row = tablaClientes.getSelectedRow();
+        if (row >= 0) {
+            try {
+                int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
 
-        try {
-            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar ese cliente?", null, JOptionPane.YES_OPTION);
+                if (resultado == JOptionPane.YES_OPTION) {
+                    GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
+                } else {
+                    JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
+                }
 
-            if (resultado == JOptionPane.YES_OPTION) {
-                GestoraClientes.borrarCliente(GestoraClientes.getClientePorId((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)));
-            } else {
-                JOptionPane.showMessageDialog(this, "El cliente no se ha borrado.");
+                tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
+                JOptionPane.showMessageDialog(this, "Cliente borrado.");
+            } catch (HeadlessException headlessException) {
+                JOptionPane.showMessageDialog(this, "No se ha podido borrar el cliente correctamente.");
             }
-
-            tablaClientes.setModel(new ModeloTablaClientes(GestoraClientes.recuperarClientes()));
-            JOptionPane.showMessageDialog(this, "Cliente borrado.");
-        } catch (HeadlessException headlessException) {
-            JOptionPane.showMessageDialog(this, "No se ha podido borrar el cliente correctamente.");
         }
-
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
     private void cbNuevoTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNuevoTarifaActionPerformed
@@ -624,7 +625,10 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_rbEfectivoActionPerformed
 
     private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
-        new VentanaClientesDetalle((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)).setVisible(true);
+        int row = tablaClientes.getSelectedRow();
+        if (row >= 0) {
+            new VentanaClientesDetalle((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)).setVisible(true);
+        }
     }//GEN-LAST:event_botonDetallesActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
