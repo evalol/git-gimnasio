@@ -5,7 +5,7 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaActividades;
+import tablas.ModeloTablaActividades;
 import datos.Actividades;
 import datos.Empleados;
 import datos.Tarifas;
@@ -291,6 +291,7 @@ public class VentanaActividades extends javax.swing.JDialog {
                     ((Empleados) cbEmpleadoActividad.getSelectedItem()).getIdEmpleado(),
                     ((Tarifas) cbTarifasActividad.getSelectedItem()).getIdTarifa());
             GestoraActividades.guardarActividades(actividad);
+            tablaActividades.setModel(new ModeloTablaActividades(GestoraActividades.recuperarActividades()));
             JOptionPane.showMessageDialog(this, "Se ha insertado la actividad.");
         } catch (NumberFormatException numberFormatException) {
             JOptionPane.showMessageDialog(this, "No se puede insertar la actividad");
@@ -302,7 +303,10 @@ public class VentanaActividades extends javax.swing.JDialog {
     }//GEN-LAST:event_botonBorrarActionPerformed
 
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
-        new VentanaActividadesEditor((Frame) this.getParent(), true, (int) tablaActividades.getValueAt(tablaActividades.getSelectedRow(), 0)).setVisible(true);
+        int row = tablaActividades.getSelectedRow();
+        if (row >= 0) {
+            new VentanaActividadesEditor((Frame) this.getParent(), true, (int) tablaActividades.getValueAt(row, 0)).setVisible(true);
+        }
         tablaActividades.setModel(new ModeloTablaActividades(GestoraActividades.recuperarActividades()));
     }//GEN-LAST:event_botonEditarActionPerformed
 
@@ -362,7 +366,10 @@ public class VentanaActividades extends javax.swing.JDialog {
             int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro borrar esa actividad?", null, JOptionPane.YES_OPTION);
 
             if (resultado == JOptionPane.YES_OPTION) {
-                GestoraActividades.borrarActividades(GestoraActividades.getActividadPorId((int) tablaActividades.getValueAt(tablaActividades.getSelectedRow(), 0)));
+                int row = tablaActividades.getSelectedRow();
+                if (row >= 0) {
+                    GestoraActividades.borrarActividades(GestoraActividades.getActividadPorId((int) tablaActividades.getValueAt(row, 0)));
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "La actividad no se ha borrado.");
             }
@@ -378,8 +385,9 @@ public class VentanaActividades extends javax.swing.JDialog {
 
         String buscar = txBusqueda.getText();
         int buscarN = 0;
-        if (Patrones.isNumeric(buscar))
+        if (Patrones.isNumeric(buscar)) {
             buscarN = Integer.parseInt(buscar);
+        }
         if (!buscar.isEmpty()) {
 
             Session s = Gestora.getInstance().openSession();

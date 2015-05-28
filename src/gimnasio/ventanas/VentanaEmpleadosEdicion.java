@@ -5,7 +5,7 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaEmpleados;
+import tablas.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.GestoraEmpleados;
 import javax.swing.JOptionPane;

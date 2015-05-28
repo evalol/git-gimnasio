@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tables.ModeloTablaTarifas;
+import tablas.ModeloTablaTarifas;
 
 /**
  *

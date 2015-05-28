@@ -5,8 +5,8 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaClientes;
-import Tables.ModeloTablaEmpleados;
+import tablas.ModeloTablaClientes;
+import tablas.ModeloTablaEmpleados;
 import datos.Empleados;
 import gimnasio.gestoras.Gestora;
 import gimnasio.gestoras.GestoraEmpleados;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import javax.swing.JOptionPane;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tables.ModeloTablaEmpleadosConsulta;
+import tablas.ModeloTablaEmpleadosConsulta;
 
 /**
  *

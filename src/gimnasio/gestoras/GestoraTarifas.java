@@ -69,7 +69,7 @@ public class GestoraTarifas {
      * @return La tarifa recuperada o null
      */
     public static Tarifas getTarifaPorId(Serializable id) {
-        return (Tarifas) Gestora.getInstance().getObjectById(Clientes.class, id);
+        return (Tarifas) Gestora.getInstance().getObjectById(Tarifas.class, id);
     }
 
 }

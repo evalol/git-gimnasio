@@ -6,8 +6,12 @@
 package gimnasio.ventanas;
 
 import datos.Clientes;
+import datos.Tarifas;
 import gimnasio.gestoras.GestoraClientes;
+import gimnasio.gestoras.GestoraTarifas;
 import java.awt.HeadlessException;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +25,7 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
     public VentanaClientesEdicion(java.awt.Frame parent, boolean modal, int id) {
         super(parent, modal);
         initComponents();
+        getTarifas();
         cliente = GestoraClientes.getClientePorId(id);
         mostrarDatos();
     }
@@ -445,9 +450,15 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
         tx_ventana_clientes_nuevo_fecha_nacimiento.setDate(cliente.getFechanacimientoCliente());
         tx_ventana_clientes_nuevo_cuenta_bancaria.setText(cliente.getCuentabancariaCliente());
         tx_ventana_clientes_nuevo_email.setText(cliente.getEmailCliente());
+        cb_ventana_clientes_nuevo_tarifa.setSelectedItem(GestoraTarifas.getTarifaPorId(cliente.getIdtarifaCliente()));
 
     }
 
+    public void getTarifas() {
+        List<Tarifas> lista = GestoraTarifas.recuperarTarifas();
+        cb_ventana_clientes_nuevo_tarifa.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
+        cb_ventana_clientes_nuevo_tarifa.addItem("");
+    }
     public void editarClientes() {
 
         try {
@@ -464,7 +475,8 @@ public class VentanaClientesEdicion extends javax.swing.JDialog {
             cliente.setProvinciaCliente(tx_ventana_clientes_nuevo_provincia.getText());
             cliente.setFechanacimientoCliente(tx_ventana_clientes_nuevo_fecha_nacimiento.getDate());
             cliente.setCuentabancariaCliente(tx_ventana_clientes_nuevo_cuenta_bancaria.getText());
-            cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText());
+            cliente.setEmailCliente(tx_ventana_clientes_nuevo_email.getText()); 
+            cliente.setIdtarifaCliente(((Tarifas)cb_ventana_clientes_nuevo_tarifa.getSelectedItem()).getIdTarifa());
 
             GestoraClientes.actualizarCliente(cliente);
             JOptionPane.showMessageDialog(this, "Se ha actualizado el cliente correctamente.");

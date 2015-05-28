@@ -5,7 +5,7 @@
  */
 package gimnasio.ventanas;
 
-import Tables.ModeloTablaClientes;
+import tablas.ModeloTablaClientes;
 import datos.Clientes;
 import datos.Tarifas;
 import gimnasio.gestoras.Gestora;
@@ -589,7 +589,11 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_bGuardarClienteActionPerformed
 
     private void botonEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarClienteActionPerformed
-        new VentanaClientesEdicion((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)).setVisible(true);
+
+        int row = tablaClientes.getSelectedRow();
+        if (row >= 0) {
+            new VentanaClientesEdicion((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(row, 0)).setVisible(true);
+        }
     }//GEN-LAST:event_botonEditarClienteActionPerformed
 
     private void botonBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarClienteActionPerformed
@@ -628,7 +632,7 @@ public class VentanaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void txNuevoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoTelefonoKeyTyped
-       comprobarNumerico(txNuevoTelefono, evt);
+        comprobarNumerico(txNuevoTelefono, evt);
     }//GEN-LAST:event_txNuevoTelefonoKeyTyped
 
 
@@ -705,8 +709,9 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         String buscar = txBusqueda.getText();
         int buscarN = 0;
-        if (Patrones.isNumeric(buscar))
+        if (Patrones.isNumeric(buscar)) {
             buscarN = Integer.parseInt(buscar);
+        }
         if (!buscar.isEmpty()) {
 
             Session s = Gestora.getInstance().openSession();
@@ -741,8 +746,8 @@ public class VentanaClientes extends javax.swing.JDialog {
             tableBusquedas.setModel(new ModeloTablaClientes(q.list()));
         }
     }
-    
-     public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
+
+    public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
 
         char car = evt.getKeyChar();
         if (((car < '0' || car > '9') && car != '.') || campo.getText().contains(".") && car == '.') {
