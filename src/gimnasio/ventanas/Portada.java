@@ -6,7 +6,6 @@
 package gimnasio.ventanas;
 
 import gimnasio.gestoras.Gestora;
-import images.JPanelBackground;
 import javax.swing.ImageIcon;
 
 /**

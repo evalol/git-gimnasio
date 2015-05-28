@@ -67,21 +67,21 @@
                               </Group>
                               <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tx_ventana_clientes_nuevo_codigo_postal" max="32767" attributes="0"/>
+                                  <Component id="txNuevoCodigoPostal" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="tx_ventana_clientes_nuevo_numero_domicilio" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="txNumeroDomicilio" min="-2" pref="108" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="tx_ventana_clientes_nuevo_piso_domicilio" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <Component id="txNuevoPiso" min="-2" pref="104" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="tx_ventana_clientes_nuevo_direccion" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txNuevoDireccion" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_telefono_movil" max="32767" attributes="0"/>
+                              <Component id="txNuevoMovil" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -92,21 +92,21 @@
                               </Group>
                               <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tx_ventana_clientes_nuevo_dni" alignment="0" pref="329" max="32767" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_apellidos" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_nombre" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_telefono" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txNuevoDni" alignment="0" pref="329" max="32767" attributes="0"/>
+                                  <Component id="txNuevoApellidos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txNuevoNombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txNuevoTelefono" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_localidad" min="-2" pref="329" max="-2" attributes="0"/>
+                              <Component id="txNuevoLocalidad" min="-2" pref="329" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_provincia" min="-2" pref="329" max="-2" attributes="0"/>
+                              <Component id="txNuevoProvincia" min="-2" pref="329" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
                           <Group type="102" attributes="0">
                               <Component id="bGuardarCliente" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="b_ventana_clientes_nuevo_limpiar" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonLimpiar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="57" max="32767" attributes="0"/>
@@ -129,18 +129,18 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="tx_ventana_clientes_nuevo_nombre" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoNombre" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tx_ventana_clientes_nuevo_apellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="tx_ventana_clientes_nuevo_dni" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txNuevoDni" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -150,7 +150,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="tx_ventana_clientes_nuevo_telefono" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txNuevoTelefono" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -161,24 +161,24 @@
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_telefono_movil" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoMovil" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_numero_domicilio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNumeroDomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_piso_domicilio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoPiso" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_codigo_postal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoCodigoPostal" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -191,18 +191,18 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_localidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoLocalidad" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tx_ventana_clientes_nuevo_provincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txNuevoProvincia" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="b_ventana_clientes_nuevo_limpiar" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="botonLimpiar" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                                   <Component id="bGuardarCliente" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -233,27 +233,28 @@
                 <Property name="text" type="java.lang.String" value="DNI:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_nombre">
+            <Component class="javax.swing.JTextField" name="txNuevoNombre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_apellidos">
+            <Component class="javax.swing.JTextField" name="txNuevoApellidos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_dni">
+            <Component class="javax.swing.JTextField" name="txNuevoDni">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_telefono">
+            <Component class="javax.swing.JTextField" name="txNuevoTelefono">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField4"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tx_ventana_clientes_nuevo_telefonoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txNuevoTelefonoActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txNuevoTelefonoKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -266,7 +267,7 @@
                 <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_numero_domicilio">
+            <Component class="javax.swing.JTextField" name="txNumeroDomicilio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField6"/>
               </Properties>
@@ -276,12 +277,12 @@
                 <Property name="text" type="java.lang.String" value="Piso:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_piso_domicilio">
+            <Component class="javax.swing.JTextField" name="txNuevoPiso">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField7"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_direccion">
+            <Component class="javax.swing.JTextField" name="txNuevoDireccion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField9"/>
               </Properties>
@@ -291,7 +292,7 @@
                 <Property name="text" type="java.lang.String" value="Numero de movil:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_telefono_movil">
+            <Component class="javax.swing.JTextField" name="txNuevoMovil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
@@ -313,14 +314,14 @@
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tx_ventana_clientes_nuevo_email" max="32767" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_fecha_nacimiento" max="32767" attributes="0"/>
-                              <Component id="cb_ventana_clientes_nuevo_tarifa" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_cuenta_bancaria" max="32767" attributes="0"/>
+                              <Component id="txNuevoEmail" max="32767" attributes="0"/>
+                              <Component id="txNuevoNacimiento" max="32767" attributes="0"/>
+                              <Component id="cbNuevoTarifa" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txNuevoCuentaBancaria" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="rb_ventana_clientes_nuevo_efectivo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbEfectivo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="144" max="32767" attributes="0"/>
-                                  <Component id="rb_ventana_clientes_nuevo_cuenta_bancaria" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbCuentaBancaria" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -332,11 +333,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                              <Component id="tx_ventana_clientes_nuevo_email" min="-2" max="-2" attributes="0"/>
+                              <Component id="txNuevoEmail" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tx_ventana_clientes_nuevo_fecha_nacimiento" min="-2" max="-2" attributes="0"/>
+                              <Component id="txNuevoNacimiento" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -344,17 +345,17 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cb_ventana_clientes_nuevo_tarifa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbNuevoTarifa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rb_ventana_clientes_nuevo_efectivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="rb_ventana_clientes_nuevo_cuenta_bancaria" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbEfectivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbCuentaBancaria" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tx_ventana_clientes_nuevo_cuenta_bancaria" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txNuevoCuentaBancaria" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="70" max="32767" attributes="0"/>
@@ -368,7 +369,7 @@
                     <Property name="text" type="java.lang.String" value="Forma de pago:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rb_ventana_clientes_nuevo_efectivo">
+                <Component class="javax.swing.JRadioButton" name="rbEfectivo">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="bgFormaDePago"/>
@@ -376,10 +377,10 @@
                     <Property name="text" type="java.lang.String" value="Efectivo"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_ventana_clientes_nuevo_efectivoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbEfectivoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rb_ventana_clientes_nuevo_cuenta_bancaria">
+                <Component class="javax.swing.JRadioButton" name="rbCuentaBancaria">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="bgFormaDePago"/>
@@ -387,7 +388,7 @@
                     <Property name="text" type="java.lang.String" value="Cuenta bancaria"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbCuentaBancariaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
@@ -395,14 +396,14 @@
                     <Property name="text" type="java.lang.String" value="Tarifa:"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="tx_ventana_clientes_nuevo_fecha_nacimiento">
+                <Component class="com.toedter.calendar.JDateChooser" name="txNuevoNacimiento">
                 </Component>
-                <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_email">
+                <Component class="javax.swing.JTextField" name="txNuevoEmail">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cb_ventana_clientes_nuevo_tarifa">
+                <Component class="javax.swing.JComboBox" name="cbNuevoTarifa">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -414,7 +415,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_ventana_clientes_nuevo_tarifaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNuevoTarifaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
@@ -422,7 +423,7 @@
                     <Property name="text" type="java.lang.String" value="Cuenta bancaria:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_cuenta_bancaria">
+                <Component class="javax.swing.JTextField" name="txNuevoCuentaBancaria">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField8"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -447,12 +448,12 @@
                 <Property name="text" type="java.lang.String" value="C&#xf3;gido postal:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_codigo_postal">
+            <Component class="javax.swing.JTextField" name="txNuevoCodigoPostal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tx_ventana_clientes_nuevo_codigo_postalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txNuevoCodigoPostalActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -460,7 +461,7 @@
                 <Property name="text" type="java.lang.String" value="Localidad:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_localidad">
+            <Component class="javax.swing.JTextField" name="txNuevoLocalidad">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
@@ -470,17 +471,17 @@
                 <Property name="text" type="java.lang.String" value="Provincia:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tx_ventana_clientes_nuevo_provincia">
+            <Component class="javax.swing.JTextField" name="txNuevoProvincia">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="b_ventana_clientes_nuevo_limpiar">
+            <Component class="javax.swing.JButton" name="botonLimpiar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Limpiar formulario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_ventana_clientes_nuevo_limpiarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonLimpiarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JToggleButton" name="bGuardarCliente">

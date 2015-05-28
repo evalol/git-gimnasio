@@ -18,9 +18,9 @@ import java.awt.Frame;
 import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tables.ModeloTablaTarifas;
 
 /**
  *
@@ -61,38 +61,38 @@ public class VentanaClientes extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_nombre = new javax.swing.JTextField();
-        tx_ventana_clientes_nuevo_apellidos = new javax.swing.JTextField();
-        tx_ventana_clientes_nuevo_dni = new javax.swing.JTextField();
-        tx_ventana_clientes_nuevo_telefono = new javax.swing.JTextField();
+        txNuevoNombre = new javax.swing.JTextField();
+        txNuevoApellidos = new javax.swing.JTextField();
+        txNuevoDni = new javax.swing.JTextField();
+        txNuevoTelefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_numero_domicilio = new javax.swing.JTextField();
+        txNumeroDomicilio = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_piso_domicilio = new javax.swing.JTextField();
-        tx_ventana_clientes_nuevo_direccion = new javax.swing.JTextField();
+        txNuevoPiso = new javax.swing.JTextField();
+        txNuevoDireccion = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_telefono_movil = new javax.swing.JTextField();
+        txNuevoMovil = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        rb_ventana_clientes_nuevo_efectivo = new javax.swing.JRadioButton();
-        rb_ventana_clientes_nuevo_cuenta_bancaria = new javax.swing.JRadioButton();
+        rbEfectivo = new javax.swing.JRadioButton();
+        rbCuentaBancaria = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_fecha_nacimiento = new com.toedter.calendar.JDateChooser();
-        tx_ventana_clientes_nuevo_email = new javax.swing.JTextField();
-        cb_ventana_clientes_nuevo_tarifa = new javax.swing.JComboBox();
+        txNuevoNacimiento = new com.toedter.calendar.JDateChooser();
+        txNuevoEmail = new javax.swing.JTextField();
+        cbNuevoTarifa = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_cuenta_bancaria = new javax.swing.JTextField();
+        txNuevoCuentaBancaria = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_codigo_postal = new javax.swing.JTextField();
+        txNuevoCodigoPostal = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_localidad = new javax.swing.JTextField();
+        txNuevoLocalidad = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        tx_ventana_clientes_nuevo_provincia = new javax.swing.JTextField();
-        b_ventana_clientes_nuevo_limpiar = new javax.swing.JButton();
+        txNuevoProvincia = new javax.swing.JTextField();
+        botonLimpiar = new javax.swing.JButton();
         bGuardarCliente = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -117,16 +117,21 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         jLabel4.setText("DNI:");
 
-        tx_ventana_clientes_nuevo_nombre.setText("jTextField1");
+        txNuevoNombre.setText("jTextField1");
 
-        tx_ventana_clientes_nuevo_apellidos.setText("jTextField2");
+        txNuevoApellidos.setText("jTextField2");
 
-        tx_ventana_clientes_nuevo_dni.setText("jTextField3");
+        txNuevoDni.setText("jTextField3");
 
-        tx_ventana_clientes_nuevo_telefono.setText("jTextField4");
-        tx_ventana_clientes_nuevo_telefono.addActionListener(new java.awt.event.ActionListener() {
+        txNuevoTelefono.setText("jTextField4");
+        txNuevoTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tx_ventana_clientes_nuevo_telefonoActionPerformed(evt);
+                txNuevoTelefonoActionPerformed(evt);
+            }
+        });
+        txNuevoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txNuevoTelefonoKeyTyped(evt);
             }
         });
 
@@ -134,51 +139,51 @@ public class VentanaClientes extends javax.swing.JDialog {
 
         jLabel6.setText("Número:");
 
-        tx_ventana_clientes_nuevo_numero_domicilio.setText("jTextField6");
+        txNumeroDomicilio.setText("jTextField6");
 
         jLabel7.setText("Piso:");
 
-        tx_ventana_clientes_nuevo_piso_domicilio.setText("jTextField7");
+        txNuevoPiso.setText("jTextField7");
 
-        tx_ventana_clientes_nuevo_direccion.setText("jTextField9");
+        txNuevoDireccion.setText("jTextField9");
 
         jLabel13.setText("Numero de movil:");
 
-        tx_ventana_clientes_nuevo_telefono_movil.setText("jTextField1");
+        txNuevoMovil.setText("jTextField1");
 
         jLabel10.setText("Forma de pago:");
 
-        bgFormaDePago.add(rb_ventana_clientes_nuevo_efectivo);
-        rb_ventana_clientes_nuevo_efectivo.setText("Efectivo");
-        rb_ventana_clientes_nuevo_efectivo.addActionListener(new java.awt.event.ActionListener() {
+        bgFormaDePago.add(rbEfectivo);
+        rbEfectivo.setText("Efectivo");
+        rbEfectivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_ventana_clientes_nuevo_efectivoActionPerformed(evt);
+                rbEfectivoActionPerformed(evt);
             }
         });
 
-        bgFormaDePago.add(rb_ventana_clientes_nuevo_cuenta_bancaria);
-        rb_ventana_clientes_nuevo_cuenta_bancaria.setText("Cuenta bancaria");
-        rb_ventana_clientes_nuevo_cuenta_bancaria.addActionListener(new java.awt.event.ActionListener() {
+        bgFormaDePago.add(rbCuentaBancaria);
+        rbCuentaBancaria.setText("Cuenta bancaria");
+        rbCuentaBancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed(evt);
+                rbCuentaBancariaActionPerformed(evt);
             }
         });
 
         jLabel12.setText("Tarifa:");
 
-        tx_ventana_clientes_nuevo_email.setText("jTextField2");
+        txNuevoEmail.setText("jTextField2");
 
-        cb_ventana_clientes_nuevo_tarifa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cb_ventana_clientes_nuevo_tarifa.addActionListener(new java.awt.event.ActionListener() {
+        cbNuevoTarifa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNuevoTarifa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_ventana_clientes_nuevo_tarifaActionPerformed(evt);
+                cbNuevoTarifaActionPerformed(evt);
             }
         });
 
         jLabel9.setText("Cuenta bancaria:");
 
-        tx_ventana_clientes_nuevo_cuenta_bancaria.setText("jTextField8");
-        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(false);
+        txNuevoCuentaBancaria.setText("jTextField8");
+        txNuevoCuentaBancaria.setEnabled(false);
 
         jLabel11.setText("Fecha de nacimiento:");
 
@@ -199,14 +204,14 @@ public class VentanaClientes extends javax.swing.JDialog {
                     .addComponent(jLabel9))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tx_ventana_clientes_nuevo_email)
-                    .addComponent(tx_ventana_clientes_nuevo_fecha_nacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_ventana_clientes_nuevo_tarifa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tx_ventana_clientes_nuevo_cuenta_bancaria)
+                    .addComponent(txNuevoEmail)
+                    .addComponent(txNuevoNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbNuevoTarifa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txNuevoCuentaBancaria)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(rb_ventana_clientes_nuevo_efectivo)
+                        .addComponent(rbEfectivo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                        .addComponent(rb_ventana_clientes_nuevo_cuenta_bancaria))))
+                        .addComponent(rbCuentaBancaria))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,50 +219,50 @@ public class VentanaClientes extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel14)
-                    .addComponent(tx_ventana_clientes_nuevo_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txNuevoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tx_ventana_clientes_nuevo_fecha_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txNuevoNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(cb_ventana_clientes_nuevo_tarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbNuevoTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(rb_ventana_clientes_nuevo_efectivo)
-                    .addComponent(rb_ventana_clientes_nuevo_cuenta_bancaria))
+                    .addComponent(rbEfectivo)
+                    .addComponent(rbCuentaBancaria))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tx_ventana_clientes_nuevo_cuenta_bancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txNuevoCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jLabel15.setText("Cógido postal:");
 
-        tx_ventana_clientes_nuevo_codigo_postal.setText("jTextField1");
-        tx_ventana_clientes_nuevo_codigo_postal.addActionListener(new java.awt.event.ActionListener() {
+        txNuevoCodigoPostal.setText("jTextField1");
+        txNuevoCodigoPostal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tx_ventana_clientes_nuevo_codigo_postalActionPerformed(evt);
+                txNuevoCodigoPostalActionPerformed(evt);
             }
         });
 
         jLabel16.setText("Localidad:");
 
-        tx_ventana_clientes_nuevo_localidad.setText("jTextField1");
+        txNuevoLocalidad.setText("jTextField1");
 
         jLabel17.setText("Provincia:");
 
-        tx_ventana_clientes_nuevo_provincia.setText("jTextField1");
+        txNuevoProvincia.setText("jTextField1");
 
-        b_ventana_clientes_nuevo_limpiar.setText("Limpiar formulario");
-        b_ventana_clientes_nuevo_limpiar.addActionListener(new java.awt.event.ActionListener() {
+        botonLimpiar.setText("Limpiar formulario");
+        botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_ventana_clientes_nuevo_limpiarActionPerformed(evt);
+                botonLimpiarActionPerformed(evt);
             }
         });
 
@@ -282,18 +287,18 @@ public class VentanaClientes extends javax.swing.JDialog {
                             .addComponent(jLabel15))
                         .addGap(113, 113, 113)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tx_ventana_clientes_nuevo_codigo_postal)
+                            .addComponent(txNuevoCodigoPostal)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tx_ventana_clientes_nuevo_numero_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txNumeroDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tx_ventana_clientes_nuevo_piso_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tx_ventana_clientes_nuevo_direccion)))
+                                .addComponent(txNuevoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoDireccion)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(99, 99, 99)
-                        .addComponent(tx_ventana_clientes_nuevo_telefono_movil))
+                        .addComponent(txNuevoMovil))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -302,25 +307,25 @@ public class VentanaClientes extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tx_ventana_clientes_nuevo_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
-                            .addComponent(tx_ventana_clientes_nuevo_apellidos)
-                            .addComponent(tx_ventana_clientes_nuevo_nombre)
-                            .addComponent(tx_ventana_clientes_nuevo_telefono)))
+                            .addComponent(txNuevoDni, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                            .addComponent(txNuevoApellidos)
+                            .addComponent(txNuevoNombre)
+                            .addComponent(txNuevoTelefono)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tx_ventana_clientes_nuevo_localidad, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txNuevoLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tx_ventana_clientes_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txNuevoProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
-                        .addComponent(b_ventana_clientes_nuevo_limpiar)))
+                        .addComponent(botonLimpiar)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -330,23 +335,23 @@ public class VentanaClientes extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tx_ventana_clientes_nuevo_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tx_ventana_clientes_nuevo_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txNuevoApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(tx_ventana_clientes_nuevo_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txNuevoDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tx_ventana_clientes_nuevo_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txNuevoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(2, 2, 2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -354,21 +359,21 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(tx_ventana_clientes_nuevo_telefono_movil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoMovil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(tx_ventana_clientes_nuevo_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(tx_ventana_clientes_nuevo_numero_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txNumeroDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(tx_ventana_clientes_nuevo_piso_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(tx_ventana_clientes_nuevo_codigo_postal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txNuevoCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -377,15 +382,15 @@ public class VentanaClientes extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(tx_ventana_clientes_nuevo_localidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txNuevoLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(tx_ventana_clientes_nuevo_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txNuevoProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(b_ventana_clientes_nuevo_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
@@ -521,41 +526,41 @@ public class VentanaClientes extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
-        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(true);
-    }//GEN-LAST:event_rb_ventana_clientes_nuevo_cuenta_bancariaActionPerformed
+    private void rbCuentaBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCuentaBancariaActionPerformed
+        txNuevoCuentaBancaria.setEnabled(true);
+    }//GEN-LAST:event_rbCuentaBancariaActionPerformed
 
-    private void b_ventana_clientes_nuevo_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
+    private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
         VentanaUtils.limpiarFormulario(jPanel1);
-    }//GEN-LAST:event_b_ventana_clientes_nuevo_limpiarActionPerformed
+    }//GEN-LAST:event_botonLimpiarActionPerformed
 
 
-    private void tx_ventana_clientes_nuevo_codigo_postalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
+    private void txNuevoCodigoPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNuevoCodigoPostalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tx_ventana_clientes_nuevo_codigo_postalActionPerformed
+    }//GEN-LAST:event_txNuevoCodigoPostalActionPerformed
 
-    private void tx_ventana_clientes_nuevo_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
+    private void txNuevoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNuevoTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tx_ventana_clientes_nuevo_telefonoActionPerformed
+    }//GEN-LAST:event_txNuevoTelefonoActionPerformed
 
     private void bGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarClienteActionPerformed
 
-        if (!Patrones.validarCodigoPostal(tx_ventana_clientes_nuevo_codigo_postal.getText())) {
+        if (!Patrones.validarCodigoPostal(txNuevoCodigoPostal.getText())) {
             JOptionPane.showMessageDialog(this, "El código postal introducido es incorrecto");
             return;
         }
 
-        if (!Patrones.validarDni(tx_ventana_clientes_nuevo_dni.getText())) {
+        if (!Patrones.validarDni(txNuevoDni.getText())) {
             JOptionPane.showMessageDialog(this, "El DNI introducido es incorrecto");
             return;
         }
 
-        if (!Patrones.validarEmail(tx_ventana_clientes_nuevo_email.getText())) {
+        if (!Patrones.validarEmail(txNuevoEmail.getText())) {
             JOptionPane.showMessageDialog(this, "El email introducido es incorrecto");
             return;
         }
 
-        if (!Patrones.validarTelefonoMovil(tx_ventana_clientes_nuevo_telefono_movil.getText())) {
+        if (!Patrones.validarTelefonoMovil(txNuevoMovil.getText())) {
             JOptionPane.showMessageDialog(this, "El teléfono móvil introducido es incorrecto");
             return;
         }
@@ -563,14 +568,14 @@ public class VentanaClientes extends javax.swing.JDialog {
         String formaPago = this.formaDePago();
 
         try {
-            Clientes cliente = new Clientes(tx_ventana_clientes_nuevo_nombre.getText(), tx_ventana_clientes_nuevo_apellidos.getText(),
-                    tx_ventana_clientes_nuevo_dni.getText(), tx_ventana_clientes_nuevo_telefono.getText(),
-                    tx_ventana_clientes_nuevo_telefono_movil.getText(), tx_ventana_clientes_nuevo_direccion.getText(),
-                    tx_ventana_clientes_nuevo_piso_domicilio.getText(), tx_ventana_clientes_nuevo_numero_domicilio.getText(),
-                    Integer.parseInt(tx_ventana_clientes_nuevo_codigo_postal.getText()), tx_ventana_clientes_nuevo_localidad.getText(),
-                    tx_ventana_clientes_nuevo_provincia.getText(), tx_ventana_clientes_nuevo_fecha_nacimiento.getDate(),
-                    tx_ventana_clientes_nuevo_cuenta_bancaria.getText(), tx_ventana_clientes_nuevo_email.getText(),
-                    Gestora.fechaActual(), ((Tarifas) cb_ventana_clientes_nuevo_tarifa.getSelectedItem()).getIdTarifa(), formaPago,
+            Clientes cliente = new Clientes(txNuevoNombre.getText(), txNuevoApellidos.getText(),
+                    txNuevoDni.getText(), txNuevoTelefono.getText(),
+                    txNuevoMovil.getText(), txNuevoDireccion.getText(),
+                    txNuevoPiso.getText(), txNumeroDomicilio.getText(),
+                    Integer.parseInt(txNuevoCodigoPostal.getText()), txNuevoLocalidad.getText(),
+                    txNuevoProvincia.getText(), txNuevoNacimiento.getDate(),
+                    txNuevoCuentaBancaria.getText(), txNuevoEmail.getText(),
+                    Gestora.fechaActual(), ((Tarifas) cbNuevoTarifa.getSelectedItem()).getIdTarifa(), formaPago,
                     Login.getEmpleadoAutenticado().getIdEmpleado());
 
             GestoraClientes.guardarCliente(cliente);
@@ -606,13 +611,13 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     }//GEN-LAST:event_botonBorrarClienteActionPerformed
 
-    private void cb_ventana_clientes_nuevo_tarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
+    private void cbNuevoTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNuevoTarifaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cb_ventana_clientes_nuevo_tarifaActionPerformed
+    }//GEN-LAST:event_cbNuevoTarifaActionPerformed
 
-    private void rb_ventana_clientes_nuevo_efectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
-        tx_ventana_clientes_nuevo_cuenta_bancaria.setEnabled(false);
-    }//GEN-LAST:event_rb_ventana_clientes_nuevo_efectivoActionPerformed
+    private void rbEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEfectivoActionPerformed
+        txNuevoCuentaBancaria.setEnabled(false);
+    }//GEN-LAST:event_rbEfectivoActionPerformed
 
     private void botonDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDetallesActionPerformed
         new VentanaClientesDetalle((Frame) this.getParent(), true, (int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0)).setVisible(true);
@@ -622,17 +627,21 @@ public class VentanaClientes extends javax.swing.JDialog {
         buscar();
     }//GEN-LAST:event_botonBuscarActionPerformed
 
+    private void txNuevoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txNuevoTelefonoKeyTyped
+       comprobarNumerico(txNuevoTelefono, evt);
+    }//GEN-LAST:event_txNuevoTelefonoKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Ventana_clientes_busqueda;
     private javax.swing.JToggleButton bGuardarCliente;
-    private javax.swing.JButton b_ventana_clientes_nuevo_limpiar;
     private javax.swing.ButtonGroup bgFormaDePago;
     private javax.swing.JButton botonBorrarCliente;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonDetalles;
     private javax.swing.JButton botonEditarCliente;
-    private javax.swing.JComboBox cb_ventana_clientes_nuevo_tarifa;
+    private javax.swing.JButton botonLimpiar;
+    private javax.swing.JComboBox cbNuevoTarifa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -657,30 +666,30 @@ public class VentanaClientes extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JRadioButton rb_ventana_clientes_nuevo_cuenta_bancaria;
-    private javax.swing.JRadioButton rb_ventana_clientes_nuevo_efectivo;
+    private javax.swing.JRadioButton rbCuentaBancaria;
+    private javax.swing.JRadioButton rbEfectivo;
     private javax.swing.JTable tablaClientes;
     private javax.swing.JTable tableBusquedas;
     private javax.swing.JTextField txBusqueda;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_apellidos;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_codigo_postal;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_cuenta_bancaria;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_direccion;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_dni;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_email;
-    private com.toedter.calendar.JDateChooser tx_ventana_clientes_nuevo_fecha_nacimiento;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_localidad;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_nombre;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_numero_domicilio;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_piso_domicilio;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_provincia;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono;
-    private javax.swing.JTextField tx_ventana_clientes_nuevo_telefono_movil;
+    private javax.swing.JTextField txNuevoApellidos;
+    private javax.swing.JTextField txNuevoCodigoPostal;
+    private javax.swing.JTextField txNuevoCuentaBancaria;
+    private javax.swing.JTextField txNuevoDireccion;
+    private javax.swing.JTextField txNuevoDni;
+    private javax.swing.JTextField txNuevoEmail;
+    private javax.swing.JTextField txNuevoLocalidad;
+    private javax.swing.JTextField txNuevoMovil;
+    private com.toedter.calendar.JDateChooser txNuevoNacimiento;
+    private javax.swing.JTextField txNuevoNombre;
+    private javax.swing.JTextField txNuevoPiso;
+    private javax.swing.JTextField txNuevoProvincia;
+    private javax.swing.JTextField txNuevoTelefono;
+    private javax.swing.JTextField txNumeroDomicilio;
     // End of variables declaration//GEN-END:variables
 
     public String formaDePago() {
 
-        if (rb_ventana_clientes_nuevo_cuenta_bancaria.isSelected() == true) {
+        if (rbCuentaBancaria.isSelected() == true) {
             return "Cuenta bancaria";
         }
         return "Efectivo";
@@ -688,8 +697,8 @@ public class VentanaClientes extends javax.swing.JDialog {
 
     public void getTarifas() {
         List<Tarifas> lista = GestoraTarifas.recuperarTarifas();
-        cb_ventana_clientes_nuevo_tarifa.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
-        cb_ventana_clientes_nuevo_tarifa.addItem("");
+        cbNuevoTarifa.setModel(new DefaultComboBoxModel(lista.toArray(new Tarifas[lista.size()])));
+        cbNuevoTarifa.addItem("");
     }
 
     private void buscar() {
@@ -731,5 +740,14 @@ public class VentanaClientes extends javax.swing.JDialog {
             q.setParameter("forma", buscar);
             tableBusquedas.setModel(new ModeloTablaClientes(q.list()));
         }
+    }
+    
+     public void comprobarNumerico(JTextField campo, java.awt.event.KeyEvent evt) {
+
+        char car = evt.getKeyChar();
+        if (((car < '0' || car > '9') && car != '.') || campo.getText().contains(".") && car == '.') {
+            evt.consume();
+        }
+
     }
 }

@@ -16,14 +16,12 @@ import gimnasio.gestoras.GestoraTarifas;
 import gimnasio.gestoras.Patrones;
 import java.awt.Frame;
 import java.awt.HeadlessException;
-import java.text.MessageFormat;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tables.ModeloTablaTarifas;
 
 /**
  *
@@ -38,6 +36,7 @@ public class VentanaActividades extends javax.swing.JDialog {
         super(owner, modal);
         initComponents();
         tablaActividades.setAutoCreateRowSorter(true);
+        tableBusquedas.setAutoCreateRowSorter(true);
         setLocationRelativeTo(null);
         VentanaUtils.limpiarFormulario(jPanel1);
         rellenaComboEmpleados();
